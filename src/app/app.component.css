@@ -1,8 +1,18 @@
-.data-table{
-  width: 70%;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.dash-section{
+.title {
+  width: 70%;
+  margin: 23px;
+  color: var(--primary);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.section {
   border: 1px #333 solid;
   width: 70%;
   padding: 20px;

@@ -1,19 +1,22 @@
-  <nav>
-    <app-navbar></app-navbar>
-  </nav>
-  <div class="app-container">
-    <main class="center-y mt-4">
-      <section class="dash-section">
-        <app-dashboard></app-dashboard>
-      </section>
-      <section>
-        <data-input class="center-x"></data-input>
-      </section>
-
-      <section class="data-table">
-        <data-table></data-table>
-      </section>
-    </main>
-  </div>
+<nav>
+  <app-navbar></app-navbar>
+</nav>
+<div class="center-y">
+  <h1 class="title">Off Target! <i class="bi bi-emoji-frown-fill"></i></h1>
+  <main class="center-y mt-4">
+    <!-- Input -->
+    <section class="section">
+      <data-input></data-input>
+    </section>
+    <!-- Dashboard -->
+    <section class="section">
+      <app-dashboard></app-dashboard>
+    </section>
+    <!-- Table -->
+    <section class="section">
+      <data-table></data-table>
+    </section>
+  </main>
+</div>
 
 <!-- <router-outlet></router-outlet> -->
