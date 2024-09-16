@@ -1,0 +1,10 @@
+.data-table{
+  width: 70%;
+}
+
+.dash-section{
+  border: 1px #333 solid;
+  width: 70%;
+  padding: 20px;
+  margin-bottom: 10px;
+}
