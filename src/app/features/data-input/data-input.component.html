@@ -1,9 +1,9 @@
 <label class="fs-5 fw-bold mb-2">Log weight</label>
 <div class="input-container d-flex gap-3 border">
- <input id="startDate" class="date form-control" type="date" />
+  <input id="startDate" class="date form-control" type="date" />
   <div class="input-group">
     <input
-      type="text"
+      type="number"
       name="weightInput"
       id="weightInput"
       class="weight-input form-control"
@@ -11,22 +11,20 @@
       placeholder="weight"
     />
     <button
-      class="btn btn-outline-secondary dropdown-toggle"
+      class="btn btn-outline-dark dropdown-toggle"
       type="button"
       data-bs-toggle="dropdown"
       aria-expanded="false"
     >
-      Kg
+      Units
     </button>
     <ul class="dropdown-menu dropdown-menu-end">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider" /></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
+      <li><a class="dropdown-item" href="#">Kg</a></li>
+      <li><a class="dropdown-item" href="#">St</a></li>
+      <li><a class="dropdown-item" href="#">Lb</a></li>
     </ul>
   </div>
-  <button class="btn btn-secondary">
-    <!-- <i class="bi bi-plus-lg"></i>--> Add
+  <button class="btn btn-outline-dark">
+    Add
   </button>
 </div>
