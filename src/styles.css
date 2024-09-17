@@ -2,11 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-  --primary: #ff441f;
-  --primary: #a3a3a3;
+  --orange: #ff441f;
+  --grey-bg: #ecf3f5;
+  --light-grey: #d3d3d3;
   --red: red;
   --green: green;
-  /* --primary: #ffa51f; */
+  --blue: #5499c2;
 }
 
 * {
@@ -15,6 +16,7 @@
   font-style: normal;
 }
 
+.
 .center-x {
   display: flex;
   justify-content: center;
