@@ -6,6 +6,10 @@ td{
   cursor: pointer;
 }
 
+td i{
+  color: #;
+}
+
 
 .bi-emoji-smile,
 .bi-arrow-up{
