@@ -24,7 +24,11 @@ export class UserService {
       targetWeight: 100, 
       targetBMI: 30, 
     },
-    record: Record,
+    record: {
+      weightLogs: Log[{}],
+      isHistory: false,
+      stats: 
+    },
     history: Record[],
   }
   constructor() { }
