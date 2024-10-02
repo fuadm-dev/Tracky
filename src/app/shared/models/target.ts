@@ -1,5 +1,5 @@
 export interface Target {
-  targetDate: Date;
+  targetDate: string;
   targetWeight: number;
   targetBMI: number;
 }

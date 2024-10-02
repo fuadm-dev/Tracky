@@ -3,13 +3,13 @@ import { Target } from './target';
 import { Record } from './record';
 
 export interface User {
-  int: number;
+  id: number;
   userName: string;
   email: string;
   password: string;
   height: string;
   gender: string;
-  dob: Date;
+  dob: string;
   start: Start;
   target: Target;
   record: Record;
