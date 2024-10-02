@@ -1,8 +1,9 @@
 import { Log } from "./log";
+import { Statistics } from "./statistics";
 
 export interface Record {
-  int: string;
+  int: number;
   weightLogs: Log[];
   isHistory: boolean;
-  
+  stats: Statistics
 }

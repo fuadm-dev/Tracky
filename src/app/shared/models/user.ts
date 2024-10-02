@@ -3,7 +3,7 @@ import { Target } from './target';
 import { Record } from './record';
 
 export interface User {
-  int: string;
+  int: number;
   userName: string;
   email: string;
   password: string;
