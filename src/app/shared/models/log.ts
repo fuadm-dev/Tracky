@@ -1,6 +1,6 @@
 
 export interface Log {
-  int: number;
+  id: number;
   date: string
   weight: number;
   bmi: number

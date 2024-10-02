@@ -1,9 +1,7 @@
-import { Log } from "./log";
-import { Statistics } from "./statistics";
+import { Log } from './log';
 
 export interface Record {
-  int: number;
+  id: number;
   weightLogs: Log[];
   isHistory: boolean;
-  stats: Statistics
 }
