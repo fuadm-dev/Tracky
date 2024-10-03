@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./dated-item.component.css'],
 })
 export class DatedItemComponent implements OnInit {
-  @Input() title: string = '';
-  @Input() main: string = '';
-  @Input() date: string = '';
+  @Input() title: string;
+  @Input() main: string;
+  @Input() date: string;
   @Input() bmi: number;
   bmiStatus: string
 
