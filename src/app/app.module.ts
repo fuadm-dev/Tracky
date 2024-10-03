@@ -11,6 +11,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { DashboardItemComponent } from './features/dashboard/dashboard-item/dashboard-item.component';
 import { PaginationComponent } from './features/pagination/pagination.component';
+import { DatedItemComponent } from './features/dashboard/dated-item/dated-item.component';
+import { UnDatedItemComponent } from './features/dashboard/un-dated-item/un-dated-item.component';
+import { SmallItemComponent } from './features/dashboard/small-item/small-item.component';
+import { TrendItemComponent } from './features/dashboard/trend-item/trend-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { PaginationComponent } from './features/pagination/pagination.component'
     NavbarComponent,
     DashboardComponent,
     DashboardItemComponent,
-    PaginationComponent
+    PaginationComponent,
+    DatedItemComponent,
+    UnDatedItemComponent,
+    SmallItemComponent,
+    TrendItemComponent,
   ],
   imports: [
     BrowserModule,
