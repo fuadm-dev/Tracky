@@ -37,5 +37,11 @@ export class UserService {
     },
     history: [],
   };
-  constructor() {}
+
+  // Create dashboard items
+  
+
+  getUser(): User{
+    return this.user;
+  }
 }
