@@ -83,8 +83,7 @@
 
 .boxContent span{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   flex: 1;
   padding-left: 10px;
 }
@@ -121,8 +120,8 @@
   line-height: 1.3;
   font-weight: 700;
   position: absolute;
-  top: 7px;
-  right: 8px;
+  top: 10px;
+  right: 10px;
   border: 1px solid #cecece;
   border-radius: 8px;
 }
