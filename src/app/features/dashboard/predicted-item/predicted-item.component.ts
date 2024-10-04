@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-predicted-item',
+  selector: 'predicted-item',
   templateUrl: './predicted-item.component.html',
-  styleUrls: ['./predicted-item.component.css']
+  styleUrls: ['./predicted-item.component.css'],
 })
-export class PredictedItemComponent {
-
-}
+export class PredictedItemComponent {}
