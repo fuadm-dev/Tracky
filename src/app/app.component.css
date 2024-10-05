@@ -33,9 +33,11 @@ main{
 }
 
 .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #fff;
   border-radius: 2px;
-  display: inline-block;
   margin-bottom: 20px;
   padding: 30px;
   position: relative;
