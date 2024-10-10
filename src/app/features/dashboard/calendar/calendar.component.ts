@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'calendar',
+  selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css'],
+  styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent {
-  day: number = 30;
-  month: string = 'May';
-  year: number = 2024;
+
 }
