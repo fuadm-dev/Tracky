@@ -1,5 +1,6 @@
 export interface Start {
-  startDate: string;
-  startWeight: number;
-  startBMI: number;
+  date: string;
+  weight: number;
+  bmi: number;
+  bmiStatus:string;
 }

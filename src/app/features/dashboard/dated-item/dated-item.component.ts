@@ -10,7 +10,7 @@ export class DatedItemComponent implements OnInit {
   @Input() main: string;
   @Input() date: string;
   @Input() bmi: number;
-  bmiStatus: string
+  bmiStatus: string;
 
   ngOnInit(): void {
     this.calcBmiStatus();

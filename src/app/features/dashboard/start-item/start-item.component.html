@@ -1,8 +1,11 @@
 <div class="box-small">
   <div class="boxContent">
     <span class="roboto-bold">Start</span>
-    <span class="roboto-light">100kg</span>
-    <span>BMI:34 - obesse</span>
+    <span class="roboto-light">{{user.start.weight}}kg</span>
+    <span [ngClass]="{'fw-bold': true, 'text-success': user.start.bmiStatus == 'healthy', 'text-danger': user.start.bmiStatus == 'obese' || user.start.bmiStatus == 'morbidly obese', 'text-warning': user.start.bmiStatus == 'underweight' || user.start.bmiStatus == 'overweight'}">{{user.start.bmiStatus}}</span>
   </div>
   <calendar></calendar>
 </div>
+
+
+BMI:{{user.start.bmi}} - 

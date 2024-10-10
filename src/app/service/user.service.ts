@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
 
 @Injectable({
@@ -14,9 +14,10 @@ export class UserService {
     gender: 'male',
     dob: '15/01/1980',
     start: {
-      startDate: '01/10/2024',
-      startWeight: 107.2,
-      startBMI: 34,
+      date: '01/10/2024',
+      weight: 80.2,
+      bmi: 26,
+      bmiStatus: '',
     },
     target: {
       targetDate: '01/01/2025',
@@ -30,7 +31,7 @@ export class UserService {
           id: 1220,
           date: '04/10/2024',
           weight: 107.2,
-          bmi: 34,
+          bmi: 26,
         },
       ],
       isHistory: false,
@@ -38,10 +39,22 @@ export class UserService {
     history: [],
   };
 
-  // Create dashboard items
-  
+  private setBmiStatus() {
+    if (this.user.start.bmi) {
+      if (this.user.start.bmi < 18.5) {
+        this.user.start.bmiStatus = 'underweight';
+      } else if (this.user.start.bmi >= 18.5 && this.user.start.bmi <= 24.9) {
+        this.user.start.bmiStatus = 'healthy';
+      } else if (this.user.start.bmi >= 25 && this.user.start.bmi <= 29.9) {
+        this.user.start.bmiStatus = 'overweight';
+      } else if (this.user.start.bmi >= 30 && this.user.start.bmi <= 39.9) {
+        this.user.start.bmiStatus = 'obese';
+      } else this.user.start.bmiStatus = 'morbidly obese';
+    }
+  }
 
-  getUser(): User{
+  getUser(): User {
+    this.setBmiStatus();
     return this.user;
   }
 }
