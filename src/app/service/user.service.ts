@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 
 @Injectable({
@@ -38,6 +38,11 @@ export class UserService {
     },
     history: [],
   };
+  
+    private setStartBmi() {
+      const bmi = this.user.start.weight / Math.pow(this.user.height/100, 2);
+      this.user.start.bmi = Math.round(bmi * 10) / 10;
+    }
 
   private setStartBmiStatus() {
     if (this.user.start.bmi) {
@@ -53,12 +58,6 @@ export class UserService {
         this.user.start.bmiStatus = 'obese';
       } else this.user.start.bmiStatus = 'very obese';
     }
-  }
-
-  private setStartBmi() {
-    const bmi = this.user.height / Math.sqrt(this.user.height);
-    
-    console.log(this.user.height / Math.sqrt(this.user.height));
   }
 
   getUser(): User {

@@ -94,10 +94,6 @@
   flex: 1;
   padding-left: 10px;
 }
-/* 
-.boxContent :nth-child(2) {
-  font-size: 1.79rem;
-} */
 
 .boxContent :nth-child(3) {
   font-weight: bold;
