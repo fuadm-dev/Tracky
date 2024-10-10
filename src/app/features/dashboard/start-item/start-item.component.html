@@ -2,10 +2,10 @@
   <div class="boxContent">
     <span class="roboto-bold">Start</span>
     <span class="roboto-light">{{user.start.weight}}kg</span>
-    <span [ngClass]="{'fw-bold': true, 'text-success': user.start.bmiStatus == 'healthy', 'text-danger': user.start.bmiStatus == 'obese' || user.start.bmiStatus == 'morbidly obese', 'text-warning': user.start.bmiStatus == 'underweight' || user.start.bmiStatus == 'overweight'}">{{user.start.bmiStatus}}</span>
+    <!-- <span [ngClass]="{'fw-bold': true, 'text-success': user.start.bmiStatus == 'healthy', 'text-danger': user.start.bmiStatus == 'obese' || user.start.bmiStatus == 'morbidly obese', 'text-warning': user.start.bmiStatus == 'underweight' || user.start.bmiStatus == 'overweight'}">BMI:{{user.start.bmi}}</span> -->
+     <span class="roboto-bold">
+      <div [ngClass]="{'bmi': true, 'bmi-obese':}" >BMI:{{user.start.bmi}}</div>
+     </span>
   </div>
   <calendar></calendar>
 </div>
-
-
-BMI:{{user.start.bmi}} - 
