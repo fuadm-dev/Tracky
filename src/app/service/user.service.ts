@@ -16,7 +16,7 @@ export class UserService {
     start: {
       date: '01/10/2024',
       weight: 80.2,
-      bmi: 26,
+      bmi: 16,
       bmiStatus: '',
     },
     target: {
@@ -41,7 +41,9 @@ export class UserService {
 
   private setBmiStatus() {
     if (this.user.start.bmi) {
-      if (this.user.start.bmi < 18.5) {
+      if (this.user.start.bmi < 16.5) {
+        this.user.start.bmiStatus = 'morbidly-underweight';
+      } else if (this.user.start.bmi >= 16.5 && this.user.start.bmi < 18.5) {
         this.user.start.bmiStatus = 'underweight';
       } else if (this.user.start.bmi >= 18.5 && this.user.start.bmi <= 24.9) {
         this.user.start.bmiStatus = 'healthy';
@@ -49,7 +51,7 @@ export class UserService {
         this.user.start.bmiStatus = 'overweight';
       } else if (this.user.start.bmi >= 30 && this.user.start.bmi <= 39.9) {
         this.user.start.bmiStatus = 'obese';
-      } else this.user.start.bmiStatus = 'morbidly obese';
+      } else this.user.start.bmiStatus = 'morbidly-obese';
     }
   }
 

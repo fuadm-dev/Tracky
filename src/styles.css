@@ -112,23 +112,15 @@
   padding: 2px 6px;
 }
 
-.bmi-healthy{
+.greenText{
   background-color: var(--green);
 }
 
-.bmi-over{
+.orangeText{
   background-color: var(--orange);
 }
 
-.bmi-under{
-  background-color: var(--orange);
-}
-
-.bmi-obese{
-  background-color: var(--red);
-}
-
-.bmi-morbid{
+.redText{
   background-color: var(--red);
 }
 
