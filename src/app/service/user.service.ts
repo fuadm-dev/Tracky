@@ -10,13 +10,13 @@ export class UserService {
     userName: 'fuad',
     email: 'fuad.yusuf1@gmail.com',
     password: 'fuad123',
-    height: '180',
+    height: 180,
     gender: 'male',
     dob: '15/01/1980',
     start: {
       date: '01/10/2024',
       weight: 118.2,
-      bmi: 34,
+      bmi: 0,
       bmiStatus: '',
     },
     target: {
@@ -39,7 +39,7 @@ export class UserService {
     history: [],
   };
 
-  private setBmiStatus() {
+  private setStartBmiStatus() {
     if (this.user.start.bmi) {
       if (this.user.start.bmi < 16.5) {
         this.user.start.bmiStatus = 'very underweight';
@@ -55,8 +55,15 @@ export class UserService {
     }
   }
 
+  private setStartBmi() {
+    const bmi = this.user.height / Math.sqrt(this.user.height);
+    
+    console.log(this.user.height / Math.sqrt(this.user.height));
+  }
+
   getUser(): User {
-    this.setBmiStatus();
+    this.setStartBmi();
+    this.setStartBmiStatus();
     return this.user;
   }
 }

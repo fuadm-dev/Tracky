@@ -6,6 +6,19 @@
       <div
         [ngClass]="{
           bmi: true,
+          greenBackground: user.start.bmiStatus == 'healthy',
+          orangeBackground:
+            user.start.bmiStatus == 'overweight' ||
+            user.start.bmiStatus == 'underweight',
+          redBackground:
+            user.start.bmiStatus == 'obese' ||
+            user.start.bmiStatus == 'very obese' ||
+            user.start.bmiStatus == 'very underweight',
+        }"
+      >
+        BMI: {{ user.start.bmi }}
+      </div>
+      <div [ngClass]="{
           greenText: user.start.bmiStatus == 'healthy',
           orangeText:
             user.start.bmiStatus == 'overweight' ||
@@ -14,11 +27,7 @@
             user.start.bmiStatus == 'obese' ||
             user.start.bmiStatus == 'very obese' ||
             user.start.bmiStatus == 'very underweight',
-        }"
-      >
-        BMI: {{ user.start.bmi }}
-      </div>
-      <div class="" style="font-size: 0.9rem; color: red;">
+        }">
         {{ user.start.bmiStatus }}
       </div>
     </span>
