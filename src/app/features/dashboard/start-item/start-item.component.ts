@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BmiService } from 'src/app/service/bmi.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
 
@@ -10,10 +11,12 @@ import { User } from 'src/app/shared/models/user';
 export class StartItemComponent {
   user: User;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private bmiService: BmiService) {}
 
   ngOnInit() {
     this.user = this.userService.getUser();
+    this.bmiService.setBmi(this.user);
+    this.bmiService.setBmiStatus(this.user);
     console.log(this.user);
   }
 

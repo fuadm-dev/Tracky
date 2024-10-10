@@ -1,11 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
-import { BmiService } from './bmi.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService implements OnInit {
+export class UserService {
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -39,13 +38,6 @@ export class UserService implements OnInit {
     },
     history: [],
   };
-
-  constructor(private bmiService: BmiService) {}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  private calcStart() {}
 
   getUser(): User {
     return this.user;
