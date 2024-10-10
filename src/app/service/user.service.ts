@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
+import { BmiService } from './bmi.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnInit {
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -38,31 +39,15 @@ export class UserService {
     },
     history: [],
   };
-  
-    private setStartBmi() {
-      const bmi = this.user.start.weight / Math.pow(this.user.height/100, 2);
-      this.user.start.bmi = Math.round(bmi * 10) / 10;
-    }
 
-  private setStartBmiStatus() {
-    if (this.user.start.bmi) {
-      if (this.user.start.bmi < 16.5) {
-        this.user.start.bmiStatus = 'very underweight';
-      } else if (this.user.start.bmi >= 16.5 && this.user.start.bmi < 18.5) {
-        this.user.start.bmiStatus = 'underweight';
-      } else if (this.user.start.bmi >= 18.5 && this.user.start.bmi <= 24.9) {
-        this.user.start.bmiStatus = 'healthy';
-      } else if (this.user.start.bmi >= 25 && this.user.start.bmi <= 29.9) {
-        this.user.start.bmiStatus = 'overweight';
-      } else if (this.user.start.bmi >= 30 && this.user.start.bmi <= 39.9) {
-        this.user.start.bmiStatus = 'obese';
-      } else this.user.start.bmiStatus = 'very obese';
-    }
+  constructor(private bmiService: BmiService) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
+  private calcStart() {}
+
   getUser(): User {
-    this.setStartBmi();
-    this.setStartBmiStatus();
     return this.user;
   }
 }
