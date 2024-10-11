@@ -1,6 +1,7 @@
+import { _Date } from "./_date";
 
 export interface Log {
-  date: Date
+  date: _Date
   weight: number;
   bmi: number
 }

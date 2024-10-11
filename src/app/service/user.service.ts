@@ -17,7 +17,7 @@ export class UserService {
       date: {
         day: 30,
         month: 'May',
-        year: 2024
+        year: 2024,
       },
       weight: 107.2,
       bmi: 0,
@@ -33,8 +33,10 @@ export class UserService {
       weightLogs: [
         {
           date: {
-            day: 
-          }
+            day: 30,
+            month: 'May',
+            year: 2024,
+          },
           weight: 107.2,
           bmi: 26,
         },
