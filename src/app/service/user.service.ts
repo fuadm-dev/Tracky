@@ -32,8 +32,9 @@ export class UserService {
       id: 1320,
       weightLogs: [
         {
-          id: 1220,
-          date: '04/10/2024',
+          date: {
+            day: 
+          }
           weight: 107.2,
           bmi: 26,
         },

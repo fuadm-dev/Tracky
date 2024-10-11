@@ -1,7 +1,6 @@
 
 export interface Log {
-  id: number;
-  date: string
+  date: Date
   weight: number;
   bmi: number
 }
