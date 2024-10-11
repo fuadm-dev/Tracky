@@ -15,7 +15,7 @@ export class UserService {
     dob: '15/01/1980',
     start: {
       date: '01/10/2024',
-      weight: 118.2,
+      weight: 107.2,
       bmi: 0,
       bmiStatus: '',
     },
