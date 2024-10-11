@@ -18,7 +18,9 @@
       >
         BMI: {{ user.start.bmi }}
       </div>
-      <div [ngClass]="{
+      <div
+      style="font-size: 1rem;"
+        [ngClass]="{
           greenText: user.start.bmiStatus == 'healthy',
           orangeText:
             user.start.bmiStatus == 'overweight' ||
@@ -27,12 +29,17 @@
             user.start.bmiStatus == 'obese' ||
             user.start.bmiStatus == 'very obese' ||
             user.start.bmiStatus == 'very underweight',
-        }">
+        }"
+      >
         {{ user.start.bmiStatus }}
       </div>
     </span>
   </div>
-  <div class="">
-    <calendar></calendar>
+  <div>
+    <app-calendar
+      [day]="user.start.date.day"
+      [month]="user.start.date.month"
+      [year]="user.start.date.year"
+    ></app-calendar>
   </div>
 </div>

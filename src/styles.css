@@ -95,6 +95,10 @@
   padding-left: 10px;
 }
 
+.boxContent :nth-child(2) {
+  font-size: 1.7rem;
+}
+
 .boxContent :nth-child(3) {
   font-weight: bold;
   font-size: 0.9rem;

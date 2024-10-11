@@ -1,5 +1,7 @@
+import { Date } from "./date";
+
 export interface Start {
-  date: string;
+  date: Date;
   weight: number;
   bmi: number;
   bmiStatus:string;

@@ -22,7 +22,7 @@ export class StartItemComponent {
       this.user.start.weight,
       this.user.height
     );
+    this.user.start.bmi = startBmi;
     this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
-    console.log(startBmi);
   }
 }
