@@ -18,6 +18,7 @@ import { PredictedItemComponent } from './features/dashboard/predicted-item/pred
 import { ProgressItemComponent } from './features/dashboard/progress-item/progress-item.component';
 import { TimeItemComponent } from './features/dashboard/time-item/time-item.component';
 import { CalendarComponent } from './features/dashboard/calendar/calendar.component';
+import { BmiComponent } from './features/dashboard/bmi/bmi.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CalendarComponent } from './features/dashboard/calendar/calendar.compon
     PredictedItemComponent,
     ProgressItemComponent,
     TimeItemComponent,
-    CalendarComponent
+    CalendarComponent,
+    BmiComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

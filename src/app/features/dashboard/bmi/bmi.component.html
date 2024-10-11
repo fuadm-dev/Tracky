@@ -1,0 +1,32 @@
+<div class="d-flex gap-2">
+  <div
+    [ngClass]="{
+          bmi: true,
+          greenBackground: user.start.bmiStatus == 'healthy',
+          orangeBackground:
+            user.start.bmiStatus == 'overweight' ||
+            user.start.bmiStatus == 'underweight',
+          redBackground:
+            user.start.bmiStatus == 'obese' ||
+            user.start.bmiStatus == 'very obese' ||
+            user.start.bmiStatus == 'very underweight',
+        }"
+  >
+    BMI: {{ user.start.bmi }}
+  </div>
+  <div
+    style="font-size: 1rem"
+    [ngClass]="{
+          greenText: user.start.bmiStatus == 'healthy',
+          orangeText:
+            user.start.bmiStatus == 'overweight' ||
+            user.start.bmiStatus == 'underweight',
+          redText:
+            user.start.bmiStatus == 'obese' ||
+            user.start.bmiStatus == 'very obese' ||
+            user.start.bmiStatus == 'very underweight',
+        }"
+  >
+    {{ user.start.bmiStatus }}
+  </div>
+</div>
