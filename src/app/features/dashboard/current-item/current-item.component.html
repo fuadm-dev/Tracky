@@ -1,7 +1,11 @@
 <div class="box-small">
   <div class="boxContent">
-    <span class="roboto-bold">Current</span>
-    <span class="roboto-light">100kg</span>
-    <span>BMI:34 - <span>obesse</span></span>
+    <!-- Calendar component -->
+    <span class="roboto-bold fs-5">Current</span>
+    <span class="roboto-light">{{ user.record.weightLogs[weightLogs.length - 1] }}kg</span>
+    <!-- BMI component -->
+    <span class="roboto-bold">
+      <app-bmi></app-bmi>
+    </span>
   </div>
 </div>

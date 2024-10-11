@@ -16,13 +16,5 @@ export class CurrentItemComponent {
     private bmiService: BmiService
   ) {}
 
-  ngOnInit() {
-    this.user = this.userService.getUser();
-    const startBmi = this.bmiService.calcBmi(
-      this.user.start.weight,
-      this.user.height
-    );
-    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
-    console.log(this.user);
-  }
+
 }
