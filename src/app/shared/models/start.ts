@@ -1,7 +1,7 @@
-import { Date } from './_date';
+import { _Date } from './_date';
 
 export interface Start {
-  date: Date;
+  date: _Date;
   weight: number;
   bmi: number;
   bmiStatus: string;

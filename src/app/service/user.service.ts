@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
+import { BmiService } from './bmi.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class UserService implements OnInit {
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -43,8 +44,50 @@ export class UserService {
       ],
       isHistory: false,
     },
-    history: [],
+    history: [
+      {
+        id: 1321,
+        weightLogs: [
+          {
+            date: {
+              day: 30,
+              month: 'May',
+              year: 2024,
+            },
+            weight: 107.2,
+            bmi: 26,
+          },
+        ],
+        isHistory: false,
+      },
+      {
+        id: 1322,
+        weightLogs: [
+          {
+            date: {
+              day: 30,
+              month: 'May',
+              year: 2024,
+            },
+            weight: 107.2,
+            bmi: 26,
+          },
+        ],
+        isHistory: false,
+      },
+    ],
   };
+  
+  constructor(private bmiService: BmiService) {}
+
+  ngOnInit(): void {
+    const startBmi = this.bmiService.calcBmi(
+      this.user.start.weight,
+      this.user.height
+    );
+    this.user.start.bmi = startBmi;
+    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
+  }
 
   getUser(): User {
     return this.user;

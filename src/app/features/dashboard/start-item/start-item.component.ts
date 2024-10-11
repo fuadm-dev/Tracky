@@ -10,6 +10,8 @@ import { User } from 'src/app/shared/models/user';
 })
 export class StartItemComponent {
   user: User;
+  bmi: number;
+  weight:number;
 
   constructor(
     private userService: UserService,
@@ -18,11 +20,7 @@ export class StartItemComponent {
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    const startBmi = this.bmiService.calcBmi(
-      this.user.start.weight,
-      this.user.height
-    );
-    this.user.start.bmi = startBmi;
-    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
+    console.log(this.user);
+    
   }
 }

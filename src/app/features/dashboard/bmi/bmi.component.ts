@@ -19,12 +19,12 @@ export class BmiComponent implements OnInit {
   ngOnInit() {
     this.user = this.userService.getUser();
 
-    const startBmi = this.bmiService.calcBmi(
+    const bmi = this.bmiService.calcBmi(
       this.user.start.weight,
       this.user.height
     );
-    
-    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
+
+    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(bmi);
     console.log(this.user);
   }
   
