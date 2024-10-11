@@ -1,4 +1,9 @@
 <div class="box-small">
+  <app-calendar
+    [day]="user.start.date.day"
+    [month]="user.start.date.month"
+    [year]="user.start.date.year"
+  ></app-calendar>
   <div class="boxContent">
     <span class="roboto-bold fs-5">Start</span>
     <span class="roboto-light">{{ user.start.weight }}kg</span>
@@ -6,11 +11,5 @@
       <app-bmi></app-bmi>
     </span>
   </div>
-  <div>
-    <app-calendar
-      [day]="user.start.date.day"
-      [month]="user.start.date.month"
-      [year]="user.start.date.year"
-    ></app-calendar>
-  </div>
+  <div></div>
 </div>
