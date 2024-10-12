@@ -6,7 +6,6 @@ import { User } from '../shared/models/user';
   providedIn: 'root',
 })
 export class BmiService {
-  bmiArr: Bmi[];
 
   calcUserBmi(user: User): Bmi {
     let bmi: Bmi;

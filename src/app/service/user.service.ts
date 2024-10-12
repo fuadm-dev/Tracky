@@ -1,11 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
-import { BmiService } from './bmi.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserService implements OnInit {
+export class UserService {
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -21,10 +20,6 @@ export class UserService implements OnInit {
         year: 2024,
       },
       weight: 107.2,
-      bmi: {
-        bmi: 0,
-        bmiStatus: '',
-      },
     },
     current: {
       date: {
@@ -33,10 +28,6 @@ export class UserService implements OnInit {
         year: 2024,
       },
       weight: 107.2,
-      bmi: {
-        bmi: 0,
-        bmiStatus: '',
-      },
     },
     target: {
       date: {
@@ -45,10 +36,6 @@ export class UserService implements OnInit {
         year: 2024,
       },
       weight: 107.2,
-      bmi: {
-        bmi: 0,
-        bmiStatus: '',
-      },
     },
     record: {
       id: 1320,
@@ -60,10 +47,6 @@ export class UserService implements OnInit {
             year: 2024,
           },
           weight: 107.2,
-          bmi: {
-            bmi: 0,
-            bmiStatus: '',
-          },
         },
       ],
       isHistory: false,
@@ -79,10 +62,6 @@ export class UserService implements OnInit {
               year: 2024,
             },
             weight: 107.2,
-            bmi: {
-              bmi: 0,
-              bmiStatus: '',
-            },
           },
         ],
         isHistory: false,
@@ -97,27 +76,12 @@ export class UserService implements OnInit {
               year: 2024,
             },
             weight: 107.2,
-            bmi: {
-              bmi: 0,
-              bmiStatus: '',
-            },
           },
         ],
         isHistory: false,
       },
     ],
   };
-
-  constructor(private bmiService: BmiService) {}
-
-  ngOnInit(): void {
-    const startBmi = this.bmiService.calcBmi(
-      this.user.start.weight,
-      this.user.height
-    );
-    this.user.start.bmi.bmi = startBmi;
-    this.user.start.bmi.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
-  }
 
   getUser(): User {
     return this.user;

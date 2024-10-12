@@ -2,9 +2,11 @@
 export interface Statistics {
   startWeight: number;
   currentWeight: number;
+  targetWeight: number;
+  predictedWeight: number;
+  changeWeight: number;
+  changeBmi: number;
   onTarget: boolean;
-  change: number;
-  predicted: number;
   percentProgress: number;
   percentTime: number;
 }
