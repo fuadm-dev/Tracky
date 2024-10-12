@@ -8,17 +8,10 @@ import { UserProfileComponent } from './features/user-profile/user-profile.compo
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { PaginationComponent } from './features/pagination/pagination.component';
-import { SmallItemComponent } from './features/dashboard/small-item/small-item.component';
 import { TrendItemComponent } from './features/dashboard/trend-item/trend-item.component';
-import { StartItemComponent } from './features/dashboard/start-item/start-item.component';
-import { CurrentItemComponent } from './features/dashboard/current-item/current-item.component';
-import { TargetItemComponent } from './features/dashboard/target-item/target-item.component';
-import { ChangeItemComponent } from './features/dashboard/change-item/change-item.component';
-import { PredictedItemComponent } from './features/dashboard/predicted-item/predicted-item.component';
-import { ProgressItemComponent } from './features/dashboard/progress-item/progress-item.component';
-import { TimeItemComponent } from './features/dashboard/time-item/time-item.component';
 import { CalendarComponent } from './features/dashboard/calendar/calendar.component';
 import { BmiComponent } from './features/dashboard/bmi/bmi.component';
+import { DashItemComponent } from './features/dashboard/dash-item/dash-item.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +22,10 @@ import { BmiComponent } from './features/dashboard/bmi/bmi.component';
     NavbarComponent,
     DashboardComponent,
     PaginationComponent,
-    SmallItemComponent,
     TrendItemComponent,
-    StartItemComponent,
-    CurrentItemComponent,
-    TargetItemComponent,
-    ChangeItemComponent,
-    PredictedItemComponent,
-    ProgressItemComponent,
-    TimeItemComponent,
     CalendarComponent,
-    BmiComponent
+    BmiComponent,
+    DashItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

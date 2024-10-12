@@ -1,19 +1,19 @@
 <!-- Dashboard -->
 <div class="d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-3">
   <!-- Start item -->
-   <start-item></start-item>
+   <dash-item 
+   [user]="user"
+   [title]="'Start'"
+   [weight]="user.start.weight"
+   [height]="user.height"
+   [date]="user.start.date"
+   ></dash-item>
   <!-- Current item -->
-   <current-item></current-item>
   <!-- Target item -->
-   <target-item></target-item>
   <!-- Change item -->
-   <change-item></change-item>
   <!-- Predicted item -->
-   <predicted-item></predicted-item>
   <!-- Progress item -->
-   <progress-item></progress-item>
   <!-- Time item -->
-   <time-item></time-item>
   <!-- Trend item -->
    <trend-item></trend-item>
 </div>

@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import { Log } from 'src/app/shared/models/log';
 import { User } from 'src/app/shared/models/user';
 
 @Component({
@@ -10,6 +11,7 @@ import { User } from 'src/app/shared/models/user';
 })
 export class DashboardComponent implements OnInit {
   user: User;
+  current: {};
 
   constructor(private  userService: UserService) {}
 
