@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { BmiService } from 'src/app/service/bmi.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
@@ -8,24 +8,17 @@ import { User } from 'src/app/shared/models/user';
   templateUrl: './bmi.component.html',
   styleUrls: ['./bmi.component.css'],
 })
-export class BmiComponent implements OnInit {
-  user: User;
+export class BmiComponent implements AfterContentInit {
+  @Input() weight: number;
+  @Input() height: number;
+  bmi: number;
+  bmiStatus: string;
 
-  constructor(
-    private userService: UserService,
-    private bmiService: BmiService
-  ) {}
+  constructor(private bmiService: BmiService) {}
 
-  ngOnInit() {
-    this.user = this.userService.getUser();
-
-    const bmi = this.bmiService.calcBmi(
-      this.user.start.weight,
-      this.user.height
-    );
-
-    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(bmi);
-    console.log(this.user);
+  ngAfterContentInit(): void {
+    this.bmi = this.bmiService.calcBmi(this.weight, this.height);
+    this.bmiStatus = this.bmiService.calcBmiStatus(this.bmi);
   }
   
 }

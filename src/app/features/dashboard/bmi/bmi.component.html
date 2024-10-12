@@ -2,31 +2,31 @@
   <div
     [ngClass]="{
           bmi: true,
-          greenBackground: user.start.bmiStatus == 'healthy',
+          greenBackground: bmiStatus == 'healthy',
           orangeBackground:
-            user.start.bmiStatus == 'overweight' ||
-            user.start.bmiStatus == 'underweight',
+            bmiStatus == 'overweight' ||
+            bmiStatus == 'underweight',
           redBackground:
-            user.start.bmiStatus == 'obese' ||
-            user.start.bmiStatus == 'very obese' ||
-            user.start.bmiStatus == 'very underweight',
+            bmiStatus == 'obese' ||
+            bmiStatus == 'very obese' ||
+            bmiStatus == 'very underweight',
         }"
   >
-    BMI: {{ user.start.bmi }}
+    BMI: {{ bmi }}
   </div>
   <div
     style="font-size: 1rem"
     [ngClass]="{
-          greenText: user.start.bmiStatus == 'healthy',
+          greenText: bmiStatus == 'healthy',
           orangeText:
-            user.start.bmiStatus == 'overweight' ||
-            user.start.bmiStatus == 'underweight',
+            bmiStatus == 'overweight' ||
+            bmiStatus == 'underweight',
           redText:
-            user.start.bmiStatus == 'obese' ||
-            user.start.bmiStatus == 'very obese' ||
-            user.start.bmiStatus == 'very underweight',
+            bmiStatus == 'obese' ||
+            bmiStatus == 'very obese' ||
+            bmiStatus == 'very underweight',
         }"
   >
-    {{ user.start.bmiStatus }}
+    {{ bmiStatus }}
   </div>
 </div>

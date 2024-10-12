@@ -1,16 +1,21 @@
 <div class="box-small">
   <div class="boxContent">
     <!-- Calendar component -->
-    <app-calendar
+    <div class="calendar" *ngIf="calendar">
+      <app-calendar
       [day]="user.start.date.day"
       [month]="user.start.date.month"
       [year]="user.start.date.year"
     ></app-calendar>
-    <span class="roboto-bold fs-5">Start</span>
-    <span class="roboto-light">{{ user.start.weight }}kg</span>
+    </div>
+
+    <!-- Title & weight -->
+    <span class="title roboto-bold fs-5">Start</span>
+    <span class="weight roboto-light">{{ user.start.weight }}kg</span>
+   
     <!-- BMI component -->
     <span class="roboto-bold">
-      <app-bmi></app-bmi>
+      <app-bmi [height]="user.height" [weight]="user.start.weight"> </app-bmi>
     </span>
   </div>
 </div>

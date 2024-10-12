@@ -11,16 +11,13 @@ import { User } from 'src/app/shared/models/user';
 export class StartItemComponent {
   user: User;
   bmi: number;
-  weight:number;
+  weight: number;
+  calendar:boolean = true;
 
-  constructor(
-    private userService: UserService,
-    private bmiService: BmiService
-  ) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.user = this.userService.getUser();
     console.log(this.user);
-    
   }
 }

@@ -95,11 +95,11 @@
   padding-left: 10px;
 }
 
-.boxContent :nth-child(2) {
+.weight {
   font-size: 1.7rem;
 }
 
-.boxContent :nth-child(3) {
+.boxContent :nth-child(4) {
   font-weight: bold;
   font-size: 0.9rem;
   margin-bottom: 8px;
