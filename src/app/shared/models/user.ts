@@ -1,6 +1,6 @@
-import { Start } from './start';
 import { Target } from './target';
 import { Record } from './record';
+import { Log } from './log';
 
 export interface User {
   id: number;
@@ -10,8 +10,9 @@ export interface User {
   height: number;
   gender: string;
   dob: string;
-  start: Start;
-  target: Target;
+  start: Log;
+  current: Log;
+  target: Log;
   record: Record;
   history: Record[];
 }

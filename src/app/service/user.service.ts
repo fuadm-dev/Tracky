@@ -21,13 +21,34 @@ export class UserService implements OnInit {
         year: 2024,
       },
       weight: 107.2,
-      bmi: 0,
-      bmiStatus: '',
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
+    },
+    current: {
+      date: {
+        day: 30,
+        month: 'May',
+        year: 2024,
+      },
+      weight: 107.2,
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
     },
     target: {
-      targetDate: '01/01/2025',
-      targetWeight: 100,
-      targetBMI: 30,
+      date: {
+        day: 30,
+        month: 'May',
+        year: 2024,
+      },
+      weight: 107.2,
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
     },
     record: {
       id: 1320,
@@ -39,7 +60,10 @@ export class UserService implements OnInit {
             year: 2024,
           },
           weight: 107.2,
-          bmi: 26,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
         },
       ],
       isHistory: false,
@@ -55,7 +79,10 @@ export class UserService implements OnInit {
               year: 2024,
             },
             weight: 107.2,
-            bmi: 26,
+            bmi: {
+              bmi: 0,
+              bmiStatus: '',
+            },
           },
         ],
         isHistory: false,
@@ -70,14 +97,17 @@ export class UserService implements OnInit {
               year: 2024,
             },
             weight: 107.2,
-            bmi: 26,
+            bmi: {
+              bmi: 0,
+              bmiStatus: '',
+            },
           },
         ],
         isHistory: false,
       },
     ],
   };
-  
+
   constructor(private bmiService: BmiService) {}
 
   ngOnInit(): void {
@@ -85,8 +115,8 @@ export class UserService implements OnInit {
       this.user.start.weight,
       this.user.height
     );
-    this.user.start.bmi = startBmi;
-    this.user.start.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
+    this.user.start.bmi.bmi = startBmi;
+    this.user.start.bmi.bmiStatus = this.bmiService.calcBmiStatus(startBmi);
   }
 
   getUser(): User {
