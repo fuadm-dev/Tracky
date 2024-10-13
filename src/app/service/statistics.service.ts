@@ -11,7 +11,7 @@ export class StatisticsService {
 
   constructor(private bmiService: BmiService) {}
 
-  getStatistice(user: User): Statistics {
+  getStatistics(user: User): Statistics {
     return this.stats;
   }
 
@@ -31,7 +31,10 @@ export class StatisticsService {
     this.stats.targetWeight = user.target.weight;
   }
 
-  calcPredictedWeight(user: User) {}
+  calcPredictedWeight(user: User) {
+    // lossRate = (startWeight - currentWeight) / weeksLeft
+    // predictedWeight = currentWeight - (lossRate * weeksLeft)
+  }
 
   calcBmi(user: User) {}
 
