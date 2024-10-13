@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { Statistics } from '../shared/models/statistics';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +14,14 @@ export class StatisticsService {
 
   buildStats(user: User): Statistics {
     this.setStartWeight(user);
-    this.setCurrentWeight(user);
-    this.calcPredictedWeight(user);
-    this.calcChangeWeight(user);
-    this.calcTime(user);
-    this.calcProgress(user);
-    this.calcOntarget(user);
-    this.calcBmi(user);
-    this.calcChangeBmi(user);
+    // this.setCurrentWeight(user);
+    // this.calcPredictedWeight(user);
+    // this.calcChangeWeight(user);
+    // this.calcTime(user);
+    // this.calcProgress(user);
+    // this.calcOntarget(user);
+    // this.calcBmi(user);
+    // this.calcChangeBmi(user);
 
     return this.stats;
   }

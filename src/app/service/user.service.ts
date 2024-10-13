@@ -100,8 +100,8 @@ export class UserService {
   };
 
   getUser(): User {
-    // this.user.userStats = this.statsService.buildStats(this.user);
-    console.log(this.user);
+    this.user.userStats = this.statsService.buildStats(this.user);
+    console.log(this.user.userStats.startWeight);
     return this.user;
   }
 }
