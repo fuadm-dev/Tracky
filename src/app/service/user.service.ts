@@ -7,7 +7,7 @@ import { StatisticsService } from './statistics.service';
 })
 export class UserService {
   constructor(private statsService: StatisticsService) {}
-  
+
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -54,6 +54,19 @@ export class UserService {
       ],
       isHistory: false,
     },
+    userStats: {
+      startWeight: 0,
+      currentWeight: 0,
+      targetWeight: 0,
+      predictedWeight: 0,
+      lossRate: 0,
+      weeksLeft: 0,
+      changeWeight: 0,
+      changeBmi: 0,
+      onTarget: false,
+      percentProgress: 0,
+      percentTime: 0,
+    },
     history: [
       {
         id: 1321,
@@ -87,7 +100,8 @@ export class UserService {
   };
 
   getUser(): User {
-    this.statsService.buildStats(this.user);
+    // this.user.userStats = this.statsService.buildStats(this.user);
+    console.log(this.user);
     return this.user;
   }
 }
