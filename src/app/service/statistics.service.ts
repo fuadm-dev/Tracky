@@ -8,15 +8,15 @@ import { Statistics } from '../shared/models/statistics';
 })
 export class StatisticsService {
   stats: Statistics;
-  
+
   constructor(private bmiService: BmiService) {}
 
-  buildStatistics(user: User): Statistics {
-    this.stats.startWeight = user.start.weight;
-    this.stats.targetWeight = user.target.weight;
-    this.stats.predictedWeight;
-    this.setCurrentWeight(user);
+  getStatistice(user: User): Statistics {
     return this.stats;
+  }
+
+  setStartWeight(user: User) {
+    this.stats.startWeight = user.start.weight;
   }
 
   setCurrentWeight(user: User) {
@@ -27,15 +27,21 @@ export class StatisticsService {
     }
   }
 
-  setStartWeight(){}
-
-  setTargetWeight(){}
+  setTargetWeight(user: User) {
+    this.stats.targetWeight = user.target.weight;
+  }
 
   calcPredictedWeight(user: User) {}
+
   calcBmi(user: User) {}
+
   calcChangeBmi(user: User) {}
+
   calcChangeWeight(user: User) {}
+
   calcTime(user: User) {}
+
   calcProgress(user: User) {}
+
   calcOntarget(user: User) {}
 }

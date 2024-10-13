@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
+import { StatisticsService } from './statistics.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  constructor(private statsService: StatisticsService) {}
+  
   user: User = {
     id: 1001,
     userName: 'fuad',
@@ -84,6 +87,7 @@ export class UserService {
   };
 
   getUser(): User {
+    this.statsService.getStatistice(this.user);
     return this.user;
   }
 }
