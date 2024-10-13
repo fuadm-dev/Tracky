@@ -2,16 +2,21 @@ import { Injectable, OnInit } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { Statistics } from '../shared/models/statistics';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatisticsService implements OnInit {
-  constructor(private bmiService: BmiService) {}
+  user: User;
 
-  ngOnInit(): void {}
+  constructor(private userService: UserService, private bmiService: BmiService) {}
 
-  buildStatistics(user: User): Statistics {
+  ngOnInit(): void {
+    this.user = this.userService.getUser();
+  }
+
+  buildStatistics(user): Statistics {
     let stats: Statistics;
     stats.startWeight = user.start.weight;
     stats.targetWeight = user.target.weight;
@@ -20,7 +25,7 @@ export class StatisticsService implements OnInit {
     return stats;
   }
 
-  setCurrentWeight(user: User) {
+  setCurrentWeight(user) {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
     } else {
@@ -28,11 +33,11 @@ export class StatisticsService implements OnInit {
     }
   }
 
-  calcPredictedWeight(user: User) {}
-  calcBmi(user: User) {}
-  calcChangeBmi(user: User) {}
-  calcChangeWeight(user: User) {}
-  calcTime(user: User) {}
-  calcProgress(user: User) {}
-  calcOntarget(user: User) {}
+  calcPredictedWeight(user) {}
+  calcBmi(user) {}
+  calcChangeBmi(user) {}
+  calcChangeWeight(user) {}
+  calcTime(user) {}
+  calcProgress(user) {}
+  calcOntarget(user) {}
 }
