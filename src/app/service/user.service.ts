@@ -87,7 +87,7 @@ export class UserService {
   };
 
   getUser(): User {
-    this.statsService.getStatistics(this.user);
+    this.statsService.buildStats(this.user);
     return this.user;
   }
 }

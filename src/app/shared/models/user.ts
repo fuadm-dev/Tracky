@@ -1,6 +1,6 @@
-import { Target } from './target';
 import { Record } from './record';
 import { Log } from './log';
+import { Statistics } from './statistics';
 
 export interface User {
   id: number;
@@ -14,5 +14,6 @@ export interface User {
   current: Log;
   target: Log;
   record: Record;
+  userStats: Statistics;
   history: Record[];
 }

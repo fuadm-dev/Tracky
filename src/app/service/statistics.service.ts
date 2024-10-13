@@ -11,7 +11,17 @@ export class StatisticsService {
 
   constructor(private bmiService: BmiService) {}
 
-  getStatistics(user: User): Statistics {
+  buildStats(user: User): Statistics {
+    this.setStartWeight(user);
+    this.setCurrentWeight(user);
+    this.calcPredictedWeight(user);
+    this.calcChangeWeight(user);
+    this.calcTime(user);
+    this.calcProgress(user);
+    this.calcOntarget(user);
+    this.calcBmi(user);
+    this.calcChangeBmi(user);
+
     return this.stats;
   }
 
@@ -36,15 +46,17 @@ export class StatisticsService {
     // predictedWeight = currentWeight - (lossRate * weeksLeft)
   }
 
+  
+  
+  calcChangeWeight(user: User) {}
+  
+  calcTime(user: User) {}
+  
+  calcProgress(user: User) {}
+  
+  calcOntarget(user: User) {}
+
   calcBmi(user: User) {}
 
   calcChangeBmi(user: User) {}
-
-  calcChangeWeight(user: User) {}
-
-  calcTime(user: User) {}
-
-  calcProgress(user: User) {}
-
-  calcOntarget(user: User) {}
 }
