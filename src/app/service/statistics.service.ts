@@ -69,11 +69,12 @@ export class StatisticsService {
   }
 
   calcProgressMade(user: User) {
-    // progressMade = startWeight - currentWeight
+    // progressMade = changetWeight / (startWeight - targetWeight) * 100
   }
 
   calcOntarget(user: User) {
-
+    // expectedLossRate = (startWeight - targetWeight) / targetTime
+    // expectedWeight =
   }
 
   calcBmi(user: User) {}
