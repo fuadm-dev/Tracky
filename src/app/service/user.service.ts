@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 import { StatisticsService } from './statistics.service';
+import { StatsClass } from '../shared/models/stats-class';
 
 @Injectable({
   providedIn: 'root',
@@ -54,19 +55,7 @@ export class UserService {
       ],
       isHistory: false,
     },
-    userStats: {
-      startWeight: 0,
-      currentWeight: 0,
-      targetWeight: 0,
-      predictedWeight: 0,
-      lossRate: 0,
-      weeksLeft: 0,
-      changeWeight: 0,
-      changeBmi: 0,
-      onTarget: false,
-      percentProgress: 0,
-      percentTime: 0,
-    },
+    userStats: new StatsClass,
     history: [
       {
         id: 1321,
@@ -101,7 +90,7 @@ export class UserService {
 
   getUser(): User {
     this.user.userStats = this.statsService.buildStats(this.user);
-    console.log(this.user.userStats.startWeight);
+    console.log(this.user.userStats);
     return this.user;
   }
 }

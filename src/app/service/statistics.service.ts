@@ -1,20 +1,32 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { Statistics } from '../shared/models/statistics';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatisticsService {
-  stats: Statistics;
+  stats: Statistics = {
+    startWeight: 0,
+    currentWeight: 0,
+    targetWeight: 0,
+    predictedWeight: 0,
+    lossRate: 0,
+    weeksLeft: 0,
+    changeWeight: 0,
+    changeBmi: 0,
+    onTarget: false,
+    percentProgress: 0,
+    percentTime: 0,
+  };
 
   constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): Statistics {
     this.setStartWeight(user);
-    // this.setCurrentWeight(user);
+    this.setCurrentWeight(user);
+    this.setTargetWeight(user);
     // this.calcPredictedWeight(user);
     // this.calcChangeWeight(user);
     // this.calcTime(user);
@@ -33,8 +45,10 @@ export class StatisticsService {
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
+      this.stats.currentWeight = user.current.weight
     } else {
       user.current = user.start;
+      this.stats.currentWeight = user.current.weight;
     }
   }
 

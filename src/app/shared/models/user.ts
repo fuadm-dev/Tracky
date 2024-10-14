@@ -1,6 +1,6 @@
 import { Record } from './record';
 import { Log } from './log';
-import { Statistics } from './statistics';
+import { StatsClass } from './stats-class';
 
 export interface User {
   id: number;
@@ -14,6 +14,6 @@ export interface User {
   current: Log;
   target: Log;
   record: Record;
-  userStats: Statistics;
+  userStats: StatsClass;
   history: Record[];
 }
