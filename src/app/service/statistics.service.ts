@@ -45,8 +45,6 @@ export class StatisticsService {
   }
 
   calcPredictedWeight(user: User) {
-    //Kg lost per week
-    // lossRate = (startWeight - currentWeight) / weeksLeft
     // predictedWeight = currentWeight - (lossRate * weeksLeft)
   }
   
@@ -61,14 +59,22 @@ export class StatisticsService {
   calcWeeksLeft(user: User) {
     //weeksToTarget = dateToday - startDate
   }
+  
+  calcLossRate(user: User) {
+    // lossRate = (startWeight - currentWeight) / weeksTotarget
+  }
 
-  calcLossRate(user: User) {}
+  calcChangeWeight(user: User) {
+    // changeWeight = startWeight - currentWeight
+  }
 
-  calcChangeWeight(user: User) {}
+  calcProgressMade(user: User) {
+    // progressMade = startWeight - currentWeight
+  }
 
-  calcProgressMade(user: User) {}
+  calcOntarget(user: User) {
 
-  calcOntarget(user: User) {}
+  }
 
   calcBmi(user: User) {}
 
