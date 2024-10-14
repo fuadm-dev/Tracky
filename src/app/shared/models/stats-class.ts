@@ -9,7 +9,7 @@ export class StatsClass {
   actualLossRate: number = 0;
   totalTimeFrame: Time;
   currentTimeFrame: Time;
-  timeSinceStart: Time;
+  timeFromStart: Time;
   timeToTarget: Time;
   changeWeight: number = 0;
   changeBmi: number = 0;

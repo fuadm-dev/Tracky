@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
+import { _Date } from '../shared/models/_date';
 
 @Injectable({
   providedIn: 'root',
@@ -48,40 +49,38 @@ export class StatisticsService {
     // predictedWeight = currentWeight - (lossRate * weeksLeft)
   }
 
-  calcDaysSinceStart(user: User) {
-    //daysSinceStart = dateToday - startDate
+  calcProgressMade(user: User) {
+    // % progressMade = weightChange / (startWeight - targetWeight) * 100
   }
 
-  calcWeeksSinceStart(user: User) {
-    //weeksSinceStart = (dateToday - startDate) / 7
+  calcOntarget(user: User) {
+    // expectedLossRate = (startWeight - targetWeight) / targetTime
+    // onTarget = expectedLossRate >= actualLossRate
+
+    // return onTarget
   }
 
-  calcWeeksLeft(user: User) {
-    //weeksToTarget = dateToday - startDate
+  calcTimeFromToday(today: _Date, later: _Date) {
+    //daysSinceToday = today - later
+    //weeksSinceToday = daysSinceDate / 7
+
+    // build time{days: daysSinceToday, weeks: weeksSinceToday}
+
+    // return time{}
   }
 
   calcLossRate(user: User) {
     // actualLossRate = (startWeight - currentWeight) / weeksTotarget
   }
 
-  calcWeightChange(user: User) {
+  calcChange(start: number, current: number) {
     // changeWeight = startWeight - currentWeight
-  }
-
-  calcChangeBmi(user: User) {
     // changeBmi = startBmi - currentBmi
+
+    // return change
   }
 
-  calcProgressMade(user: User) {
-    // progressMade = changetWeight / (startWeight - targetWeight) * 100
-  }
-
-  calcOntarget(user: User) {
-    // expectedLossRate = (startWeight - targetWeight) / targetTime
-    // onTarget = expectedLossRate >= actualLossRate
-  }
-
-  calcAllBmi(user: User) {
+  calcBmi(user: User) {
     //
   }
 }
