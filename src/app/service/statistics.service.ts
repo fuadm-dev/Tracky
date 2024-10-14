@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
-import { Statistics } from '../shared/models/statistics';
 import { StatsClass } from '../shared/models/stats-class';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatisticsService {
-  stats: Statistics = new StatsClass();
+  stats: StatsClass = new StatsClass();
 
   constructor(private bmiService: BmiService) {}
 
-  buildStats(user: User): Statistics {
+  buildStats(user: User): StatsClass {
     this.setStartWeight(user);
     this.setCurrentWeight(user);
     this.setTargetWeight(user);
@@ -46,8 +45,9 @@ export class StatisticsService {
   }
 
   calcPredictedWeight(user: User) {
-    //weeksLeft
-    //weeksSinceStart
+    //daysSinceStart = dateToday - startDate
+    //weeksSinceStart = (dateToday - startDate) / 7
+    //weeksLeft = dateToday - startDate
     //Kg lost per week
     // lossRate = (startWeight - currentWeight) / weeksLeft
     // predictedWeight = currentWeight - (lossRate * weeksLeft)

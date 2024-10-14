@@ -1,10 +1,13 @@
 export interface Statistics {
-  startWeight: number;
+  // startWeight: number;
   currentWeight: number;
   targetWeight: number;
   predictedWeight: number;
   lossRate: number;
-  weeksLeft: number;
+  daysSinceStart: number;
+  weeksSinceStart: number;
+  daysToTarget: number;
+  weeksToTarget: number;
   changeWeight: number;
   changeBmi: number;
   onTarget: boolean;
