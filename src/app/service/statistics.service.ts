@@ -33,7 +33,7 @@ export class StatisticsService {
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
-      this.stats.currentWeight = user.current.weight
+      this.stats.currentWeight = user.current.weight;
     } else {
       user.current = user.start;
       this.stats.currentWeight = user.current.weight;
@@ -45,23 +45,29 @@ export class StatisticsService {
   }
 
   calcPredictedWeight(user: User) {
-    //daysSinceStart = dateToday - startDate
-    //weeksSinceStart = (dateToday - startDate) / 7
-    //weeksLeft = dateToday - startDate
     //Kg lost per week
     // lossRate = (startWeight - currentWeight) / weeksLeft
     // predictedWeight = currentWeight - (lossRate * weeksLeft)
   }
+  
+  calcDaysSinceStart(user: User) {
+    //daysSinceStart = dateToday - startDate
+  }
+  
+  calcWeeksSinceStart(user: User) {
+    //weeksSinceStart = (dateToday - startDate) / 7
+  }
+  
+  calcWeeksLeft(user: User) {
+    //weeksToTarget = dateToday - startDate
+  }
 
-  calcWeeksLeft(user: User) {}
-  
   calcLossRate(user: User) {}
-  
+
   calcChangeWeight(user: User) {}
-  
-  
+
   calcProgressMade(user: User) {}
-  
+
   calcOntarget(user: User) {}
 
   calcBmi(user: User) {}
