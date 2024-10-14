@@ -2,24 +2,13 @@ import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { Statistics } from '../shared/models/statistics';
+import { StatsClass } from '../shared/models/stats-class';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatisticsService {
-  stats: Statistics = {
-    startWeight: 0,
-    currentWeight: 0,
-    targetWeight: 0,
-    predictedWeight: 0,
-    lossRate: 0,
-    weeksLeft: 0,
-    changeWeight: 0,
-    changeBmi: 0,
-    onTarget: false,
-    percentProgress: 0,
-    percentTime: 0,
-  };
+  stats: Statistics = new StatsClass();
 
   constructor(private bmiService: BmiService) {}
 
