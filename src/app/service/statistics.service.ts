@@ -16,7 +16,7 @@ export class StatisticsService {
     this.setStartWeight(user.start.weight);
     this.setCurrentWeight(user);
     this.setTargetWeight(user.target.weight);
-
+    // this.calcPredictedWeight(user);
     return this.stats;
   }
 
@@ -41,11 +41,38 @@ export class StatisticsService {
     this.stats.targetWeight = weight;
   }
 
+  // Calculate Time From Start Date
+  calcTimeFromStartDate(weight: number) {
+    this.stats.targetWeight = weight;
+  }
+
+  calcTimeFromToday(user: User) {
+    //Set Time From Today
+    user.userStats.
+    //daysSinceToday = today - later
+    //weeksSinceToday = daysSinceDate / 7
+    // build time{days: daysSinceToday, weeks: weeksSinceToday}
+    // return time{}
+  }
+
+  // Calculate Weightloss Rate
+  calcLossRate(user: User) {
+    // Set Actual Weightloss Rate
+    user.userStats.actualLossRate =
+      (user.userStats.startWeight - user.userStats.currentWeight) /
+      user.userStats.timeFromStart.weeks;
+
+    // Set Expected Weightloss Rate
+    user.userStats.expectedLossRate =
+      (user.userStats.startWeight - user.userStats.targetWeight) /
+      user.userStats.timeFromStart.weeks;
+  }
+
   // Set Predicted Weight
   calcPredictedWeight(user: User) {
-    user.userStats.
-    // predictedWeight = currentWeight - (actualLossRate * weeksTotarget)
-    // return predictedWeight
+    user.userStats.predictedWeight =
+      user.userStats.currentWeight -
+      user.userStats.actualLossRate * user.userStats.timeToTarget.weeks;
   }
 
   calcProgressMade(
@@ -57,22 +84,9 @@ export class StatisticsService {
     // return progressMade
   }
 
-  calcLossRate(firstWeight: number, secondWeight: number) {
-    // actualLossRate = (startWeight - currentWeight) / timeFromStart
-    // expectedLossRate = (startWeight - targetWeight) / weeksTotarget
-    // return rate
-  }
-
   calcOntarget(expectedLossRate: number, actualLossRate: number) {
     // onTarget = expectedLossRate >= actualLossRate
     // return onTarget
-  }
-
-  calcTimeFromToday(today: _Date, later: _Date) {
-    //daysSinceToday = today - later
-    //weeksSinceToday = daysSinceDate / 7
-    // build time{days: daysSinceToday, weeks: weeksSinceToday}
-    // return time{}
   }
 
   calcChange(firstWeight: number, secondWeight: number) {

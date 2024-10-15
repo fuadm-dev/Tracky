@@ -39,7 +39,7 @@ export class UserService {
         month: 'May',
         year: 2024,
       },
-      weight: 107.2,
+      weight: 100,
     },
     record: {
       id: 1320,
