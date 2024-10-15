@@ -1,6 +1,9 @@
 import { Time } from "@angular/common";
+import { _Date } from "./_date";
 
 export class StatsClass {
+  height: number = 0;
+  startDate: _Date;
   startWeight: number = 0;
   currentWeight: number = 0;
   targetWeight: number = 0;
