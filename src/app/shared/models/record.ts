@@ -1,7 +1,7 @@
-import { Log } from './log';
+import { Weight } from './weight';
 
 export interface Record {
   id: number;
-  weightLogs: Log[];
+  weightLogs: Weight[];
   isHistory: boolean;
 }

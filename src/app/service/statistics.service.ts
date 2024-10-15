@@ -13,22 +13,14 @@ export class StatisticsService {
   constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): StatsClass {
-    this.setStartWeight(user);
-    this.setCurrentWeight(user);
-    this.setTargetWeight(user);
-    // this.calcPredictedWeight(user);
-    // this.calcChangeWeight(user);
-    // this.calcTime(user);
-    // this.calcProgress(user);
-    // this.calcOntarget(user);
-    // this.calcBmi(user);
-    // this.calcChangeBmi(user);
+    this.setStartWeight(user.start.weight);
+    this.setTargetWeight(user.target.weight);
 
     return this.stats;
   }
 
-  setStartWeight(user: User) {
-    this.stats.startWeight = user.start.weight;
+  setStartWeight(weight: number) {
+    this.stats.startWeight = weight;
   }
 
   setCurrentWeight(user: User) {
@@ -41,46 +33,49 @@ export class StatisticsService {
     }
   }
 
-  setTargetWeight(user: User) {
-    this.stats.targetWeight = user.target.weight;
+  setTargetWeight(weight: number) {
+    this.stats.targetWeight = weight;
   }
 
-  calcPredictedWeight(user: User) {
-    // predictedWeight = currentWeight - (lossRate * weeksLeft)
+  calcPredictedWeight(
+    currentWeight: number,
+    actualLossRate: number,
+    weeksTotarget: number
+  ) {
+    // predictedWeight = currentWeight - (actualLossRate * weeksTotarget)
+    // return predictedWeight
   }
 
-  calcProgressMade(user: User) {
+  calcProgressMade(
+    weightChange: number,
+    firstWeight: number,
+    secondWeight: number
+  ) {
     // % progressMade = weightChange / (startWeight - targetWeight) * 100
+    // return progressMade
   }
 
-  calcOntarget(user: User) {
-    // expectedLossRate = (startWeight - targetWeight) / targetTime
-    // onTarget = expectedLossRate >= actualLossRate
+  calcLossRate(firstWeight: number, secondWeight: number) {
+    // actualLossRate = (startWeight - currentWeight) / timeFromStart
+    // expectedLossRate = (startWeight - targetWeight) / weeksTotarget
+    // return rate
+  }
 
+  calcOntarget(expectedLossRate: number, actualLossRate: number) {
+    // onTarget = expectedLossRate >= actualLossRate
     // return onTarget
   }
 
   calcTimeFromToday(today: _Date, later: _Date) {
     //daysSinceToday = today - later
     //weeksSinceToday = daysSinceDate / 7
-
     // build time{days: daysSinceToday, weeks: weeksSinceToday}
-
     // return time{}
   }
 
-  calcLossRate(user: User) {
-    // actualLossRate = (startWeight - currentWeight) / weeksTotarget
-  }
-
-  calcChange(start: number, current: number) {
+  calcChange(firstWeight: number, secondWeight: number) {
     // changeWeight = startWeight - currentWeight
     // changeBmi = startBmi - currentBmi
-
     // return change
-  }
-
-  calcBmi(user: User) {
-    //
   }
 }

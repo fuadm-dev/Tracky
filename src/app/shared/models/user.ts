@@ -1,5 +1,5 @@
 import { Record } from './record';
-import { Log } from './log';
+import { Weight } from './weight';
 import { StatsClass } from './stats-class';
 
 export interface User {
@@ -10,9 +10,9 @@ export interface User {
   height: number;
   gender: string;
   dob: string;
-  start: Log;
-  current: Log;
-  target: Log;
+  start: Weight;
+  current: Weight;
+  target: Weight;
   record: Record;
   userStats: StatsClass;
   history: Record[];
