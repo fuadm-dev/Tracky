@@ -14,15 +14,18 @@ export class StatisticsService {
 
   buildStats(user: User): StatsClass {
     this.setStartWeight(user.start.weight);
+    this.setCurrentWeight(user);
     this.setTargetWeight(user.target.weight);
 
     return this.stats;
   }
 
+  // Set Start Weight
   setStartWeight(weight: number) {
     this.stats.startWeight = weight;
   }
 
+  // Set Current Weight
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
@@ -33,15 +36,14 @@ export class StatisticsService {
     }
   }
 
+  // Set Target Weight
   setTargetWeight(weight: number) {
     this.stats.targetWeight = weight;
   }
 
-  calcPredictedWeight(
-    currentWeight: number,
-    actualLossRate: number,
-    weeksTotarget: number
-  ) {
+  // Set Predicted Weight
+  calcPredictedWeight(user: User) {
+    user.userStats.
     // predictedWeight = currentWeight - (actualLossRate * weeksTotarget)
     // return predictedWeight
   }
