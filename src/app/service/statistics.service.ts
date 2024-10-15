@@ -11,7 +11,10 @@ import { CurrentDateService } from './current-date.service';
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
 
-  constructor(private bmiService: BmiService, private currentDate: CurrentDateService) {}
+  constructor(
+    private bmiService: BmiService,
+    private currentDate: CurrentDateService
+  ) {}
 
   buildStats(user: User): StatsClass {
     this.setStartWeight(user.start.weight);
@@ -49,13 +52,15 @@ export class StatisticsService {
 
   calcTimeFromToday(user: User) {
     //Set Time From Start Date To Today
-    user.userStats.timeFromStart.days
+    user.userStats.timeFromStart.days;
 
     //Set Total Time From Start Date To Target Date
-    user.userStats.totalTimeFrame
-    
+    user.userStats.totalTimeFrame.days =
+      user.userStats.targetWeight - user.userStats.startWeight;
+    user.userStats.totalTimeFrame.weeks = user.userStats.targetWeight / 7;
+
     //Set Total Time From Today To Target Date
-    user.userStats.currentTimeFrame
+    user.userStats.currentTimeFrame;
 
     //daysSinceToday = today - later
     //weeksSinceToday = daysSinceDate / 7
