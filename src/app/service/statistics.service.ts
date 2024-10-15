@@ -3,6 +3,7 @@ import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Date } from '../shared/models/_date';
+import { CurrentDateService } from './current-date.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { _Date } from '../shared/models/_date';
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
 
-  constructor(private bmiService: BmiService) {}
+  constructor(private bmiService: BmiService, private currentDate: CurrentDateService) {}
 
   buildStats(user: User): StatsClass {
     this.setStartWeight(user.start.weight);
@@ -47,8 +48,15 @@ export class StatisticsService {
   }
 
   calcTimeFromToday(user: User) {
-    //Set Time From Today
-    user.userStats.
+    //Set Time From Start Date To Today
+    user.userStats.timeFromStart.days
+
+    //Set Total Time From Start Date To Target Date
+    user.userStats.totalTimeFrame
+    
+    //Set Total Time From Today To Target Date
+    user.userStats.currentTimeFrame
+
     //daysSinceToday = today - later
     //weeksSinceToday = daysSinceDate / 7
     // build time{days: daysSinceToday, weeks: weeksSinceToday}

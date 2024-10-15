@@ -55,7 +55,7 @@ export class UserService {
       ],
       isHistory: false,
     },
-    userStats: new StatsClass,
+    userStats: new StatsClass(),
     history: [
       {
         id: 1321,
@@ -90,7 +90,7 @@ export class UserService {
 
   getUser(): User {
     this.user.userStats = this.statsService.buildStats(this.user);
-    console.log(this.user.userStats);
+    console.log(this.user.userStats);    
     return this.user;
   }
 }
