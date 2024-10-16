@@ -4,7 +4,6 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { IDate_ } from '../shared/models/_date';
 import { CurrentDateService } from './current-date.service';
-import { Weight } from '../shared/models/weight';
 
 @Injectable({
   providedIn: 'root',

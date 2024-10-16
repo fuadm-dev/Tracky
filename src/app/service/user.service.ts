@@ -24,6 +24,10 @@ export class UserService {
         year: 2024,
       },
       weight: 118.2,
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
     },
     current: {
       date: {
@@ -32,6 +36,10 @@ export class UserService {
         year: 2024,
       },
       weight: 107.2,
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
     },
     target: {
       date: {
@@ -40,6 +48,10 @@ export class UserService {
         year: 2024,
       },
       weight: 100,
+      bmi: {
+        bmi: 0,
+        bmiStatus: '',
+      },
     },
     record: {
       id: 1320,
@@ -51,6 +63,10 @@ export class UserService {
             year: 2024,
           },
           weight: 107.2,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
         },
       ],
       isHistory: false,
@@ -67,6 +83,10 @@ export class UserService {
               year: 2024,
             },
             weight: 107.2,
+            bmi: {
+              bmi: 0,
+              bmiStatus: '',
+            },
           },
         ],
         isHistory: false,
@@ -81,6 +101,10 @@ export class UserService {
               year: 2024,
             },
             weight: 107.2,
+            bmi: {
+              bmi: 0,
+              bmiStatus: '',
+            },
           },
         ],
         isHistory: false,

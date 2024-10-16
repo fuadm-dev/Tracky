@@ -6,6 +6,7 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root',
 })
+
 export class BmiService {
   user: User;
   constructor(private userService:UserService) {
