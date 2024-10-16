@@ -31,6 +31,12 @@ export class StatisticsService {
     this.setStartWeight(user.start.weight);
   }
 
+  // Set Target
+  setStart(user: User) {
+    this.setStartDate(user.start.date);
+    this.setStartWeight(user.start.weight);
+  }
+
   // Set start Date
   setStartDate(date: IDate_) {
     this.stats.startDate = date;

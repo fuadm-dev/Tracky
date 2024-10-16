@@ -6,6 +6,7 @@ export class StatsClass {
   startDate: IDate_;
   startWeight: number = 0;
   currentWeight: number = 0;
+  targetDate: IDate_;
   targetWeight: number = 0;
   predictedWeight: number = 0;
   expectedLossRate: number;
