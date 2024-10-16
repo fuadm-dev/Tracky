@@ -33,7 +33,7 @@ export class StatisticsService {
 
   // Set start Date
   setStartDate(date: IDate_) {
-    this.stats.startWeight = user.start.weight;
+    this.stats.startDate = date;
   }
 
   // Set Start Weight
