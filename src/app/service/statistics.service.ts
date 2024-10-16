@@ -77,15 +77,15 @@ export class StatisticsService {
 
   // Calculate Weightloss Rate
   calcLossRate(user: User) {
-    // Set Actual Weightloss Rate
+    // Actual Weightloss Rate
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
       user.userStats.expiredTime.weeks;
 
-    // Set Expected Weightloss Rate
-    user.userStats.expectedLossRate =
-      (user.userStats.startWeight - user.userStats.targetWeight) /
-      user.userStats.timeFromStart.weeks;
+    // Expected Weightloss Rate
+    user.userStats.lossRate.expected =
+      (user.userStats.start.weight - user.userStats.target.weight) /
+      user.userStats.expiredTime.weeks;
   }
 
   // Set Predicted Weight
