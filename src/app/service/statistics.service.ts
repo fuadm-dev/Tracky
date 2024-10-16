@@ -49,15 +49,7 @@ export class StatisticsService {
   calcTotalTime(user: User) {
     user.userStats.totalTime = new _Time(
       user.start.date.day,
-      user.start.date.day
-    );
-  }
-
-  // Calculate Times
-  calc  Time(user: User) {
-    user.userStats.totalTime = new _Time(
-      user.start.date.day,
-      user.start.date.day
+      user.target.date.day
     );
   }
 
@@ -81,24 +73,30 @@ export class StatisticsService {
 
   // Calculate Weightloss Rate
   calcLossRate(user: User) {
+    // Expected Weightloss Rate
+    user.userStats.lossRate.expected =
+      (user.userStats.start.weight - user.userStats.target.weight) /
+      user.userStats.totalTime.weeks;
+
     // Actual Weightloss Rate
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
       user.userStats.expiredTime.weeks;
 
-    // Expected Weightloss Rate
-    user.userStats.lossRate.expected =
-      (user.userStats.start.weight - user.userStats.target.weight) /
-      user.userStats.expiredTime.weeks;
   }
 
-  // Set Predicted Weight
+  // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
-    user.userStats.predictedWeight =
-      user.userStats.currentWeight -
-      user.userStats.actualLossRate * user.userStats.timeToTarget.weeks;
+    user.userStats.predicted.weight =
+      user.userStats.current.weight -
+      user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
+      // set predicted BMI
+      user.userStats.predicted.bmi = this.bmiService.getBmi(
+        user.userStats.predicted.weight
+      );
   }
 
+  // Calculate Progress Made
   calcProgressMade(
     weightChange: number,
     firstWeight: number,
