@@ -54,9 +54,10 @@ export class StatisticsService {
   calcStartBMI(weight: number, height: number) {
     this.stats.startWeight = weight;
   }
+
   // Calculate Start BMI Status
   calcStartBMIStatus(bmi: number) {
-    this.stats.startWeight = weight;
+    
   }
 
   // Set Targe Date

@@ -1,14 +1,12 @@
-import { IDate_ } from './_date';
 import { _Time } from './_time';
+import { Weight } from './weight';
 
 export class StatsClass {
   height: number = 0;
-  startDate: IDate_;
-  startWeight: number = 0;
-  currentWeight: number = 0;
-  targetDate: IDate_;
-  targetWeight: number = 0;
-  predictedWeight: number = 0;
+  start: Weight;
+  target: Weight;
+  current: Weight;
+  predicted: Weight;
   expectedLossRate: number;
   actualLossRate: number = 0;
   totalTimeFrame: _Time;
