@@ -1,26 +1,23 @@
 import { Injectable } from '@angular/core';
 import { IBmi } from '../shared/models/bmi';
 import { User } from '../shared/models/user';
-import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BmiService {
   user: User;
-  constructor(private userService: UserService) {
-    this.user = userService.getUser();
-  }
+  constructor() {}
 
-  getBmi(weight: number): IBmi {
+  getBmi(weight: number, hight: number): IBmi {
     let bmi: IBmi;
-    bmi.bmi = this.calcBmi(weight);
+    bmi.bmi = this.calcBmi(weight, hight);
     bmi.bmiStatus = this.calcBmiStatus(bmi.bmi);
     return bmi;
   }
 
-  calcBmi(weight: number): number {
-    const bmi = weight / Math.pow(this.user.height / 100, 2);
+  calcBmi(weight: number, height: number): number {
+    const bmi = weight / Math.pow(height / 100, 2);
     return Math.round(bmi * 10) / 10;
   }
 

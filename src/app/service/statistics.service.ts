@@ -10,9 +10,7 @@ import { _Time } from '../shared/models/_time';
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
 
-  constructor(
-    private bmiService: BmiService,
-  ) {}
+  constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): StatsClass {
     return user.userStats;
@@ -22,7 +20,7 @@ export class StatisticsService {
   setStartStats(user: User) {
     user.userStats.start = user.start;
     user.userStats.start.bmi = this.bmiService.getBmi(
-      user.userStats.start.weight
+      user.userStats.start.weight, user.height
     );
   }
 
@@ -30,7 +28,7 @@ export class StatisticsService {
   setTarget(user: User) {
     user.userStats.target = user.target;
     user.userStats.target.bmi = this.bmiService.getBmi(
-      user.userStats.target.weight
+      user.userStats.target.weight, user.height
     );
   }
 
@@ -39,13 +37,14 @@ export class StatisticsService {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
       user.userStats.current.bmi = this.bmiService.getBmi(
-      user.userStats.current.weight)
+        user.userStats.current.weight, user.height
+      );
     } else {
       user.current = user.start;
     }
   }
 
-  // Calculate Times
+  // Calculate Total Time
   calcTotalTime(user: User) {
     user.userStats.totalTime = new _Time(
       user.start.date.day,
@@ -55,16 +54,8 @@ export class StatisticsService {
 
   calcTimeFromToday(user: User) {
     //Set Time From Start Date To Today
-    user.userStats.timeFromStart.days;
-
     //Set Total Time From Start Date To Target Date
-    user.userStats.totalTimeFrame.days =
-      user.userStats.targetWeight - user.userStats.startWeight;
-    user.userStats.totalTimeFrame.weeks = user.userStats.targetWeight / 7;
-
     //Set Total Time From Today To Target Date
-    user.userStats.currentTimeFrame;
-
     //daysSinceToday = today - later
     //weeksSinceToday = daysSinceDate / 7
     // build time{days: daysSinceToday, weeks: weeksSinceToday}
@@ -82,7 +73,6 @@ export class StatisticsService {
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
       user.userStats.expiredTime.weeks;
-
   }
 
   // Calculate Predicted Weight
@@ -90,11 +80,14 @@ export class StatisticsService {
     user.userStats.predicted.weight =
       user.userStats.current.weight -
       user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
-      // set predicted BMI
-      user.userStats.predicted.bmi = this.bmiService.getBmi(
-        user.userStats.predicted.weight
-      );
+    // set predicted BMI
+    user.userStats.predicted.bmi = this.bmiService.getBmi(
+      user.userStats.predicted.weight, user.height
+    );
   }
+
+  // Calculate Weight & BMI Change
+  calcWeightChange() {}
 
   // Calculate Progress Made
   calcProgressMade(
