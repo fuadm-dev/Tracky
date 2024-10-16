@@ -4,6 +4,7 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { IDate_ } from '../shared/models/_date';
 import { CurrentDateService } from './current-date.service';
+import { Weight } from '../shared/models/weight';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class StatisticsService {
   buildStats(user: User): StatsClass {
     this.setStartWeight(user.start.weight);
     this.setCurrentWeight(user);
-    this.setTargetWeight(user.target.weight);
+    this.setTargetWeight(user);
     this.setStart(user);
     // this.calcPredictedWeight(user);
     return this.stats;
@@ -32,10 +33,12 @@ export class StatisticsService {
   }
 
   // Set Target
-  setStart(user: User) {
-    this.setStartDate(user.start.date);
-    this.setStartWeight(user.start.weight);
+  setTarget(user: User) {
+    this.setTargetDate(user.start.date);
+    this.setTargetWeight(user);
   }
+
+
 
   // Set start Date
   setStartDate(date: IDate_) {
@@ -47,6 +50,25 @@ export class StatisticsService {
     this.stats.startWeight = weight;
   }
 
+  // Calculate Start BMI
+  calcStartBMI(weight: number, height: number) {
+    this.stats.startWeight = weight;
+  }
+  // Calculate Start BMI Status
+  calcStartBMIStatus(bmi: number) {
+    this.stats.startWeight = weight;
+  }
+
+  // Set Targe Date
+  setTargetDate(date: IDate_) {
+    this.stats.startDate = date;
+  }
+
+  // Set Target Weight
+  setTargetWeight(user: User) {
+    this.stats.targetWeight = user.target.weight;
+  }
+
   // Set Current Weight
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length > 0) {
@@ -56,11 +78,6 @@ export class StatisticsService {
       user.current = user.start;
       this.stats.currentWeight = user.current.weight;
     }
-  }
-
-  // Set Target Weight
-  setTargetWeight(weight: number) {
-    this.stats.targetWeight = weight;
   }
 
   // Calculate Time From Start Date
