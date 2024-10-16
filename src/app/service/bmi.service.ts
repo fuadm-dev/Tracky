@@ -6,7 +6,6 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root',
 })
-
 export class BmiService {
   user: User;
   constructor(private userService: UserService) {
@@ -35,9 +34,11 @@ export class BmiService {
         return 'healthy';
       } else if (bmi >= 25 && bmi <= 29.9) {
         return 'overweight';
-      } else if (bmi >= 30 && bmi <= 39.9) {
-        return 'obese';
-      } else return 'very obese';
+      } else if (bmi >= 30 && bmi <= 35) {
+        return 'class 1 obese';
+      } else if (bmi >= 35 && bmi <= 40) {
+        return 'class 2 obese';
+      } else return 'class 3 obese';
     }
     return '';
   }

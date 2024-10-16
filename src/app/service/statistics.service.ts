@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
-import { IDate_ } from '../shared/models/_date';
-import { CurrentDateService } from './current-date.service';
-import { Weight } from '../shared/models/weight';
 import { _Time } from '../shared/models/_time';
 
 @Injectable({
@@ -15,11 +12,10 @@ export class StatisticsService {
 
   constructor(
     private bmiService: BmiService,
-    private currentDate: CurrentDateService
   ) {}
 
   buildStats(user: User): StatsClass {
-    return this.stats;
+    return user.userStats;
   }
 
   // Set StartStats
@@ -50,7 +46,15 @@ export class StatisticsService {
   }
 
   // Calculate Times
-  calcTimeFromStartDate(user: User) {
+  calcTotalTime(user: User) {
+    user.userStats.totalTime = new _Time(
+      user.start.date.day,
+      user.start.date.day
+    );
+  }
+
+  // Calculate Times
+  calc  Time(user: User) {
     user.userStats.totalTime = new _Time(
       user.start.date.day,
       user.start.date.day
