@@ -90,7 +90,8 @@ export class UserService {
 
   getUser(): User {
     this.user.userStats = this.statsService.buildStats(this.user);
-    console.log(this.user.userStats);    
+    console.log(this.user);
+    // console.log(this.user.userStats);
     return this.user;
   }
 }

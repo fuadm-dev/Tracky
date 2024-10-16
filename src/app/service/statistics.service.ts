@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
-import { _Date } from '../shared/models/_date';
+import { IDate_ } from '../shared/models/_date';
 import { CurrentDateService } from './current-date.service';
 
 @Injectable({
@@ -20,8 +20,20 @@ export class StatisticsService {
     this.setStartWeight(user.start.weight);
     this.setCurrentWeight(user);
     this.setTargetWeight(user.target.weight);
+    this.setStart(user);
     // this.calcPredictedWeight(user);
     return this.stats;
+  }
+
+  // Set Start
+  setStart(user: User) {
+    this.setStartDate(user.start.date);
+    this.setStartWeight(user.start.weight);
+  }
+
+  // Set start Date
+  setStartDate(date: IDate_) {
+    this.stats.startWeight = user.start.weight;
   }
 
   // Set Start Weight

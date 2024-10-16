@@ -1,9 +1,9 @@
-import { _Date } from "./_date";
-import { _Time } from "./_time";
+import { IDate_ } from './_date';
+import { _Time } from './_time';
 
 export class StatsClass {
   height: number = 0;
-  startDate: _Date;
+  startDate: IDate_;
   startWeight: number = 0;
   currentWeight: number = 0;
   targetWeight: number = 0;

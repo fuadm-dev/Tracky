@@ -1,5 +1,5 @@
-export interface _Date {
-  day: number,
-  month: string,
-  year: number,
+export interface IDate_ {
+  day: number;
+  month: string;
+  year: number;
 }

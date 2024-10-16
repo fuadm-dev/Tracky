@@ -1,4 +1,4 @@
-export interface Bmi {
+export interface IBmi {
   bmi: number;
   bmiStatus: string;
 }

@@ -1,6 +1,11 @@
-import { _Date } from "./_date";
+import { IDate_ } from './_date';
 
-export interface Weight {
-  date: _Date
-  weight: number;
+export class Weight {
+  date: IDate_;
+  weight: number = 0;
+
+  constructor(date: IDate_, weight: number) {
+    this.date = date;
+    this.weight = weight;
+  }
 }
