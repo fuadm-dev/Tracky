@@ -5,6 +5,7 @@ import { StatsClass } from '../shared/models/stats-class';
 import { IDate_ } from '../shared/models/_date';
 import { CurrentDateService } from './current-date.service';
 import { Weight } from '../shared/models/weight';
+import { _Time } from '../shared/models/_time';
 
 @Injectable({
   providedIn: 'root',
@@ -18,58 +19,42 @@ export class StatisticsService {
   ) {}
 
   buildStats(user: User): StatsClass {
-    this.setStartWeight(user.start.weight);
-    this.setCurrentWeight(user);
-    this.setTargetWeight(user);
-    this.setStart(user);
-    // this.calcPredictedWeight(user);
     return this.stats;
   }
 
   // Set StartStats
   setStartStats(user: User) {
     user.userStats.start = user.start;
+    user.userStats.start.bmi = this.bmiService.getBmi(
+      user.userStats.start.weight
+    );
   }
 
   // Set TargetStats
   setTarget(user: User) {
     user.userStats.target = user.target;
+    user.userStats.target.bmi = this.bmiService.getBmi(
+      user.userStats.target.weight
+    );
   }
 
-
-  // Calculate BMI
-  calcBmi(weight: number, height: number) {
-  }
-
-  // Calculate Start BMI Status
-  calcStartBMIStatus(bmi: number) {
-    
-  }
-
-  // Set Targe Date
-  setTargetDate(date: IDate_) {
-    this.stats.startDate = date;
-  }
-
-  // Set Target Weight
-  setTargetWeight(user: User) {
-    this.stats.targetWeight = user.target.weight;
-  }
-
-  // Set Current Weight
+  // Set CurrentStats
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
-      this.stats.currentWeight = user.current.weight;
+      user.userStats.current.bmi = this.bmiService.getBmi(
+      user.userStats.current.weight)
     } else {
       user.current = user.start;
-      this.stats.currentWeight = user.current.weight;
     }
   }
 
-  // Calculate Time From Start Date
-  calcTimeFromStartDate(weight: number) {
-    this.stats.targetWeight = weight;
+  // Calculate Times
+  calcTimeFromStartDate(user: User) {
+    user.userStats.totalTime = new _Time(
+      user.start.date.day,
+      user.start.date.day
+    );
   }
 
   calcTimeFromToday(user: User) {
@@ -93,9 +78,9 @@ export class StatisticsService {
   // Calculate Weightloss Rate
   calcLossRate(user: User) {
     // Set Actual Weightloss Rate
-    user.userStats.actualLossRate =
-      (user.userStats.startWeight - user.userStats.currentWeight) /
-      user.userStats.timeFromStart.weeks;
+    user.userStats.lossRate.actual =
+      (user.userStats.start.weight - user.userStats.current.weight) /
+      user.userStats.expiredTime.weeks;
 
     // Set Expected Weightloss Rate
     user.userStats.expectedLossRate =

@@ -9,7 +9,7 @@ import { UserService } from './user.service';
 
 export class BmiService {
   user: User;
-  constructor(private userService:UserService) {
+  constructor(private userService: UserService) {
     this.user = userService.getUser();
   }
 
@@ -17,7 +17,6 @@ export class BmiService {
     let bmi: IBmi;
     bmi.bmi = this.calcBmi(weight);
     bmi.bmiStatus = this.calcBmiStatus(bmi.bmi);
-
     return bmi;
   }
 
