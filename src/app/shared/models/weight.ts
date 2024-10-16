@@ -5,5 +5,4 @@ export class Weight {
   date: IDate_;
   weight: number = 0;
   bmi: IBmi;
-
 }

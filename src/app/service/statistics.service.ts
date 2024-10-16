@@ -4,6 +4,7 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { IDate_ } from '../shared/models/_date';
 import { CurrentDateService } from './current-date.service';
+import { Weight } from '../shared/models/weight';
 
 @Injectable({
   providedIn: 'root',
@@ -25,33 +26,19 @@ export class StatisticsService {
     return this.stats;
   }
 
-  // Set Start
-  setStart(user: User) {
-    this.setStartDate(user.start.date);
-    this.setStartWeight(user.start.weight);
+  // Set StartStats
+  setStartStats(user: User) {
+    user.userStats.start = user.start;
   }
 
-  // Set Target
+  // Set TargetStats
   setTarget(user: User) {
-    this.setTargetDate(user.start.date);
-    this.setTargetWeight(user);
+    user.userStats.target = user.target;
   }
 
 
-
-  // Set start Date
-  setStartDate(date: IDate_) {
-    this.stats.startDate = date;
-  }
-
-  // Set Start Weight
-  setStartWeight(weight: number) {
-    this.stats.startWeight = weight;
-  }
-
-  // Calculate Start BMI
-  calcStartBMI(weight: number, height: number) {
-    this.stats.startWeight = weight;
+  // Calculate BMI
+  calcBmi(weight: number, height: number) {
   }
 
   // Calculate Start BMI Status
