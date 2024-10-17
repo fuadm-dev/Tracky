@@ -13,14 +13,22 @@ export class StatisticsService {
   constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): StatsClass {
+    this.setUserHeight(user);
     this.setStartStats(user);
-    this.setTarget(user);
     this.setCurrentWeight(user);
+    this.setTarget(user);
     this.calcChange(user);
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
+    this.calcOntarget(user);
+    this.calcLossRate(user);
 
     return user.userStats;
+  }
+
+  //Set Height
+  setUserHeight(user: User){
+    user.userStats.height = user.height;
   }
 
   // Set StartStats
@@ -127,4 +135,5 @@ export class StatisticsService {
     user.userStats.onTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
   }
+
 }
