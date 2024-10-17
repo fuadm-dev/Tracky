@@ -18,6 +18,7 @@ export class StatisticsService {
     this.setCurrentWeight(user);
     this.calcChange(user);
     this.calcPredictedWeight(user);
+    this.calcProgressMade(user);
 
     return user.userStats;
   }
@@ -116,10 +117,11 @@ export class StatisticsService {
 
   // Calculate Progress Made
   calcProgressMade(user: User) {
-    user.userStats.pctProgress =
+    user.userStats.pctProgress = Math.ceil(
       (user.userStats.change.weightChange /
         (user.userStats.start.weight - user.userStats.target.weight)) *
-      100;
+        100
+    );
   }
 
   // Calculate Ontarget
