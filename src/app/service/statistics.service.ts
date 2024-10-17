@@ -117,11 +117,9 @@ export class StatisticsService {
 
   // Calculate Progress Made
   calcProgressMade(user: User) {
-    user.userStats.pctProgress = Math.ceil(
-      (user.userStats.change.weightChange /
+    user.userStats.pctProgress = Math.ceil((      (user.userStats.change.weightChange /
         (user.userStats.start.weight - user.userStats.target.weight)) *
-        100
-    );
+      100))
   }
 
   // Calculate Ontarget
