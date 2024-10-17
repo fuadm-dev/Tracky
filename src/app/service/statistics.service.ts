@@ -14,7 +14,9 @@ export class StatisticsService {
 
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
-
+    this.setTarget(user);
+    this.setCurrentWeight(user);
+    this.calcChange(user);
 
     return user.userStats;
   }
@@ -39,16 +41,22 @@ export class StatisticsService {
 
   // Set CurrentStats
   setCurrentWeight(user: User) {
-    if (user.record.weightLogs.length > 0) {
+    if (user.record.weightLogs.length == 0) {
+      user.current = user.start;
+      user.userStats.current = user.start;
+    } else {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
+      user.userStats.current = user.current;
       user.userStats.current.bmi = this.bmiService.getBmi(
         user.userStats.current.weight,
         user.height
       );
-    } else {
-      user.current = user.start;
     }
   }
+
+  /* 
+  ---- Figure Out Times ---------------
+  */
 
   // Calculate Total Time
   calcTotalTime(user: User) {
@@ -97,22 +105,28 @@ export class StatisticsService {
   calcChange(user: User) {
     // calc Weight change
     user.userStats.weightChange =
-      user.userStats.start.weight - user.userStats.current.weight;
-
+      Math.ceil(
+        (user.userStats.start.weight - user.userStats.current.weight) * 10
+      ) / 10;
+  
     // calc BMI change
     user.userStats.bmiChange =
-      user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi;
+      Math.ceil(
+        (user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi) * 10
+      ) / 10;
   }
 
   // Calculate Progress Made
   calcProgressMade(user: User) {
-    user.userStats.pctProgress = user.userStats.weightChange / (user.userStats.start.weight - user.userStats.target.weight) * 100;
+    user.userStats.pctProgress =
+      (user.userStats.weightChange /
+        (user.userStats.start.weight - user.userStats.target.weight)) *
+      100;
   }
-  
+
   // Calculate Ontarget
   calcOntarget(user: User) {
     user.userStats.onTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
   }
-
 }
