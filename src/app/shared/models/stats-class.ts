@@ -8,7 +8,7 @@ export class StatsClass {
   start: Weight;
   target: Weight;
   current: Weight;
-  predicted: Weight;
+  predicted: Weight = new Weight();
   lossRate: ILossRate = {expected: 0, actual: 0};
   totalTime: _Time;
   remainingTime: _Time = new _Time();
