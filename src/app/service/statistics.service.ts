@@ -13,6 +13,9 @@ export class StatisticsService {
   constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): StatsClass {
+    this.setStartStats(user);
+
+
     return user.userStats;
   }
 
@@ -20,7 +23,8 @@ export class StatisticsService {
   setStartStats(user: User) {
     user.userStats.start = user.start;
     user.userStats.start.bmi = this.bmiService.getBmi(
-      user.userStats.start.weight, user.height
+      user.userStats.start.weight,
+      user.height
     );
   }
 
@@ -28,7 +32,8 @@ export class StatisticsService {
   setTarget(user: User) {
     user.userStats.target = user.target;
     user.userStats.target.bmi = this.bmiService.getBmi(
-      user.userStats.target.weight, user.height
+      user.userStats.target.weight,
+      user.height
     );
   }
 
@@ -37,7 +42,8 @@ export class StatisticsService {
     if (user.record.weightLogs.length > 0) {
       user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
       user.userStats.current.bmi = this.bmiService.getBmi(
-        user.userStats.current.weight, user.height
+        user.userStats.current.weight,
+        user.height
       );
     } else {
       user.current = user.start;
@@ -82,31 +88,31 @@ export class StatisticsService {
       user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(
-      user.userStats.predicted.weight, user.height
+      user.userStats.predicted.weight,
+      user.height
     );
   }
 
-  // Calculate Weight & BMI Change
-  calcWeightChange() {}
+  // Calculate Changes
+  calcChange(user: User) {
+    // calc Weight change
+    user.userStats.weightChange =
+      user.userStats.start.weight - user.userStats.current.weight;
+
+    // calc BMI change
+    user.userStats.bmiChange =
+      user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi;
+  }
 
   // Calculate Progress Made
-  calcProgressMade(
-    weightChange: number,
-    firstWeight: number,
-    secondWeight: number
-  ) {
-    // % progressMade = weightChange / (startWeight - targetWeight) * 100
-    // return progressMade
+  calcProgressMade(user: User) {
+    user.userStats.pctProgress = user.userStats.weightChange / (user.userStats.start.weight - user.userStats.target.weight) * 100;
+  }
+  
+  // Calculate Ontarget
+  calcOntarget(user: User) {
+    user.userStats.onTarget =
+      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
   }
 
-  calcOntarget(expectedLossRate: number, actualLossRate: number) {
-    // onTarget = expectedLossRate >= actualLossRate
-    // return onTarget
-  }
-
-  calcChange(firstWeight: number, secondWeight: number) {
-    // changeWeight = startWeight - currentWeight
-    // changeBmi = startBmi - currentBmi
-    // return change
-  }
 }

@@ -10,7 +10,11 @@ export class BmiService {
   constructor() {}
 
   getBmi(weight: number, hight: number): IBmi {
-    let bmi: IBmi;
+    let bmi: IBmi = {
+      bmi: 0,
+      bmiStatus: ''
+    };
+    
     bmi.bmi = this.calcBmi(weight, hight);
     bmi.bmiStatus = this.calcBmiStatus(bmi.bmi);
     return bmi;
