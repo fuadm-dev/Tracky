@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 import { StatisticsService } from './statistics.service';
 import { StatsClass } from '../shared/models/stats-class';
+import { Change } from '../shared/models/change';
 
 @Injectable({
   providedIn: 'root',
@@ -53,6 +54,7 @@ export class UserService {
         bmiStatus: '',
       },
     },
+    change: new Change(),
     record: {
       id: 1320,
       weightLogs: [

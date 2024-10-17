@@ -17,6 +17,7 @@ export class StatisticsService {
     this.setTarget(user);
     this.setCurrentWeight(user);
     this.calcChange(user);
+    this.calcPredictedWeight(user);
 
     return user.userStats;
   }
@@ -60,10 +61,7 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    user.userStats.totalTime = new _Time(
-      user.start.date.day,
-      user.target.date.day
-    );
+    
   }
 
   calcTimeFromToday(user: User) {
@@ -104,13 +102,13 @@ export class StatisticsService {
   // Calculate Changes
   calcChange(user: User) {
     // calc Weight change
-    user.userStats.weightChange =
+    user.userStats.change.weightChange =
       Math.ceil(
         (user.userStats.start.weight - user.userStats.current.weight) * 10
       ) / 10;
-  
+
     // calc BMI change
-    user.userStats.bmiChange =
+    user.userStats.change.bmiChange =
       Math.ceil(
         (user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi) * 10
       ) / 10;
@@ -119,7 +117,7 @@ export class StatisticsService {
   // Calculate Progress Made
   calcProgressMade(user: User) {
     user.userStats.pctProgress =
-      (user.userStats.weightChange /
+      (user.userStats.change.weightChange /
         (user.userStats.start.weight - user.userStats.target.weight)) *
       100;
   }
