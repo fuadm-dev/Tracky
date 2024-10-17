@@ -13,15 +13,15 @@ export class StatisticsService {
   constructor(private bmiService: BmiService) {}
 
   buildStats(user: User): StatsClass {
-    this.setUserHeight(user);
     this.setStartStats(user);
+    // this.calcLossRate(user); //
+    this.setUserHeight(user);
     this.setCurrentWeight(user);
     this.setTarget(user);
     this.calcChange(user);
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
     this.calcOntarget(user);
-    this.calcLossRate(user);
 
     return user.userStats;
   }
@@ -70,7 +70,7 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    
+    // user.userStats.totalTime = 
   }
 
   calcTimeFromToday(user: User) {
