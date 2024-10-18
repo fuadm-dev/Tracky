@@ -74,7 +74,10 @@ export class StatisticsService {
   calcTotalTime(user: User) {
     let dob = new Date(1980, 0, 15);
     let today = new Date();
-    console.log(today.getFullYear() - dob.getFullYear());
+    console.log(
+      user.target.date.getFullYear() -
+        user.start.date.getFullYear()
+    );
   }
 
   calcTimeFromToday(user: User) {

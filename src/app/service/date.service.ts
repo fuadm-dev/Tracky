@@ -1,21 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'calendar',
-  templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css'],
+@Injectable({
+  providedIn: 'root',
 })
-export class CalendarComponent implements OnInit {
-  @Input() date: Date;
-  day: number;
-  month: string;
-  year: number;
-
-  ngOnInit(): void {
-    this.setDate(this.date);
-  }
+export class DateService {
+  constructor() {}
 
   setDate(date: Date) {
+    date: Date;
     const monthNames = [
       'January',
       'February',

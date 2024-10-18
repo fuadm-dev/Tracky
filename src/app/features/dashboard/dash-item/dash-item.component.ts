@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
-import { IDate_ } from 'src/app/shared/models/_date';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 
@@ -13,7 +12,7 @@ export class DashItemComponent {
   title: string = 'Start';
   @Input() weight: number;
   @Input() height: number;
-  @Input() date: IDate_;
+  @Input() date: Date;
   calendar: boolean;
   bmiComponent: boolean;
   user: User;

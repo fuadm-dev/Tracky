@@ -19,7 +19,7 @@ export class UserService {
     gender: 'male',
     dob: '15/01/1980',
     start: {
-      date: new Date(202),
+      date: new Date(2024, 6, 1),
       weight: 108.2,
       bmi: {
         bmi: 0,
@@ -27,11 +27,7 @@ export class UserService {
       },
     },
     current: {
-      date: {
-        day: 30,
-        month: 'May',
-        year: 2024,
-      },
+      date: new Date(),
       weight: 107.2,
       bmi: {
         bmi: 0,
@@ -39,11 +35,7 @@ export class UserService {
       },
     },
     target: {
-      date: {
-        day: 30,
-        month: 'May',
-        year: 2024,
-      },
+      date: new Date(2025, 0, 1),
       weight: 100,
       bmi: {
         bmi: 0,
@@ -55,11 +47,7 @@ export class UserService {
       id: 1320,
       weightLogs: [
         {
-          date: {
-            day: 30,
-            month: 'May',
-            year: 2024,
-          },
+          date: new Date(2024, 9, 18),
           weight: 119.2,
           bmi: {
             bmi: 0,
@@ -75,11 +63,7 @@ export class UserService {
         id: 1321,
         weightLogs: [
           {
-            date: {
-              day: 30,
-              month: 'May',
-              year: 2024,
-            },
+            date: new Date(2024, 9, 18),
             weight: 107.2,
             bmi: {
               bmi: 0,
@@ -93,11 +77,7 @@ export class UserService {
         id: 1322,
         weightLogs: [
           {
-            date: {
-              day: 30,
-              month: 'May',
-              year: 2024,
-            },
+            date: new Date(2024, 9, 18),
             weight: 107.2,
             bmi: {
               bmi: 0,
