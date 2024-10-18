@@ -27,7 +27,7 @@ export class StatisticsService {
   }
 
   //Set Height
-  setUserHeight(user: User){
+  setUserHeight(user: User) {
     user.userStats.height = user.height;
   }
 
@@ -66,11 +66,12 @@ export class StatisticsService {
 
   /* 
   ---- Figure Out Times ---------------
+  ---- Add current date ---------------
   */
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    // user.userStats.totalTime = 
+    // user.userStats.totalTime =
   }
 
   calcTimeFromToday(user: User) {
@@ -125,9 +126,11 @@ export class StatisticsService {
 
   // Calculate Progress Made
   calcProgressMade(user: User) {
-    user.userStats.pctProgress = Math.ceil((      (user.userStats.change.weightChange /
+    user.userStats.pctProgress = Math.ceil(
+      (user.userStats.change.weightChange /
         (user.userStats.start.weight - user.userStats.target.weight)) *
-      100))
+        100
+    );
   }
 
   // Calculate Ontarget
@@ -135,5 +138,4 @@ export class StatisticsService {
     user.userStats.onTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
   }
-
 }

@@ -10,15 +10,15 @@
     <main class="center-y mt-4">
       <!-- Input -->
       <section class="section">
-        <data-input></data-input>
+        <data-input [user]="user"></data-input>
       </section>
       <!-- Dashboard -->
       <section class="section">
-        <app-dashboard></app-dashboard>
+        <app-dashboard [user]="user"></app-dashboard>
       </section>
       <!-- Table -->
       <section class="section">
-        <data-table></data-table>
+        <data-table [user]="user"></data-table>
       </section>
     </main>
   </div>

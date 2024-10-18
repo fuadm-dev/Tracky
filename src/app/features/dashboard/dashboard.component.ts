@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { Input, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { StatsClass } from 'src/app/shared/models/stats-class';
@@ -10,13 +10,13 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  user: User;
+  @Input() user: User;
   userStats: StatsClass;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    // this.user = this.userService.getUser();
     this.userStats = this.userService.getUser().userStats;
     console.log(this.user);
     console.log(this.user.userStats);
