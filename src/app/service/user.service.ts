@@ -19,11 +19,7 @@ export class UserService {
     gender: 'male',
     dob: '15/01/1980',
     start: {
-      date: {
-        day: 30,
-        month: 'May',
-        year: 2024,
-      },
+      date: new Date(202),
       weight: 108.2,
       bmi: {
         bmi: 0,

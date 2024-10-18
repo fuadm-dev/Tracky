@@ -14,6 +14,7 @@ export class StatisticsService {
 
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
+    this.calcTotalTime(user);
     // this.calcLossRate(user); //
     this.setUserHeight(user);
     this.setCurrentWeight(user);
@@ -71,7 +72,9 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    // user.userStats.totalTime =
+    let dob = new Date(1980, 0, 15);
+    let today = new Date();
+    console.log(today.getFullYear() - dob.getFullYear());
   }
 
   calcTimeFromToday(user: User) {
