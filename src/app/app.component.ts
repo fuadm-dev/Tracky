@@ -8,11 +8,20 @@ import { User } from './shared/models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  user: User
-  title = 'WeightTracker';
+  user: User;
+  onTarget: string;
   constructor(private userService: UserService) {}
   ngOnInit(): void {
-    this.user = this.userService.getUser()
+    this.user = this.userService.getUser();
+    this.setOnTarget();
+  }
+  
+  setOnTarget(){
+    let onTarget = this.user.userStats.onTarget;
+    if (onTarget) {
+      this.onTarget = 'On Target!';
+    } else
+    this.onTarget = 'Off Target!';
   }
 
 }
