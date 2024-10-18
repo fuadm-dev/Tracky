@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dash-item.component.css'],
 })
 export class DashItemComponent {
-  @Input() title: string;
+  title: string = 'Start';
   @Input() weight: number;
   @Input() height: number;
   @Input() date: IDate_;
