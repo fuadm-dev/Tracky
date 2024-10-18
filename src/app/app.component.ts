@@ -9,7 +9,8 @@ import { User } from './shared/models/user';
 })
 export class AppComponent implements OnInit {
   user: User;
-  onTarget: string;
+  onTarget: boolean;
+  onTargetMessage: string;
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.user = this.userService.getUser();
@@ -18,10 +19,11 @@ export class AppComponent implements OnInit {
   
   setOnTarget(){
     let onTarget = this.user.userStats.onTarget;
+    this.onTarget = onTarget;
     if (onTarget) {
-      this.onTarget = 'On Target!';
+      this.onTargetMessage = 'On Target!';
     } else
-    this.onTarget = 'Off Target!';
+    this.onTargetMessage = 'Off Target!';
   }
 
 }

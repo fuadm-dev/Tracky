@@ -64,7 +64,7 @@ export class UserService {
             month: 'May',
             year: 2024,
           },
-          weight: 107.2,
+          weight: 119.2,
           bmi: {
             bmi: 0,
             bmiStatus: '',
