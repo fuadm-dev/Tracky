@@ -12,7 +12,10 @@ import { ElapsedTime } from '../shared/models/elapsed-time';
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
 
-  constructor(private bmiService: BmiService, private dateService: DateService) {}
+  constructor(
+    private bmiService: BmiService,
+    private dateService: DateService
+  ) {}
 
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
@@ -75,7 +78,6 @@ export class StatisticsService {
   // Calculate Total Time
   calcTotalTime(user: User) {
     console.log(user.userStats.target.date);
-    
   }
 
   calcTimeFromToday(user: User) {
