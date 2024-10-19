@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IDate_ } from '../shared/models/_date';
+import { ElapsedTime } from '../shared/models/elapsed-time';
 
 @Injectable({
   providedIn: 'root',
@@ -41,15 +42,19 @@ export class DateService {
   }
 
   setCurrentDate(): string {
-    this.calcElapsedTime();
+    // this.calcElapsedTime();
     return new Date().toLocaleDateString();
   }
 
-  calcElapsedTime(){
-    console.log(this.d1);
-    console.log(this.d2);
-    console.log('Years' +  Math.floor(this.tmeDiff / 86400000)/365);
-    console.log('Months' +  Math.floor(this.tmeDiff / 86400000 / 365) * 12);
-    console.log('Weeks' +  Math.floor((this.tmeDiff / 86400000 / 365) * 12) * 7);
+  calcElapsedTime(startTime:any, endTime: Date){
+    const elapsed: ElapsedTime = new ElapsedTime();
+    elapsed.days = Math.floor(this.tmeDiff / 86400000);
+    elapsed.weeks = Math.floor((this.tmeDiff / 86400000 / 365) * 12) * 7;
+    elapsed.months = Math.floor(this.tmeDiff / 86400000 / 365) * 12;
+    elapsed.years =
+      Math.round((Math.floor(this.tmeDiff / 86400000) / 365) * 10) / 10;
+
+    console.log(elapsed);
+    
   }
 }
