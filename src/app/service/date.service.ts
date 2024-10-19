@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { IDate_ } from '../shared/models/_date';
 import { ElapsedTime } from '../shared/models/elapsed-time';
+import { first } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DateService {
-  d1:any = new Date(1980, 0, 15);
-  d2:Date = new Date();
+  d1: any = new Date(1980, 0, 15);
+  d2: Date = new Date();
 
   constructor() {}
 
@@ -43,17 +44,24 @@ export class DateService {
     this.calcElapsedTime(this.d1, this.d2);
     return new Date().toLocaleDateString();
   }
- 
-  calcElapsedTime(startTime:Date, endTime: Date){
-    const difference = endTime.getTime() - startTime.getTime();
+
+  calcElapsedTime(laterDate: Date, earlierDate: Date) {
+    const mSecondsInDay: number = 24 * 60 * 60 * 1000;
+    const diffMs: number = Math.abs(
+      earlierDate.getTime() - laterDate.getTime()
+    );
+
+    const difference = Math.round(
+      Math.abs((laterDate.getTime() - earlierDate.getTime()) / mSecondsInDay)
+    );
     const timeElapsed: ElapsedTime = new ElapsedTime();
-    timeElapsed.days = Math.floor(difference / (1000 * 3600 * 24));
-    timeElapsed.weeks = Math.floor((difference / (1000 * 3600 * 24) / 365) * 12) * 7;
-    timeElapsed.months = Math.floor(difference / (1000 * 3600 * 24) / 365) * 12;
+    timeElapsed.days = Math.round(diffMs / mSecondsInDay);
+    timeElapsed.weeks = Math.round(timeElapsed.days / 7);
+    timeElapsed.months = Math.round(difference / mSecondsInDay / 365) * 12;
     timeElapsed.years =
-      Math.round((Math.floor(difference / (1000 * 3600 * 24)) / 365) * 10) / 10;
- 
-    return timeElapsed;
+      Math.round((Math.round(difference / mSecondsInDay) / 365) * 10) / 10;
     
+    console.log(timeElapsed);
+    return timeElapsed;
   }
 }

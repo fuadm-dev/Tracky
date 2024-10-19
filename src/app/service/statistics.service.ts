@@ -78,9 +78,9 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    let et = this.dateService.calcElapsedTime(user.start.date, user.userStats.target.date);
-    
-    console.log(et);
+    let et = this.dateService.calcElapsedTime(user.target.date, user.userStats.start.date);
+
+    // console.log(et);
     
   }
 

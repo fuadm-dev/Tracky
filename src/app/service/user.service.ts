@@ -35,7 +35,7 @@ export class UserService {
       },
     },
     target: {
-      date: new Date(2025, 0, 15),
+      date: new Date(2025, 0, 1),
       weight: 100,
       bmi: {
         bmi: 0,
