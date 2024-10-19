@@ -74,7 +74,7 @@ export class StatisticsService {
   calcTotalTime(user: User) {
     let dob = new Date(1980, 0, 15);
     let today = new Date();
-    console.log(new Date().toLocaleDateString());
+    // console.log(new Date().toLocaleDateString());
   }
 
   calcTimeFromToday(user: User) {
