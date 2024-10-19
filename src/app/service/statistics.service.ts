@@ -3,6 +3,8 @@ import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
+import { DateService } from './date.service';
+import { ElapsedTime } from '../shared/models/elapsed-time';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,7 @@ import { _Time } from '../shared/models/_time';
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
 
-  constructor(private bmiService: BmiService) {}
+  constructor(private bmiService: BmiService, private dateService: DateService) {}
 
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
@@ -72,9 +74,8 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    let dob = new Date(1980, 0, 15);
-    let today = new Date();
-    // console.log(new Date().toLocaleDateString());
+    console.log(user.userStats.target.date);
+    
   }
 
   calcTimeFromToday(user: User) {

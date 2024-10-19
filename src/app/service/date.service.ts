@@ -7,9 +7,7 @@ import { ElapsedTime } from '../shared/models/elapsed-time';
 })
 export class DateService {
   d1:any = new Date(1980, 0, 15);
-  d2:number = Date.now();
-
-  tmeDiff = this.d2 - this.d1;
+  d2:Date = new Date();
 
   constructor() {}
 
@@ -42,19 +40,22 @@ export class DateService {
   }
 
   setCurrentDate(): string {
-    // this.calcElapsedTime();
+    this.calcElapsedTime(this.d1, this.d2);
     return new Date().toLocaleDateString();
   }
+ 
+  calcElapsedTime(startTime:Date, endTime: Date){
+    const difference = endTime.getTime() - startTime.getTime();
+    const timeElapsed: ElapsedTime = new ElapsedTime();
+    timeElapsed.days = Math.floor(difference / 86400000);
+    timeElapsed.weeks = Math.floor((difference / 86400000 / 365) * 12) * 7;
+    timeElapsed.months = Math.floor(difference / 86400000 / 365) * 12;
+    timeElapsed.years =
+      Math.round((Math.floor(difference / 86400000) / 365) * 10) / 10;
 
-  calcElapsedTime(startTime:any, endTime: Date){
-    const elapsed: ElapsedTime = new ElapsedTime();
-    elapsed.days = Math.floor(this.tmeDiff / 86400000);
-    elapsed.weeks = Math.floor((this.tmeDiff / 86400000 / 365) * 12) * 7;
-    elapsed.months = Math.floor(this.tmeDiff / 86400000 / 365) * 12;
-    elapsed.years =
-      Math.round((Math.floor(this.tmeDiff / 86400000) / 365) * 10) / 10;
-
-    console.log(elapsed);
+    console.log(timeElapsed);
+    
+    return timeElapsed;
     
   }
 }
