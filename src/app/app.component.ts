@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   user: User;
   onTarget: boolean;
   onTargetMessage: string;
-  currentDate: IDate_;
+  currentDate: string;
 
   constructor(
     private userService: UserService,
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.setOnTarget();
-    this.currentDate = this.dateService.processDate(new Date());
+    this.currentDate = this.dateService.setCurrentDate();
   }
 
   setOnTarget() {

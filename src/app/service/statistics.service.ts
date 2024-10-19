@@ -74,10 +74,7 @@ export class StatisticsService {
   calcTotalTime(user: User) {
     let dob = new Date(1980, 0, 15);
     let today = new Date();
-    console.log(
-      user.target.date.getFullYear() -
-        user.start.date.getFullYear()
-    );
+    console.log(new Date().toLocaleDateString());
   }
 
   calcTimeFromToday(user: User) {
@@ -100,7 +97,7 @@ export class StatisticsService {
     // Actual Weightloss Rate
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
-      user.userStats.expiredTime.weeks;
+      user.userStats.elapsedTime.weeks;
   }
 
   // Calculate Predicted Weight

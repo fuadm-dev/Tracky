@@ -35,7 +35,9 @@ export class DateService {
     return date;
   }
 
-  setCurrentDate(): Date{
-    return new Date();
+  setCurrentDate(): string {
+    return new Date().toLocaleDateString();
   }
+
+  // calcTotalTime(start:)
 }

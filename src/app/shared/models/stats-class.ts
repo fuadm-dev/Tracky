@@ -12,7 +12,7 @@ export class StatsClass {
   lossRate: ILossRate = { expected: 0, actual: 0 };
   totalTime: _Time = new _Time();
   remainingTime: _Time = new _Time();
-  expiredTime: _Time = new _Time();
+  elapsedTime: _Time = new _Time();
   change: Change = new Change();
   onTarget: boolean = false;
   pctProgress: number = 0;
