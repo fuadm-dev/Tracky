@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DateService } from 'src/app/service/date.service';
+import { IDate_ } from 'src/app/shared/models/_date';
 
 @Component({
   selector: 'calendar',
@@ -7,32 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
   @Input() date: Date;
+  itemDate: IDate_;
   day: number;
   month: string;
   year: number;
 
+  constructor(private dateService: DateService) { }
+
   ngOnInit(): void {
-    this.setDate(this.date);
+    this.itemDate = this.dateService.processDate(this.date);
+    console.log(this.dateService.processDate(this.date));
+    
   }
 
-  setDate(date: Date) {
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    this.day = date.getDate();
-    this.month = monthNames[date.getMonth()].substring(0, 3);
-    this.year = date.getFullYear();
-  }
 }

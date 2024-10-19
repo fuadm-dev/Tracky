@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IDate_ } from '../shared/models/_date';
 
 @Injectable({
   providedIn: 'root',
@@ -6,8 +7,12 @@ import { Injectable } from '@angular/core';
 export class DateService {
   constructor() {}
 
-  setDate(date: Date) {
-    date: Date;
+  processDate(d: Date): IDate_ {
+    let date: IDate_ = {
+      day: 0,
+      month: '',
+      year: 0,
+    };
     const monthNames = [
       'January',
       'February',
@@ -23,8 +28,14 @@ export class DateService {
       'December',
     ];
 
-    this.day = date.getDate();
-    this.month = monthNames[date.getMonth()].substring(0, 3);
-    this.year = date.getFullYear();
+    date.day = d.getDate();
+    date.month = monthNames[d.getMonth()].substring(0, 3);
+    date.year = d.getFullYear();
+
+    return date;
+  }
+
+  setCurrentDate(): Date{
+    return new Date();
   }
 }
