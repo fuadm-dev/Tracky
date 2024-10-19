@@ -19,11 +19,11 @@ export class StatisticsService {
 
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
+    this.setTarget(user);
     this.calcTotalTime(user);
     // this.calcLossRate(user); //
     this.setUserHeight(user);
     this.setCurrentWeight(user);
-    this.setTarget(user);
     this.calcChange(user);
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
@@ -48,6 +48,7 @@ export class StatisticsService {
 
   // Set TargetStats
   setTarget(user: User) {
+    // console.log(user.target);
     user.userStats.target = user.target;
     user.userStats.target.bmi = this.bmiService.getBmi(
       user.userStats.target.weight,
@@ -77,11 +78,14 @@ export class StatisticsService {
 
   // Calculate Total Time
   calcTotalTime(user: User) {
-    console.log(user.userStats.target.date);
+    let et = this.dateService.calcElapsedTime(user.start.date, user.userStats.target.date);
+    
+    console.log(et);
+    
   }
 
   calcTimeFromToday(user: User) {
-    //Set Time From Start Date To Today
+    //Set Time From Start Date To Today  
     //Set Total Time From Start Date To Target Date
     //Set Total Time From Today To Target Date
     //daysSinceToday = today - later

@@ -18,8 +18,6 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemDate = this.dateService.processDate(this.date);
-    console.log(this.dateService.processDate(this.date));
-    
   }
 
 }

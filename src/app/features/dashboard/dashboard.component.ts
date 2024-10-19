@@ -1,8 +1,6 @@
 import { Input, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { DateService } from 'src/app/service/date.service';
 import { UserService } from 'src/app/service/user.service';
-import { IDate_ } from 'src/app/shared/models/_date';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 
@@ -19,7 +17,5 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userStats = this.userService.getUser().userStats;
-    console.log(this.user);
-    console.log(this.user.userStats);
   }
 }
