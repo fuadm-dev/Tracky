@@ -29,7 +29,12 @@
    [calendar]="false"
    ></dash-item>
   <!-- Predicted item -->
-
+   <dash-item 
+   [title]="'Predicted'"
+   [weight]="user.userStats.predicted.weight"
+   [height]="user.height"
+   [date]="user.userStats.predicted.date"
+   ></dash-item>
   <!-- Progress item -->
   <!-- Time item -->
   <!-- Trend item -->
