@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IDate_ } from '../shared/models/_date';
-import { ElapsedTime } from '../shared/models/elapsed-time';
-import { first } from 'rxjs';
+import { _Time } from '../shared/models/_time';
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +45,7 @@ export class DateService {
   }
 
   calcElapsedTime(laterDate: Date, earlierDate: Date) {
-    const timeElapsed: ElapsedTime = new ElapsedTime();
+    const timeElapsed: _Time = new _Time();
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;
     const diffMs: number = Math.abs(
       earlierDate.getTime() - laterDate.getTime()

@@ -4,7 +4,6 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
-import { ElapsedTime } from '../shared/models/elapsed-time';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +19,8 @@ export class StatisticsService {
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
     this.setTarget(user);
-    this.calcTotalTime(user);
-    // this.calcLossRate(user); //
+    this.calcTimes(user);
+    this.calcLossRate(user); //
     this.setUserHeight(user);
     this.setCurrentWeight(user);
     this.calcChange(user);
@@ -77,34 +76,49 @@ export class StatisticsService {
   */
 
   // Calculate Total Time
-  calcTotalTime(user: User) {
-    let totalTime = this.dateService.calcElapsedTime(user.target.date, user.userStats.start.date);
+  calcTimes(user: User) {
+    // Calculate Total Time
+    user.userStats.totalTime = this.dateService.calcElapsedTime(
+      user.target.date,
+      user.userStats.start.date
+    );
 
-    console.log(totalTime);
-    
+    // Calculate Elapsed Time
+    user.userStats.elapsedTime = this.dateService.calcElapsedTime(
+      user.current.date,
+      user.userStats.start.date
+    );
+
+    // // Calculate Remaining Time
+    // user.userStats.remainingTime = this.dateService.calcElapsedTime(
+    //   user.target.date,
+    //   user.userStats.current.date
+    // );
+
+    console.log(user.userStats);
   }
 
   calcTimeFromToday(user: User) {
-    //Set Time From Start Date To Today  
-    //Set Total Time From Start Date To Target Date
-    //Set Total Time From Today To Target Date
-    //daysSinceToday = today - later
-    //weeksSinceToday = daysSinceDate / 7
-    // build time{days: daysSinceToday, weeks: weeksSinceToday}
-    // return time{}
+    // totalTime = targetTime - startTime
+    // elapsedTime = currentTime - startTime
+    // remainingTime = targetTime - currentTime
   }
 
   // Calculate Weightloss Rate
   calcLossRate(user: User) {
     // Expected Weightloss Rate
     user.userStats.lossRate.expected =
-      (user.userStats.start.weight - user.userStats.target.weight) /
-      user.userStats.totalTime.weeks;
+      Math.round(
+        ((user.userStats.start.weight - user.userStats.target.weight) /
+          user.userStats.totalTime.weeks) *
+          10
+      ) / 10;
 
     // Actual Weightloss Rate
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
       user.userStats.elapsedTime.weeks;
+
   }
 
   // Calculate Predicted Weight
