@@ -20,7 +20,7 @@ export class UserService {
     dob: '15/01/1980',
     start: {
       date: new Date(2024, 6, 1),
-      weight: 108.2,
+      weight: 118.2,
       bmi: {
         bmi: 0,
         bmiStatus: '',
@@ -48,7 +48,7 @@ export class UserService {
       weightLogs: [
         {
           date: new Date(),
-          weight: 119.2,
+          weight: 108.2,
           bmi: {
             bmi: 0,
             bmiStatus: '',

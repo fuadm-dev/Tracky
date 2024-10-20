@@ -1,43 +1,45 @@
 <!-- Dashboard -->
-<div class="d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-3">
+<div
+  class="d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-3"
+>
   <!-- Start item -->
-   <dash-item 
-   [title]="'Start'"
-   [weight]="user.start.weight"
-   [height]="user.height"
-   [date]="user.start.date"
-   ></dash-item>
+  <dash-item
+    [title]="'Start'"
+    [weight]="user.start.weight"
+    [height]="user.height"
+    [date]="user.start.date"
+  ></dash-item>
   <!-- Current item -->
-   <dash-item 
-   [title]="'Current'"
-   [weight]="user.current.weight"
-   [height]="user.height"
-   [date]="user.current.date"
-   ></dash-item>
-  <!-- Target item --> 
-   <dash-item 
-   [title]="'Target'"
-   [weight]="user.target.weight"
-   [height]="user.height"
-   [date]="user.target.date"
-   ></dash-item>
+  <dash-item
+    [title]="'Current'"
+    [weight]="user.current.weight"
+    [height]="user.height"
+    [date]="user.current.date"
+  ></dash-item>
+  <!-- Target item -->
+  <dash-item
+    [title]="'Target'"
+    [weight]="user.target.weight"
+    [height]="user.height"
+    [date]="user.target.date"
+  ></dash-item>
   <!-- Change item -->
-  <dash-item 
-   [title]="'Change'"
-   [weight]="user.userStats.change.weightChange"
-   [height]="user.height"
-   [calendar]="false"
-   ></dash-item>
+  <dash-item
+    [title]="'Change'"
+    [weight]="user.userStats.change.weightChange"
+    [height]="user.height"
+    [calendar]="false"
+  ></dash-item>
   <!-- Predicted item -->
-   <dash-item 
-   [title]="'Predicted'"
-   [weight]="user.userStats.predicted.weight"
-   [height]="user.height"
-   [date]="user.userStats.predicted.date"
-   ></dash-item>
+  <!-- <dash-item
+    [title]="'Predicted'"
+    [weight]="user.userStats.predicted.weight"
+    [height]="user.height"
+    [date]="user.userStats.predicted.date"
+  ></dash-item> -->
   <!-- Progress item -->
+  
   <!-- Time item -->
   <!-- Trend item -->
-   <trend-item></trend-item>
+  <trend-item></trend-item>
 </div>
- 
