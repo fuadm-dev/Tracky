@@ -46,22 +46,19 @@ export class DateService {
   }
 
   calcElapsedTime(laterDate: Date, earlierDate: Date) {
+    const timeElapsed: ElapsedTime = new ElapsedTime();
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;
     const diffMs: number = Math.abs(
       earlierDate.getTime() - laterDate.getTime()
     );
 
-    const difference = Math.round(
-      Math.abs((laterDate.getTime() - earlierDate.getTime()) / mSecondsInDay)
-    );
-    const timeElapsed: ElapsedTime = new ElapsedTime();
     timeElapsed.days = Math.round(diffMs / mSecondsInDay);
-    timeElapsed.weeks = Math.round(timeElapsed.days / 7);
-    timeElapsed.months = Math.round(difference / mSecondsInDay / 365) * 12;
-    timeElapsed.years =
-      Math.round((Math.round(difference / mSecondsInDay) / 365) * 10) / 10;
+    timeElapsed.weeks = Math.ceil(((timeElapsed.days / 7) * 100) / 100);
+    timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
+    timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
+
+    // console.log(timeElapsed);
     
-    console.log(timeElapsed);
     return timeElapsed;
   }
 }
