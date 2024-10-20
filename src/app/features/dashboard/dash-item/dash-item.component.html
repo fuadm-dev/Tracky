@@ -1,7 +1,7 @@
 <div class="box-small">
   <div class="boxContent">
     <!-- Calendar component -->
-    <div class="calendar" *ngIf="true">
+    <div class="calendar" *ngIf="calendar">
       <calendar
       [date]="date"
     ></calendar>
@@ -12,7 +12,7 @@
     <span class="weight roboto-light">{{ weight }}kg</span>
    
     <!-- BMI component -->
-    <span class="roboto-bold">
+    <span class="roboto-bold" *ngIf="bmiComponent">
       <app-bmi [height]="user.height" [weight]="user.start.weight"> </app-bmi>
     </span>
   </div>

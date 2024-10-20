@@ -9,12 +9,12 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dash-item.component.css'],
 })
 export class DashItemComponent {
-  title: string = 'Start';
+  @Input() title: string = '';
   @Input() weight: number;
   @Input() height: number;
   @Input() date: Date;
-  calendar: boolean;
-  bmiComponent: boolean;
+  @Input() calendar: boolean = true;
+  @Input() bmiComponent: boolean = true;
   user: User;
   userStats: StatsClass;
 

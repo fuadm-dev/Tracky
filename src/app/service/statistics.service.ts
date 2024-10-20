@@ -70,11 +70,6 @@ export class StatisticsService {
     }
   }
 
-  /* 
-  ---- Figure Out Times ---------------
-  ---- Add current date ---------------
-  */
-
   // Calculate Total Time
   calcTimes(user: User) {
     // Calculate Total Time
@@ -94,13 +89,6 @@ export class StatisticsService {
       user.target.date,
       user.userStats.current.date
     );
-
-    // totalTime = targetTime - startTime
-    // elapsedTime = currentTime - startTime
-    // remainingTime = targetTime - currentTime
-
-    console.log(user.userStats);
-
 
   }
 
