@@ -19,10 +19,10 @@ export class StatisticsService {
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
     this.setTarget(user);
-    this.calcTimes(user);
     this.calcLossRate(user); //
     this.setUserHeight(user);
     this.setCurrentWeight(user);
+    this.calcTimes(user);
     this.calcChange(user);
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
@@ -89,19 +89,19 @@ export class StatisticsService {
       user.userStats.start.date
     );
 
-    // // Calculate Remaining Time
-    // user.userStats.remainingTime = this.dateService.calcElapsedTime(
-    //   user.target.date,
-    //   user.userStats.current.date
-    // );
+    // Calculate Remaining Time
+    user.userStats.remainingTime = this.dateService.calcElapsedTime(
+      user.target.date,
+      user.userStats.current.date
+    );
 
-    console.log(user.userStats);
-  }
-
-  calcTimeFromToday(user: User) {
     // totalTime = targetTime - startTime
     // elapsedTime = currentTime - startTime
     // remainingTime = targetTime - currentTime
+
+    console.log(user.userStats);
+
+
   }
 
   // Calculate Weightloss Rate
@@ -118,7 +118,6 @@ export class StatisticsService {
     user.userStats.lossRate.actual =
       (user.userStats.start.weight - user.userStats.current.weight) /
       user.userStats.elapsedTime.weeks;
-
   }
 
   // Calculate Predicted Weight
