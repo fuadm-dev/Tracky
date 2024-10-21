@@ -17,5 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.userStats = this.userService.getUser().userStats;
+    console.log(this.userStats);
+    
   }
 }

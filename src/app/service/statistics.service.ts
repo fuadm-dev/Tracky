@@ -133,6 +133,12 @@ export class StatisticsService {
       Math.ceil(
         (user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi) * 10
       ) / 10;
+
+      if (user.userStats.start.weight > user.userStats.current.weight) {
+        user.userStats.change.isPositive = false;
+      } else {
+        user.userStats.change.isPositive = true;
+      }
   }
 
   // Calculate Progress Made
