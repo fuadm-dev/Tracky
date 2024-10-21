@@ -125,20 +125,15 @@ export class StatisticsService {
     // calc Weight change
     user.userStats.change.weightChange =
       Math.ceil(
-        (user.userStats.start.weight - user.userStats.current.weight) * 10
+        (user.userStats.current.weight - user.userStats.start.weight) * 10
       ) / 10;
 
     // calc BMI change
     user.userStats.change.bmiChange =
       Math.ceil(
-        (user.userStats.start.bmi.bmi - user.userStats.current.bmi.bmi) * 10
+        (user.userStats.current.bmi.bmi - user.userStats.start.bmi.bmi) * 10
       ) / 10;
 
-      if (user.userStats.start.weight > user.userStats.current.weight) {
-        user.userStats.change.isPositive = false;
-      } else {
-        user.userStats.change.isPositive = true;
-      }
   }
 
   // Calculate Progress Made

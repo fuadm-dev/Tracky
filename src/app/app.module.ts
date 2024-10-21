@@ -12,6 +12,7 @@ import { TrendItemComponent } from './features/dashboard/trend-item/trend-item.c
 import { CalendarComponent } from './features/dashboard/calendar/calendar.component';
 import { BmiComponent } from './features/dashboard/bmi/bmi.component';
 import { DashItemComponent } from './features/dashboard/dash-item/dash-item.component';
+import { ChangeComponent } from './features/dashboard/change/change.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DashItemComponent } from './features/dashboard/dash-item/dash-item.comp
     TrendItemComponent,
     CalendarComponent,
     BmiComponent,
-    DashItemComponent
+    DashItemComponent,
+    ChangeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
