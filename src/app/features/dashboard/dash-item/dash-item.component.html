@@ -2,18 +2,29 @@
   <div class="boxContent">
     <!-- Calendar component -->
     <div class="calendar" *ngIf="calendar">
-      <calendar
-      [date]="date"
-    ></calendar>
+      <calendar [date]="date"></calendar>
     </div>
 
     <!-- Title & weight -->
-    <span class="title roboto-bold fs-5">{{title}}</span>
+    <span class="title roboto-bold fs-5">{{ title }}</span>
     <span class="weight roboto-light">
-      <div *ngIf="postive; else negative"></div>
-      <ng-template #negative>-</ng-template>
-      {{ weight }} {{units}}</span>
-   
+      <div *ngIf="userStats.change.isPositive; else negative"></div>
+      <ng-template #negative></ng-template>
+      {{ weight }} {{ units }}</span
+    >
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        style="width: 55%"
+        aria-valuenow="55"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        55%
+      </div>
+    </div>
+
     <!-- BMI component -->
     <span class="roboto-bold" *ngIf="bmiComponent">
       <app-bmi [height]="user.height" [weight]="weight"> </app-bmi>

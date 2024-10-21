@@ -9,7 +9,6 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dash-item.component.css'],
 })
 export class DashItemComponent {
-  @Input() postive: boolean = true;
   @Input() units: string = 'kg';
   @Input() title: string = '';
   @Input() weight: number;
