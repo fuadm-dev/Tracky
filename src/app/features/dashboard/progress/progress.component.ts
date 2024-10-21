@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { UserService } from 'src/app/service/user.service';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 
@@ -15,8 +14,4 @@ export class ProgressComponent {
   user: User;
   userStats: StatsClass;
 
-  constructor(private userService: UserService) {
-    this.user = this.userService.getUser();
-    this.userStats = this.userService.getUser().userStats;
-  }
 }

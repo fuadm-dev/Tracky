@@ -23,7 +23,7 @@
     [height]="user.height"
     [date]="user.target.date"
   ></dash-item>
-  <!-- Change item   ------FIX BMI issue------     -->
+  <!-- Change item -->
   <change-item
     [title]="'Change'"
     [weight]="user.userStats.change.weightChange"
@@ -37,22 +37,18 @@
     [height]="user.height"
     [date]="user.userStats.target.date"
   ></dash-item>
-  <!-- Progress item    ------FIX %UNIT issue------     -->
-     <progress-item
+  <!-- Progress item FIX value -->
+  <progress-item
     [title]="'Progress'"
     [progress]="user.userStats.pctProgress"
   ></progress-item>
-  
-  <!-- Time item    ------FIX %UNIT issue------     -->
-     <dash-item
-    [title]="'Time'"
-    [weight]="user.userStats.pctTime"
-    [height]="user.height"
-    [calendar]="false"
-    [bmiComponent]="false"
-    [units]="'%'"
 
-  ></dash-item>
+  <!-- Time item FIX value -->
+  <progress-item
+    [title]="'Time'"
+    [progress]="user.userStats.pctTime"
+  ></progress-item>
+
   <!-- Trend item -->
   <trend-item></trend-item>
 </div>
