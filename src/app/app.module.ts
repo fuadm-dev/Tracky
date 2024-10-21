@@ -13,6 +13,7 @@ import { CalendarComponent } from './features/dashboard/calendar/calendar.compon
 import { BmiComponent } from './features/dashboard/bmi/bmi.component';
 import { DashItemComponent } from './features/dashboard/dash-item/dash-item.component';
 import { ChangeComponent } from './features/dashboard/change/change.component';
+import { ProgressComponent } from './features/dashboard/progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ChangeComponent } from './features/dashboard/change/change.component';
     BmiComponent,
     DashItemComponent,
     ChangeComponent,
+    ProgressComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

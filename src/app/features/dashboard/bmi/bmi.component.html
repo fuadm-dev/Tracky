@@ -16,6 +16,7 @@
     BMI: {{ bmi }}
   </div>
   <div
+  *ngIf="showBmiStatus"
     style="font-size: 1rem"
     [ngClass]="{
           greenText: bmiStatus == 'healthy',

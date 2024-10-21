@@ -1,0 +1,19 @@
+<div class="box-small">
+  <div class="boxContent">
+    <!-- Title & weight -->
+    <span class="title roboto-bold fs-5">{{ title }}</span>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        [style.width.%]="progress"
+        aria-valuenow="progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        {{ progress }}%
+      </div>
+    </div>
+    <span class="weight roboto-light"> {{ progress }}% </span>
+  </div>
+</div>

@@ -11,6 +11,7 @@ export class BmiComponent implements AfterContentInit {
   @Input() height: number;
   bmi: number;
   bmiStatus: string;
+  @Input() showBmiStatus: boolean = true;
 
   constructor(private bmiService: BmiService) {}
 

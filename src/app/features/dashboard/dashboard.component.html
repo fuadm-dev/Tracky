@@ -38,14 +38,10 @@
     [date]="user.userStats.target.date"
   ></dash-item>
   <!-- Progress item    ------FIX %UNIT issue------     -->
-     <dash-item
+     <progress-item
     [title]="'Progress'"
-    [weight]="user.userStats.pctProgress"
-    [height]="user.height"
-    [calendar]="false"
-    [bmiComponent]="false"
-    [units]="'%'"
-  ></dash-item>
+    [progress]="user.userStats.pctProgress"
+  ></progress-item>
   
   <!-- Time item    ------FIX %UNIT issue------     -->
      <dash-item
