@@ -31,6 +31,7 @@ export class DateService {
       'November',
       'December',
     ];
+    
 
     date.day = d.getDate();
     date.month = monthNames[d.getMonth()].substring(0, 3);
@@ -41,7 +42,7 @@ export class DateService {
 
   setCurrentDate(): string {
     this.calcElapsedTime(this.d1, this.d2);
-    return new Date().toLocaleDateString();
+    return new Date().toLocaleDateString('en-gb');
   }
 
   calcElapsedTime(laterDate: Date, earlierDate: Date) {
