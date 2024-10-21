@@ -19,7 +19,7 @@ export class StatisticsService {
   buildStats(user: User): StatsClass {
     this.setStartStats(user);
     this.setTarget(user);
-    this.calcLossRate(user); //
+    this.calcLossRate(user);
     this.setUserHeight(user);
     this.setCurrentWeight(user);
     this.calcTimes(user);
