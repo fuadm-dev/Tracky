@@ -11,7 +11,7 @@ export class ProgressComponent {
   @Input() title: string = '';
   @Input() progress: number;
 
-  user: User;
-  userStats: StatsClass;
+  // user: User;
+  // userStats: StatsClass;
 
 }
