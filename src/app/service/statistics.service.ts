@@ -81,13 +81,14 @@ export class StatisticsService {
     // Calculate Elapsed Time
     user.userStats.elapsedTime = this.dateService.calcElapsedTime(
       user.current.date,
-      user.userStats.start.date
+      user.userStats.start.date,
+      user.userStats.totalTime
     );
 
     // Calculate Remaining Time
     user.userStats.remainingTime = this.dateService.calcElapsedTime(
       user.target.date,
-      user.userStats.current.date
+      user.userStats.start.date
     );
 
   }
@@ -139,10 +140,10 @@ export class StatisticsService {
   // Calculate Progress Made
   calcProgressMade(user: User) {
     user.userStats.pctProgress = Math.ceil(
-      (user.userStats.change.weightChange /
+      ((user.userStats.change.weightChange * -1) /
         (user.userStats.start.weight - user.userStats.target.weight)) *
         100
-    );
+    );    
   }
 
   // Calculate Ontarget

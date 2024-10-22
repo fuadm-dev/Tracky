@@ -11,6 +11,8 @@ export class DateService {
 
   constructor() {}
 
+  ngOnInit(): void {}
+
   processDate(d: Date): IDate_ {
     let date: IDate_ = {
       day: 0,
@@ -31,7 +33,6 @@ export class DateService {
       'November',
       'December',
     ];
-    
 
     date.day = d.getDate();
     date.month = monthNames[d.getMonth()].substring(0, 3);
@@ -41,24 +42,23 @@ export class DateService {
   }
 
   setCurrentDate(): string {
-    this.calcElapsedTime(this.d1, this.d2);
     return new Date().toLocaleDateString('en-gb');
   }
 
-  calcElapsedTime(laterDate: Date, earlierDate: Date) {
+  calcElapsedTime(laterDate: Date, earlierDate: Date, toTalTime?:_Time) {
     const timeElapsed: _Time = new _Time();
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;
     const diffMs: number = Math.abs(
       earlierDate.getTime() - laterDate.getTime()
     );
 
-    timeElapsed.days = Math.round(diffMs / mSecondsInDay);
+    timeElapsed.days = Math.round((diffMs / mSecondsInDay)/toTalTime.days);
     timeElapsed.weeks = Math.round(((timeElapsed.days / 7) * 100) / 100);
     timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
     timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
 
     // console.log(timeElapsed);
-    
+
     return timeElapsed;
   }
 }

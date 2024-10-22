@@ -46,7 +46,7 @@
   <!-- Time item FIX value -->
   <progress-item
     [title]="'Time'"
-    [progress]="user.userStats.pctTime"
+    [progress]="(user.userStats.elapsedTime.days / user.userStats.totalTime.days)*100"
   ></progress-item>
 
   <!-- Trend item -->
