@@ -16,5 +16,4 @@ export class StatsClass {
   change: Change = new Change();
   onTarget: boolean = false;
   pctProgress: number = 0;
-  pctTime: number = 0;
 }

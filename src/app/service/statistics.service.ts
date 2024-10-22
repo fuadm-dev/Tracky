@@ -79,18 +79,7 @@ export class StatisticsService {
     );
 
     // Calculate Elapsed Time
-    user.userStats.elapsedTime = this.dateService.calcElapsedTime(
-      user.current.date,
-      user.userStats.start.date,
-      user.userStats.totalTime
-    );
-
-    // Calculate Remaining Time
-    user.userStats.remainingTime = this.dateService.calcElapsedTime(
-      user.target.date,
-      user.userStats.start.date
-    );
-
+   user.userStats.elapsedTime = this.dateService.calcElapsedTime(user.userStats.current.date, user.userStats.start.date)
   }
 
   // Calculate Weightloss Rate
@@ -111,9 +100,11 @@ export class StatisticsService {
 
   // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
-    user.userStats.predicted.weight =
+    user.userStats.predicted.weight = Math.round(
       user.userStats.current.weight -
-      user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
+        user.userStats.lossRate.actual * user.userStats.remainingTime.weeks
+    );
+
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(
       user.userStats.predicted.weight,
@@ -134,7 +125,6 @@ export class StatisticsService {
       Math.ceil(
         (user.userStats.current.bmi.bmi - user.userStats.start.bmi.bmi) * 10
       ) / 10;
-
   }
 
   // Calculate Progress Made
@@ -143,7 +133,7 @@ export class StatisticsService {
       ((user.userStats.change.weightChange * -1) /
         (user.userStats.start.weight - user.userStats.target.weight)) *
         100
-    );    
+    );
   }
 
   // Calculate Ontarget
