@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { StatsClass } from 'src/app/shared/models/stats-class';
-import { User } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'progress-item',
@@ -10,8 +8,5 @@ import { User } from 'src/app/shared/models/user';
 export class ProgressComponent {
   @Input() title: string = '';
   @Input() progress: number;
-
-  // user: User;
-  // userStats: StatsClass;
-
+  
 }
