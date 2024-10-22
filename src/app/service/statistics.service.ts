@@ -80,6 +80,9 @@ export class StatisticsService {
 
     // Calculate Elapsed Time
    user.userStats.elapsedTime = this.dateService.calcElapsedTime(user.userStats.current.date, user.userStats.start.date)
+
+    // Calculate Remaining Time
+   user.userStats.remainingTime = this.dateService.calcElapsedTime(user.userStats.target.date, user.userStats.current.date)
   }
 
   // Calculate Weightloss Rate
