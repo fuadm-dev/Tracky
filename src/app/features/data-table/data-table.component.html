@@ -14,7 +14,7 @@
   </thead>
   <tbody *ngIf="user.record.weightLogs.length">
     <tr *ngFor="let log of user.record.weightLogs">
-      <td>{{ log.date }}</td>
+      <td>{{ log.date.getDate() }}/{{ log.date.getMonth() }}/{{log.date.getFullYear()}}</td>
       <td>{{ log.weight }}</td>
       <td>{{ log.bmi.bmi }}</td>
       <td><i class="bi bi-pencil-fill"></i></td>

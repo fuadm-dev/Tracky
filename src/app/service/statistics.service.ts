@@ -4,6 +4,7 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
+import { IDate_ } from '../shared/models/_date';
 
 @Injectable({
   providedIn: 'root',
@@ -175,11 +176,4 @@ export class StatisticsService {
     })
   }
 
-  // Calculate BMI
-  processDateForRecord(user: User){
-    user.record.weightLogs.forEach(log => {
-      log.bmi.bmi = this.dateService.processDate();
-      log.bmi.bmiStatus = this.bmiService.calcBmiStatus(log.bmi.bmi);
-    })
-  }
 }
