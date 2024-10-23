@@ -150,11 +150,15 @@ export class StatisticsService {
 
   // Calculate Progress Made
   calcProgressMade(user: User) {
-    user.userStats.pctProgress = Math.ceil(
-      ((user.userStats.change.weightChange * -1) /
-        (user.userStats.start.weight - user.userStats.target.weight)) *
-        100
-    );
+    if (user.userStats.change.weightChange == 0) {
+      user.userStats.pctProgress = 0;
+    } else {
+      user.userStats.pctProgress = Math.ceil(
+        ((user.userStats.change.weightChange * -1) /
+          (user.userStats.start.weight - user.userStats.target.weight)) *
+          100
+      );
+    }
   }
 
   // Calculate Ontarget
