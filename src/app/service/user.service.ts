@@ -38,22 +38,22 @@ export class UserService {
     record: {
       id: 1320,
       weightLogs: [
-        // {
-        //   date: new Date(),
-        //   weight: 107,
-        //   bmi: {
-        //     bmi: 0,
-        //     bmiStatus: '',
-        //   },
-        // },
-        // {
-        //   date: new Date(),
-        //   weight: 108.5,
-        //   bmi: {
-        //     bmi: 0,
-        //     bmiStatus: '',
-        //   },
-        // },
+        {
+          date: new Date(),
+          weight: 107,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(),
+          weight: 108.5,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
       ],
       isHistory: false,
     },

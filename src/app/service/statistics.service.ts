@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
@@ -10,6 +10,7 @@ import { DateService } from './date.service';
 })
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
+  today: Date = new Date();
 
   constructor(
     private bmiService: BmiService,
@@ -27,15 +28,15 @@ export class StatisticsService {
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
     this.calcOntarget(user);
-
+    
     return user.userStats;
   }
-
+  
   //Set Height
   setUserHeight(user: User) {
     user.userStats.height = user.height;
   }
-
+  
   // Set StartStats
   setStartStats(user: User) {
     user.userStats.start = user.start;
@@ -44,7 +45,7 @@ export class StatisticsService {
       user.height
     );
   }
-
+  
   // Set TargetStats
   setTarget(user: User) {
     // console.log(user.target);
@@ -54,14 +55,14 @@ export class StatisticsService {
       user.height
     );
   }
-
+  
   // Set CurrentStats
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
     } else {
       user.userStats.current =
-        user.record.weightLogs[user.record.weightLogs.length - 1];
+      user.record.weightLogs[user.record.weightLogs.length - 1];
       user.userStats.current = user.userStats.current;
       user.userStats.current.bmi = this.bmiService.getBmi(
         user.userStats.current.weight,
@@ -69,7 +70,7 @@ export class StatisticsService {
       );
     }
   }
-
+  
   // Calculate Total Time
   calcTimes(user: User) {
     // Calculate Total Time
@@ -80,7 +81,7 @@ export class StatisticsService {
 
     // Calculate Elapsed Time
     user.userStats.elapsedTime = this.dateService.calcElapsedTime(
-      user.userStats.current.date,
+      this.today,
       user.userStats.start.date
     );
 
@@ -105,8 +106,6 @@ export class StatisticsService {
     if (user.userStats.current.weight - user.userStats.start.weight == 0) {
       user.userStats.lossRate.actual = 0;
     } else {
-      console.log(user.userStats.start.weight);
-      console.log(user.userStats.current.weight);
       user.userStats.lossRate.actual =
         (user.userStats.start.weight - user.userStats.current.weight) /
         user.userStats.elapsedTime.weeks;

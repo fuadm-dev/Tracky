@@ -17,6 +17,7 @@ export class DateService {
       month: '',
       year: 0,
     };
+
     const monthNames = [
       'January',
       'February',
@@ -54,8 +55,6 @@ export class DateService {
     timeElapsed.weeks = Math.round(((timeElapsed.days / 7) * 100) / 100);
     timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
     timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
-
-    // console.log(timeElapsed);
 
     return timeElapsed;
   }
