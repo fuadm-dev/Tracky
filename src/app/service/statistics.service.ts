@@ -59,7 +59,9 @@ export class StatisticsService {
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
+      console.log('if' + ' ' + user.start.weight);
     } else {
+      console.log('else');
       user.userStats.current =
         user.record.weightLogs[user.record.weightLogs.length - 1];
       user.userStats.current = user.userStats.current;
@@ -79,10 +81,16 @@ export class StatisticsService {
     );
 
     // Calculate Elapsed Time
-   user.userStats.elapsedTime = this.dateService.calcElapsedTime(user.userStats.current.date, user.userStats.start.date)
+    user.userStats.elapsedTime = this.dateService.calcElapsedTime(
+      user.userStats.current.date,
+      user.userStats.start.date
+    );
 
     // Calculate Remaining Time
-   user.userStats.remainingTime = this.dateService.calcElapsedTime(user.userStats.target.date, user.userStats.current.date)
+    user.userStats.remainingTime = this.dateService.calcElapsedTime(
+      user.userStats.target.date,
+      user.userStats.current.date
+    );
   }
 
   // Calculate Weightloss Rate
@@ -103,6 +111,10 @@ export class StatisticsService {
 
   // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
+    const p =
+      user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
+      console.log(user.userStats.remainingTime.weeks);
+      
     user.userStats.predicted.weight = Math.round(
       user.userStats.current.weight -
         user.userStats.lossRate.actual * user.userStats.remainingTime.weeks
