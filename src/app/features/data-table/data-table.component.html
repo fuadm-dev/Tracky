@@ -12,11 +12,11 @@
       <th class="text-center" scope="col"></th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>01/02/2024</td>
-      <td>98</td>
-      <td>34</td>
+  <tbody *ngIf="user.record.weightLogs.length">
+    <tr *ngFor="let log of user.record.weightLogs">
+      <td>{{ log.date }}</td>
+      <td>{{ log.weight }}</td>
+      <td>{{ log.bmi.bmi }}</td>
       <td><i class="bi bi-pencil-fill"></i></td>
     </tr>
   </tbody>

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DateService } from 'src/app/service/date.service';
 import { User } from 'src/app/shared/models/user';
 
 @Component({
@@ -8,4 +9,7 @@ import { User } from 'src/app/shared/models/user';
 })
 export class DataTableComponent {
   @Input() user: User;
+
+  constructor(private dateService: DateService) {
+  }
 }

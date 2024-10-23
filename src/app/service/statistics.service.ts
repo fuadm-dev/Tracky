@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BmiService } from './bmi.service';
 import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
@@ -10,7 +10,7 @@ import { DateService } from './date.service';
 })
 export class StatisticsService {
   stats: StatsClass = new StatsClass();
-  today: Date = new Date();
+  dateToday: Date = new Date();
 
   constructor(
     private bmiService: BmiService,
@@ -18,10 +18,11 @@ export class StatisticsService {
   ) {}
 
   buildStats(user: User): StatsClass {
+    this.setUserHeight(user);
     this.setStartStats(user);
+    this.calcBMIForRecord(user);
     this.setTarget(user);
     this.calcLossRate(user);
-    this.setUserHeight(user);
     this.setCurrentWeight(user);
     this.calcTimes(user);
     this.calcChange(user);
@@ -81,7 +82,7 @@ export class StatisticsService {
 
     // Calculate Elapsed Time
     user.userStats.elapsedTime = this.dateService.calcElapsedTime(
-      this.today,
+      this.dateToday,
       user.userStats.start.date
     );
 
@@ -164,5 +165,21 @@ export class StatisticsService {
   calcOntarget(user: User) {
     user.userStats.onTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+  }
+
+  // Calculate BMI
+  calcBMIForRecord(user: User){
+    user.record.weightLogs.forEach(log => {
+      log.bmi.bmi = this.bmiService.calcBmi(log.weight, user.height);
+      log.bmi.bmiStatus = this.bmiService.calcBmiStatus(log.bmi.bmi);
+    })
+  }
+
+  // Calculate BMI
+  processDateForRecord(user: User){
+    user.record.weightLogs.forEach(log => {
+      log.bmi.bmi = this.dateService.processDate();
+      log.bmi.bmiStatus = this.bmiService.calcBmiStatus(log.bmi.bmi);
+    })
   }
 }
