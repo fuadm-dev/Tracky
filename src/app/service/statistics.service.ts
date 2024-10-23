@@ -59,9 +59,7 @@ export class StatisticsService {
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
-      console.log('if' + ' ' + user.start.weight);
     } else {
-      console.log('else');
       user.userStats.current =
         user.record.weightLogs[user.record.weightLogs.length - 1];
       user.userStats.current = user.userStats.current;
@@ -104,17 +102,21 @@ export class StatisticsService {
       ) / 10;
 
     // Actual Weightloss Rate
-    user.userStats.lossRate.actual =
-      (user.userStats.start.weight - user.userStats.current.weight) /
-      user.userStats.elapsedTime.weeks;
+    if (user.userStats.current.weight - user.userStats.start.weight == 0) {
+      user.userStats.lossRate.actual = 0;
+    } else {
+      console.log(user.userStats.start.weight);
+      console.log(user.userStats.current.weight);
+      user.userStats.lossRate.actual =
+        (user.userStats.start.weight - user.userStats.current.weight) /
+        user.userStats.elapsedTime.weeks;
+    }
   }
 
   // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
-    const p =
-      user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
-      console.log(user.userStats.remainingTime.weeks);
-      
+    console.log();
+
     user.userStats.predicted.weight = Math.round(
       user.userStats.current.weight -
         user.userStats.lossRate.actual * user.userStats.remainingTime.weeks
@@ -130,10 +132,14 @@ export class StatisticsService {
   // Calculate Changes
   calcChange(user: User) {
     // calc Weight change
-    user.userStats.change.weightChange =
-      Math.ceil(
-        (user.userStats.current.weight - user.userStats.start.weight) * 10
-      ) / 10;
+    if (user.userStats.current.weight - user.userStats.start.weight == 0) {
+      user.userStats.change.weightChange == 0;
+    } else {
+      user.userStats.change.weightChange =
+        Math.ceil(
+          (user.userStats.current.weight - user.userStats.start.weight) * 10
+        ) / 10;
+    }
 
     // calc BMI change
     user.userStats.change.bmiChange =
