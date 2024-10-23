@@ -26,14 +26,6 @@ export class UserService {
         bmiStatus: '',
       },
     },
-    current: {
-      date: new Date(),
-      weight: 107.2,
-      bmi: {
-        bmi: 0,
-        bmiStatus: '',
-      },
-    },
     target: {
       date: new Date(2025, 0, 1),
       weight: 100,
@@ -78,7 +70,7 @@ export class UserService {
         weightLogs: [
           {
             date: new Date(2024, 9, 20),
-            weight: 107.2,
+            weight: 109.2,
             bmi: {
               bmi: 0,
               bmiStatus: '',

@@ -58,11 +58,12 @@ export class StatisticsService {
   // Set CurrentStats
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
-      user.current = user.start;
+      user.userStats.current = user.start;
       user.userStats.current = user.start;
     } else {
-      user.current = user.record.weightLogs[user.record.weightLogs.length - 1];
-      user.userStats.current = user.current;
+      user.userStats.current =
+        user.record.weightLogs[user.record.weightLogs.length - 1];
+      user.userStats.current = user.userStats.current;
       user.userStats.current.bmi = this.bmiService.getBmi(
         user.userStats.current.weight,
         user.height

@@ -12,7 +12,6 @@ export interface User {
   gender: string;
   dob: string;
   start: Weight;
-  current: Weight;
   change: Change;
   target: Weight;
   record: Record;
