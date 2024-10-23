@@ -59,7 +59,6 @@ export class StatisticsService {
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
-      user.userStats.current = user.start;
     } else {
       user.userStats.current =
         user.record.weightLogs[user.record.weightLogs.length - 1];
