@@ -4,7 +4,6 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
-import { IDate_ } from '../shared/models/_date';
 
 @Injectable({
   providedIn: 'root',
@@ -116,12 +115,13 @@ export class StatisticsService {
 
   // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
-    console.log();
-
+    const rate: number =
+      user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
     user.userStats.predicted.weight = Math.round(
-      user.userStats.current.weight -
-        user.userStats.lossRate.actual * user.userStats.remainingTime.weeks
+      user.userStats.current.weight - rate
     );
+    // console.log(user.userStats.remainingTime.weeks);
+    
 
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(

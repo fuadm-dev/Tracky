@@ -26,6 +26,18 @@
   font-weight: 700;
 }
 
+.onTarget {
+  color: var(--green);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.offTarget {
+  color: var(--red);
+  font-size: 48px;
+  font-weight: 700;
+}
+
 .header span {
   color: #000;
   font-weight: bold;

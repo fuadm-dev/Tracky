@@ -4,7 +4,7 @@
   </nav>
   <div class="main-container">
     <div class="header">
-      <h1 class="title">
+      <h1 [ngClass]="onTarget ? 'onTarget' : 'offTarget'">
         {{ onTargetMessage }}
         <i
           [ngClass]="{

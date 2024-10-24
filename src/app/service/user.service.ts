@@ -39,7 +39,7 @@ export class UserService {
       id: 1320,
       weightLogs: [
         {
-          date: new Date(),
+          date: new Date(2024, 6, 1),
           weight: 118.5,
           bmi: {
             bmi: 0,
@@ -47,7 +47,7 @@ export class UserService {
           },
         },
         {
-          date: new Date(),
+          date: new Date(2024, 7, 1),
           weight: 116,
           bmi: {
             bmi: 0,
@@ -55,7 +55,7 @@ export class UserService {
           },
         },
         {
-          date: new Date(),
+          date: new Date(2024, 8, 1),
           weight: 110,
           bmi: {
             bmi: 0,
