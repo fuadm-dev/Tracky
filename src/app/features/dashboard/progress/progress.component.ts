@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { _Time } from 'src/app/shared/models/_time';
 import { User } from 'src/app/shared/models/user';
 
@@ -11,5 +11,5 @@ export class ProgressComponent {
   user:User;
   @Input() title: string = '';
   @Input() progress: number;
-
+  
 }
