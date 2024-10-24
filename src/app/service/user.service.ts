@@ -64,7 +64,7 @@ export class UserService {
         },
         {
           date: new Date(),
-          weight: 108.5,
+          weight: 109,
           bmi: {
             bmi: 0,
             bmiStatus: '',
