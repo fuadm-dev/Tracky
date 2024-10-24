@@ -21,6 +21,6 @@ export class DashboardComponent implements OnInit {
     this.elapsedWeeks = Math.round(
       (this.userStats.elapsedTime.weeks / this.userStats.totalTime.weeks) * 100
     );
-    console.log(this.userStats);    
+    console.log(this.user);    
   }
 }
