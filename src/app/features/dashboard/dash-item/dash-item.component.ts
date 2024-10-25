@@ -19,11 +19,10 @@ export class DashItemComponent implements OnInit {
   user: User;
   userStats: StatsClass;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService) {}
+  
+  ngOnInit(): void {
     this.user = this.userService.getUser();
     this.userStats = this.userService.getUser().userStats;
-  }
-  ngOnInit(): void {
-    
   }
 }
