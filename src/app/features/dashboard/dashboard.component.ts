@@ -1,6 +1,7 @@
-import { Input, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 
@@ -13,6 +14,8 @@ export class DashboardComponent implements OnInit {
   user: User;
   userStats: StatsClass;
   elapsedWeeks: number;
+  
+  dashItems: IDashItem[];
 
   constructor(private userService: UserService) {}
 

@@ -12,6 +12,7 @@ export class DataTableComponent implements OnInit {
 
   constructor(private userService: UserService) {
   }
+
   ngOnInit(): void {
     this.user = this.userService.getUser();
   }
