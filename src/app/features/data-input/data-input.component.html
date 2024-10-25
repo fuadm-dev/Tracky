@@ -2,6 +2,7 @@
 <div class="input-container d-flex gap-3 border">
   <div class="input-group input-group-lg">
     <input
+    #weightInput
     type="number"
     name="weightInput"
     id="weightInput"
@@ -11,8 +12,8 @@
     
     />
 </div>
-<input id="startDate" class="date form-control" type="date" />
-<button class="btn btn-outline-dark">
-  Add
+<input #weightDate id="startDate" class="date form-control" type="date" />
+<button (click)="onLogWeight()" class="btn btn-outline-dark">
+  Log
 </button>
 </div>

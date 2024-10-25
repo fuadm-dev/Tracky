@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { InputService } from 'src/app/service/input.service';
+import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
 import { Weight } from 'src/app/shared/models/weight';
 
@@ -12,17 +13,25 @@ export class DataInputComponent implements OnInit {
   @Input() user: User;
   test: Weight = new Weight();
 
+  @ViewChild('weightInput') weightKg: ElementRef;
+  @ViewChild('weightDate') weightDate: ElementRef;
+
   constructor(private inputService: InputService) {}
   ngOnInit(): void {
-    this.test.weight = 97;
-    this.test.date = new Date();
-    this.test.bmi.bmi = 30;
 
-    console.log(this.test);
+  }
 
-    this.user.record.weightLogs.push(this.test);
+  onLogWeight() {
+    const inputWeight: number = this.weightKg.nativeElement.value;
+    const inputDate: string = this.weightKg.nativeElement.value;
 
-    //input service
-    //button
+    const weight: Weight = {
+      weight: inputWeight,
+      date: new Date(inputDate), 
+    };
+
+    this.inputService.logWeight(weight, this.user)
+
+    console.log();
   }
 }
