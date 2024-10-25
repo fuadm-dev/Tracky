@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { InputService } from 'src/app/service/input.service';
 import { User } from 'src/app/shared/models/user';
 
 @Component({
@@ -8,4 +9,8 @@ import { User } from 'src/app/shared/models/user';
 })
 export class DataInputComponent {
   @Input() user: User;
+
+  constructor(private inputService: InputService) {}
+
+
 }

@@ -5,7 +5,8 @@
     <div class="p-2">
       <div class="progress">
       <div
-        class="progress-bar bg-danger"
+      [ngClass]="title == 'Elapsed Time' ? 'bg-secondary' : 'bg-success'"
+        class="progress-bar"
         role="progressbar"
         [style.width.%]="progress"
         aria-valuenow="progress"

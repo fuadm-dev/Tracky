@@ -5,8 +5,9 @@
   --orange: #ff441f;
   --grey-bg: #ecf3f5;
   --light-grey: #d3d3d3;
+  --dark-grey: #6C757D;
   --red: red;
-  --green: green;
+  --green: #198754;
   --blue: #5499c2;
   --orange: #fd7e14;
 }
@@ -99,7 +100,6 @@
   font-size: 1.7rem;
 }
 
-
 .greenText {
   color: var(--green);
 }
@@ -148,7 +148,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #0d6efd;
+  background-color: var(--dark-grey);
   color: #fff;
 }
 

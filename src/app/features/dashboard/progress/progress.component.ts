@@ -11,5 +11,4 @@ export class ProgressComponent {
   user:User;
   @Input() title: string = '';
   @Input() progress: number;
-  
 }
