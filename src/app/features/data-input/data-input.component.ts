@@ -10,14 +10,18 @@ import { Weight } from 'src/app/shared/models/weight';
   styleUrls: ['./data-input.component.css'],
 })
 export class DataInputComponent implements OnInit {
-  @Input() user: User;
-  test: Weight = new Weight();
+  user: User;
 
   @ViewChild('weightInput') weightKg: ElementRef;
   @ViewChild('weightDate') weightDate: ElementRef;
 
-  constructor(private inputService: InputService) {}
-  ngOnInit(): void {}
+  constructor(
+    private userService: UserService,
+    private inputService: InputService
+  ) {}
+  ngOnInit(): void {
+    this.user = this. userService.getUser();
+  }
 
   onLogWeight() {
     const inputWeight: number = this.weightKg.nativeElement.value;

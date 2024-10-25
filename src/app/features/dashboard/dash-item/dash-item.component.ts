@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
+import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 
@@ -18,9 +19,10 @@ export class DashItemComponent implements OnInit {
   @Input() bmiComponent: boolean = true;
   user: User;
   userStats: StatsClass;
+  items: IDashItem[];
 
   constructor(private userService: UserService) {}
-  
+
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.userStats = this.userService.getUser().userStats;
