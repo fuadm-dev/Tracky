@@ -3,58 +3,8 @@
   class="d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-3"
 >
   <!-- Test Section -->
-
-
-
+   
   <!-- Enf Test Section -->
 
-  <!-- Start item -->
-  <dash-item
-    [title]="'Start'"
-    [weight]="user.start.weight"
-    [height]="user.height"
-    [date]="user.start.date"
-  ></dash-item>
-  <!-- Current item -->
-  <dash-item
-    [title]="'Last'"
-    [weight]="user.userStats.current.weight"
-    [height]="user.height"
-    [date]="user.userStats.current.date"
-  ></dash-item>
-  <!-- Target item -->
-  <dash-item
-    [title]="'Target'"
-    [weight]="user.target.weight"
-    [height]="user.height"
-    [date]="user.target.date"
-  ></dash-item>
-  <!-- Change item -->
-  <change-item
-    [title]="'Change'"
-    [weight]="user.userStats.change.weightChange"
-    [height]="user.height"
-    [calendar]="false"
-  ></change-item>
-  <!-- Predicted item -->
-  <dash-item
-    [title]="'Predicted'"
-    [weight]="user.userStats.predicted.weight"
-    [height]="user.height"
-    [date]="user.userStats.target.date"
-  ></dash-item>
-  <!-- Progress item FIX value -->
-  <progress-item
-    [title]="'Goal Progress'"
-    [progress]="user.userStats.pctProgress"
-  ></progress-item>
-
-  <!-- Time item FIX value -->
-  <progress-item
-    [title]="'Elapsed Time'"
-    [progress]="userStats.elapsedTime.weeks"
-  ></progress-item>
-
-  <!-- Trend item -->
-  <trend-item></trend-item>
+  
 </div>
