@@ -30,15 +30,15 @@ export class StatisticsService {
     this.calcPredictedWeight(user);
     this.calcProgressMade(user);
     this.calcOntarget(user);
-    
+
     return user.userStats;
   }
-  
+
   //Set Height
   setUserHeight(user: User) {
     user.userStats.height = user.height;
   }
-  
+
   // Set StartStats
   setStartStats(user: User) {
     user.userStats.start = user.start;
@@ -47,7 +47,7 @@ export class StatisticsService {
       user.height
     );
   }
-  
+
   // Set TargetStats
   setTarget(user: User) {
     // console.log(user.target);
@@ -57,26 +57,27 @@ export class StatisticsService {
       user.height
     );
   }
-  
+
   // Set CurrentStats
   setCurrentWeight(user: User) {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
     } else {
+      user.record.weightLogs = user.record.weightLogs.sort(
+        (a:any, b:any) => a.date - b.date
+      );
       const latestLog: Weight =
         user.record.weightLogs[user.record.weightLogs.length - 1];
 
       user.userStats.current = latestLog;
-      
-      
-      user.userStats.current.date = latestLog.date;
+
       user.userStats.current.bmi = this.bmiService.getBmi(
         user.userStats.current.weight,
         user.height
       );
     }
   }
-  
+
   // Calculate Total Time
   calcTimes(user: User) {
     // Calculate Total Time
@@ -126,7 +127,6 @@ export class StatisticsService {
       user.userStats.current.weight - rate
     );
     // console.log(user.userStats.remainingTime.weeks);
-    
 
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(
@@ -174,11 +174,10 @@ export class StatisticsService {
   }
 
   // Calculate BMI
-  calcBMIForRecord(user: User){
-    user.record.weightLogs.forEach(log => {
+  calcBMIForRecord(user: User) {
+    user.record.weightLogs.forEach((log) => {
       log.bmi.bmi = this.bmiService.calcBmi(log.weight, user.height);
       log.bmi.bmiStatus = this.bmiService.calcBmiStatus(log.bmi.bmi);
-    })
+    });
   }
-
 }

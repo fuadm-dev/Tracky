@@ -31,6 +31,6 @@ export class DataInputComponent implements OnInit {
 
     this.inputService.logWeight(weight, this.user);
 
-    console.log(weight);
+    console.log(this.user);
   }
 }
