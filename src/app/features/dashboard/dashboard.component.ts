@@ -10,13 +10,14 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  @Input() user: User;
+  user: User;
   userStats: StatsClass;
   elapsedWeeks: number;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
+    this.user = this.userService.getUser();
     this.userStats = this.userService.getUser().userStats;
     this.elapsedWeeks = Math.round(
       (this.userStats.elapsedTime.weeks / this.userStats.totalTime.weeks) * 100
