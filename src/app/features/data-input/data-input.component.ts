@@ -14,6 +14,15 @@ export class DataInputComponent implements OnInit {
 
   constructor(private inputService: InputService) {}
   ngOnInit(): void {
+    this.test.weight = 97;
+    this.test.date = new Date();
+    this.test.bmi.bmi = 30;
+
+    console.log(this.test);
+
     this.user.record.weightLogs.push(this.test);
+
+    //input service
+    //button
   }
 }
