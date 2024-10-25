@@ -17,21 +17,20 @@ export class DataInputComponent implements OnInit {
   @ViewChild('weightDate') weightDate: ElementRef;
 
   constructor(private inputService: InputService) {}
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onLogWeight() {
     const inputWeight: number = this.weightKg.nativeElement.value;
-    const inputDate: string = this.weightKg.nativeElement.value;
+    const inputDate: string = this.weightDate.nativeElement.value;
+    console.log(inputDate);
 
     const weight: Weight = {
       weight: inputWeight,
-      date: new Date(inputDate), 
+      date: new Date(inputDate),
     };
 
-    this.inputService.logWeight(weight, this.user)
+    this.inputService.logWeight(weight, this.user);
 
-    console.log();
+    console.log(weight);
   }
 }

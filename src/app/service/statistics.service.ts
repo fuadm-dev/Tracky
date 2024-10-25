@@ -4,6 +4,7 @@ import { User } from '../shared/models/user';
 import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
+import { Weight } from '../shared/models/weight';
 
 @Injectable({
   providedIn: 'root',
@@ -62,9 +63,13 @@ export class StatisticsService {
     if (user.record.weightLogs.length == 0) {
       user.userStats.current = user.start;
     } else {
-      user.userStats.current =
-      user.record.weightLogs[user.record.weightLogs.length - 1];
-      user.userStats.current = user.userStats.current;
+      const latestLog: Weight =
+        user.record.weightLogs[user.record.weightLogs.length - 1];
+
+      user.userStats.current = latestLog;
+      
+      
+      user.userStats.current.date = latestLog.date;
       user.userStats.current.bmi = this.bmiService.getBmi(
         user.userStats.current.weight,
         user.height
