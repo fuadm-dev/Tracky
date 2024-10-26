@@ -4,6 +4,7 @@ export interface IDashItem {
   units: string;
   weight?: number;
   progress?: number;
+  elapsedWeekAsPercent?: number;
   calendar?: boolean;
   bmiComponent?: boolean;
 }

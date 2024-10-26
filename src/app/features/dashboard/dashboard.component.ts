@@ -92,6 +92,7 @@ export class DashboardComponent implements OnInit {
       title: 'Progress Made',
       units: '%',
       weight: user.userStats.pctProgress,
+      progress: user.userStats.pctProgress,
       calendar: false,
       bmiComponent: false,
     };
@@ -101,6 +102,7 @@ export class DashboardComponent implements OnInit {
       title: 'Time Left',
       units: '%',
       weight: this.elapsedWeekAsPercent,
+      progress: this.elapsedWeekAsPercent,
       calendar: false,
       bmiComponent: false,
     };

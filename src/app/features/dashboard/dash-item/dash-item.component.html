@@ -11,22 +11,20 @@
     <div class="p-2" *ngIf="progress">
       <div class="progress">
         <div
-        [ngClass]="title == 'Elapsed Time' ? 'bg-secondary' : 'bg-success'"
-        class="progress-bar"
-        role="progressbar"
-        [style.width.%]="progress"
-        aria-valuenow="progress"
-        aria-valuemin="0"
-        aria-valuemax="100"
+          [ngClass]="!elapsedWeekAsPercent ? 'bg-success' : 'bg-secondary'"
+          class="progress-bar"
+          role="progressbar"
+          [style.width.%]="progress"
+          aria-valuenow="progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
         >
-        {{ progress }}%
+          {{ progress }}%
+        </div>
       </div>
     </div>
-  </div>
-  <!-- End Progress Bar -->
-    <span class="weight roboto-light">
-      {{ weight }}{{ units }}</span
-    >
+    <!-- End Progress Bar -->
+    <span class="weight roboto-light"> {{ weight }}{{ units }}</span>
     <!-- BMI component -->
     <span class="roboto-bold" *ngIf="bmiComponent">
       <app-bmi [height]="user.height" [weight]="weight"> </app-bmi>

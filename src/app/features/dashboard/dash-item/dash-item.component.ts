@@ -14,6 +14,7 @@ export class DashItemComponent implements OnInit {
   @Input() units: string = 'kg';
   @Input() weight?: number;
   @Input() progress?: number;
+  @Input() elapsedWeekAsPercent?: number;
   @Input() calendar?: boolean = true;
   @Input() bmiComponent?: boolean = true;
 
