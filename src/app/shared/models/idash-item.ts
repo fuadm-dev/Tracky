@@ -1,9 +1,9 @@
 export interface IDashItem {
   title: string;
+  date?: Date;
   units: string;
-  height: number;
-  weight: number;
-  date: Date;
-  calendar: boolean;
-  bmiComponent: boolean;
+  weight?: number;
+  progress?: number;
+  calendar?: boolean;
+  bmiComponent?: boolean;
 }

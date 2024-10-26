@@ -32,34 +32,86 @@ export class DashboardComponent implements OnInit {
       (this.userStats.elapsedTime.weeks / this.userStats.totalTime.weeks) * 100
     );
 
-    this.buildDashItems(this.user)
+    this.buildDashItems(this.user);
     console.log(this.user.userStats);
     console.log(this.dashItems);
   }
 
-  buildDashItems(user:User){
+  buildDashItems(user: User) {
     // build Start-Item
     const startItem: IDashItem = {
       title: 'Start',
       units: 'kg',
-      height: this.user.height,
       weight: user.userStats.start.weight,
       date: user.userStats.start.date,
       calendar: true,
-      bmiComponent: true
+      bmiComponent: true,
     };
 
     // build Current-Item
     const currentItem: IDashItem = {
       title: 'Current',
       units: 'kg',
-      height: this.user.height,
       weight: user.userStats.current.weight,
       date: user.userStats.current.date,
       calendar: true,
-      bmiComponent: true
+      bmiComponent: true,
     };
 
-    this.dashItems.push(startItem, currentItem)
+    // build Target-Item
+    const targetItem: IDashItem = {
+      title: 'Target',
+      units: 'kg',
+      weight: user.userStats.target.weight,
+      date: user.userStats.target.date,
+      calendar: true,
+      bmiComponent: true,
+    };
+
+    // build Change-Item
+    const changeItem: IDashItem = {
+      title: 'Change',
+      units: 'kg',
+      weight: user.userStats.change.weightChange,
+      calendar: false,
+      bmiComponent: true,
+    };
+
+    // build Predicted-Item
+    const predictedItem: IDashItem = {
+      title: 'Predicted',
+      units: 'kg',
+      weight: user.userStats.predicted.weight,
+      date: user.userStats.predicted.date,
+      calendar: true,
+      bmiComponent: true,
+    };
+
+    // build Progress-Item
+    const progressItem: IDashItem = {
+      title: 'Progress Made',
+      units: "'%'",
+      weight: user.userStats.pctProgress,
+      calendar: false,
+      bmiComponent: false,
+    };
+
+    // build Time-Item
+    const timeItem: IDashItem = {
+      title: 'Time Left',
+      units: 'kg',
+      weight: user.userStats.pctProgress,
+      calendar: false,
+      bmiComponent: false,
+    };
+
+    this.dashItems.push(
+      startItem,
+      currentItem,
+      targetItem,
+      changeItem,
+      predictedItem,
+      progressItem
+    );
   }
 }

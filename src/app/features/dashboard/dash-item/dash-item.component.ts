@@ -9,13 +9,14 @@ import { User } from 'src/app/shared/models/user';
   styleUrls: ['./dash-item.component.css'],
 })
 export class DashItemComponent implements OnInit {
-  @Input() units: string = 'kg';
   @Input() title: string = '';
-  @Input() weight: number;
-  @Input() height: number;
-  @Input() date: Date;
-  @Input() calendar: boolean = true;
-  @Input() bmiComponent: boolean = true;
+  @Input() date?: Date;
+  @Input() units: string = 'kg';
+  @Input() weight?: number;
+  @Input() progress?: number;
+  @Input() calendar?: boolean = true;
+  @Input() bmiComponent?: boolean = true;
+
   user: User;
   userStats: StatsClass;
 
