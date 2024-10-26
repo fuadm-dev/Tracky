@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
     // build Progress-Item
     const progressItem: IDashItem = {
       title: 'Progress Made',
-      units: "'%'",
+      units: '%',
       weight: user.userStats.pctProgress,
       calendar: false,
       bmiComponent: false,
@@ -99,8 +99,8 @@ export class DashboardComponent implements OnInit {
     // build Time-Item
     const timeItem: IDashItem = {
       title: 'Time Left',
-      units: 'kg',
-      weight: user.userStats.pctProgress,
+      units: '%',
+      weight: this.elapsedWeekAsPercent,
       calendar: false,
       bmiComponent: false,
     };
@@ -111,7 +111,8 @@ export class DashboardComponent implements OnInit {
       targetItem,
       changeItem,
       predictedItem,
-      progressItem
+      progressItem,
+      timeItem
     );
   }
 }
