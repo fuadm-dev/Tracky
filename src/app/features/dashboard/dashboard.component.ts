@@ -99,7 +99,7 @@ export class DashboardComponent implements OnInit {
 
     // build Time-Item
     const timeItem: IDashItem = {
-      title: 'Time Left',
+      title: 'Elapsed Time',
       units: '%',
       weight: this.elapsedWeekAsPercent,
       progress: this.elapsedWeekAsPercent,
