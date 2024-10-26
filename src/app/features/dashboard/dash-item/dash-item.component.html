@@ -11,7 +11,7 @@
     <div class="p-2" *ngIf="progress">
       <div class="progress">
         <div
-          [ngClass]="!elapsedWeekAsPercent ? 'bg-success' : 'bg-secondary'"
+          [ngClass]="title.toLowerCase().includes('progress') ? 'bg-success' : 'bg-secondary'"
           class="progress-bar"
           role="progressbar"
           [style.width.%]="progress"
