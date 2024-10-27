@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { InputService } from 'src/app/service/input.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
@@ -11,7 +11,8 @@ import { Weight } from 'src/app/shared/models/weight';
 })
 export class DataInputComponent implements OnInit {
   user: User;
-  @Output() onWeightInput: EventEmitter = new EventEmitter();
+  @Output() onWeightInput = new EventEmitter<User>();
+
   @ViewChild('weightInput') weightKg: ElementRef;
   @ViewChild('weightDate') weightDate: ElementRef;
 
@@ -33,13 +34,13 @@ export class DataInputComponent implements OnInit {
     };
 
     this.inputService.logWeight(weight, this.user);
+
+    this.onWeightInput.emit(this.user);
+    
   }
+
 }
 
-
-function Output(): (target: DataInputComponent, propertyKey: "onWeightInput") => void {
-  throw new Error('Function not implemented.');
-}
 /*
 OnLogWeight rebuild dashItems & calendar
 

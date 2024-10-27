@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from './service/user.service';
 import { User } from './shared/models/user';
 import { DateService } from './service/date.service';
 import { IDate_ } from './shared/models/_date';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class AppComponent implements OnInit {
   onTarget: boolean;
   onTargetMessage: string;
   currentDate: string;
+
+  @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
 
   constructor(
     private userService: UserService,
