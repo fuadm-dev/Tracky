@@ -26,7 +26,7 @@ export class DashItemBuilderService {
 
     // build Current-Item
     const currentItem: IDashItem = {
-      title: 'Current',
+      title: 'Last',
       units: 'kg',
       weight: user.userStats.current.weight,
       date: user.userStats.current.date,

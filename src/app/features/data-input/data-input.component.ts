@@ -35,7 +35,7 @@ export class DataInputComponent implements OnInit {
     const inputWeight: number = this.weightKg.nativeElement.value;
     const inputDate: string = this.weightDate.nativeElement.value;
 
-    if (inputWeight && Date.parse(inputDate)) {
+    if (inputWeight > 50 && Date.parse(inputDate)) {
       const weight: Weight = {
         weight: inputWeight,
         date: new Date(inputDate),

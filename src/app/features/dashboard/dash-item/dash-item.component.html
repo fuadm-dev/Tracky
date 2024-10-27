@@ -6,7 +6,7 @@
     </div>
 
     <!-- Title & weight -->
-    <span class="title roboto-bold fs-5">{{ title }}</span>
+    <span class="title roboto-bold fs-5">{{ title }} <i *ngIf="!progress" class="ms-2 fa-solid fa-weight-scale"></i></span>
     <!-- Progress Bar -->
     <div class="p-2" *ngIf="progress">
       <div class="progress">
