@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
     console.log(this.dashItems);
   }
 
+  // Refresh Dashboard
   reBuildDashboard() {
     this.user = this.userService.getUser();
     this.statsService.buildStats(this.user);
