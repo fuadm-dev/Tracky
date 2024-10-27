@@ -8,7 +8,8 @@ import { IDashItem } from '../shared/models/idash-item';
 export class DashItemBuilderService {
   constructor() {}
 
-  buildDashItems(user: User, dashItemsArr: IDashItem[]) {
+  buildDashItems(user: User): IDashItem[] {
+    let dashItemsArr: IDashItem[] = [];
     // build Start-Item
     let elapsedWeekAsPercent: number = Math.round(
       (user.userStats.elapsedTime.weeks / user.userStats.totalTime.weeks) * 100
@@ -91,5 +92,7 @@ export class DashItemBuilderService {
       progressItem,
       timeItem
     );
+
+    return dashItemsArr;
   }
 }

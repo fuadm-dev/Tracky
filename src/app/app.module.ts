@@ -14,6 +14,7 @@ import { BmiComponent } from './features/dashboard/bmi/bmi.component';
 import { DashItemComponent } from './features/dashboard/dash-item/dash-item.component';
 import { ChangeComponent } from './features/dashboard/change/change.component';
 import { ProgressComponent } from './features/dashboard/progress/progress.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ProgressComponent } from './features/dashboard/progress/progress.compon
     ChangeComponent,
     ProgressComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

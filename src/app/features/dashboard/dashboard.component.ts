@@ -27,14 +27,14 @@ export class DashboardComponent implements OnInit {
     this.user = this.userService.getUser();
     this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
-    
+    this.dashItems = this.reBuildDashboard(this.user);
     this.statsService.buildStats(this.user);
 
     console.log(this.user.userStats);
     console.log(this.dashItems);
   }
 
-  reBuildDashboard(){
-    this.dashBuilder.buildDashItems(this.user, this.dashItems);
+  reBuildDashboard(user: User) {
+    return this.dashBuilder.buildDashItems(user);
   }
 }
