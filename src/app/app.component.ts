@@ -22,16 +22,19 @@ export class AppComponent implements OnInit {
     private userService: UserService,
     private dateService: DateService
   ) {}
+
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.setOnTarget();
+    this.setOnTarget(this.user);
     this.currentDate = this.dateService.setCurrentDate();
+    
   }
-
-  setOnTarget() {
-    let onTarget = this.user.userStats.onTarget;
-    this.onTarget = onTarget;
-    if (onTarget) {
+  
+  setOnTarget(user: User) {
+    this.onTarget = user.userStats.onTarget;
+    console.log(this.user.userStats);
+    
+    if (this.onTarget) {
       this.onTargetMessage = 'On Target!';
     } else this.onTargetMessage = 'Off Target!';
   }

@@ -5,7 +5,7 @@
   <div class="main-container">
     <div class="header">
       <h1 [ngClass]="onTarget ? 'text-success' : 'text-danger'">
-        {{ onTargetMessage }}
+        {{ onTargetMessage }} {{onTarget}}
         <i
           [ngClass]="{
           bi: true,
