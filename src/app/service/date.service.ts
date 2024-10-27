@@ -6,8 +6,6 @@ import { _Time } from '../shared/models/_time';
   providedIn: 'root',
 })
 export class DateService {
-  d1: any = new Date(1980, 0, 15);
-  d2: Date = new Date();
 
   constructor() {}
 

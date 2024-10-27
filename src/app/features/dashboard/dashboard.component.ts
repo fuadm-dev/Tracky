@@ -41,5 +41,6 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.statsService.buildStats(this.user);
+    
   }
 }

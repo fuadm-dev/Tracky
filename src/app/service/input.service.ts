@@ -22,9 +22,11 @@ export class InputService implements OnInit {
   }
 
   logWeight(weightInput: Weight, user: User) {
-    weightInput.bmi = this.bmiService.getBmi(weightInput.weight, user.height);
-    
-    user.record.weightLogs.push(weightInput);
-    this.statsService.buildStats(user);
+    if (weightInput.weight) {
+      weightInput.bmi = this.bmiService.getBmi(weightInput.weight, user.height);
+
+      user.record.weightLogs.push(weightInput);
+      this.statsService.buildStats(user);
+    }
   }
 }
