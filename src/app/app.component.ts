@@ -4,6 +4,7 @@ import { User } from './shared/models/user';
 import { DateService } from './service/date.service';
 import { IDate_ } from './shared/models/_date';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { StatisticsService } from './service/statistics.service';
 
 @Component({
   selector: 'app-root',
@@ -20,21 +21,23 @@ export class AppComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private dateService: DateService
+    private dateService: DateService,
+    private userStats: StatisticsService
   ) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.setOnTarget(this.user);
+    this.setOnTarget();
     this.currentDate = this.dateService.setCurrentDate();
     
   }
   
-  setOnTarget(user: User) {
-    this.onTarget = user.userStats.onTarget;
+  setOnTarget() {
+    // const user = this.userService.getUser();
+    this.onTarget = this.user.userStats.onTarget;
     console.log(this.user.userStats);
     
-    if (this.onTarget) {
+    if (this.user.userStats.onTarget) {
       this.onTargetMessage = 'On Target!';
     } else this.onTargetMessage = 'Off Target!';
   }
