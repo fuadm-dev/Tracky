@@ -1,4 +1,11 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { InputService } from 'src/app/service/input.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
@@ -18,7 +25,7 @@ export class DataInputComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private inputService: InputService,
+    private inputService: InputService
   ) {}
   ngOnInit(): void {
     this.user = this.userService.getUser();
@@ -28,21 +35,14 @@ export class DataInputComponent implements OnInit {
     const inputWeight: number = this.weightKg.nativeElement.value;
     const inputDate: string = this.weightDate.nativeElement.value;
 
-    const weight: Weight = {
-      weight: inputWeight,
-      date: new Date(inputDate),
-    };
+    if (inputWeight && Date.parse(inputDate)) {
+      const weight: Weight = {
+        weight: inputWeight,
+        date: new Date(inputDate),
+      };
 
-    this.inputService.logWeight(weight, this.user);
-
-    this.onWeightInput.emit(this.user);
-    
+      this.inputService.logWeight(weight, this.user);
+      this.onWeightInput.emit(this.user);
+    }
   }
-
 }
-
-/*
-OnLogWeight rebuild dashItems & calendar
-
-
-*/
