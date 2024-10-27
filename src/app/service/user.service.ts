@@ -63,8 +63,8 @@ export class UserService {
           },
         },
         {
-          date: new Date(2024, 8, 20),
-          weight: 108.5,
+          date: new Date(2024, 9, 27),
+          weight: 105.5,
           bmi: {
             bmi: 0,
             bmiStatus: '',

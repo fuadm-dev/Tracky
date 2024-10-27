@@ -1,4 +1,4 @@
-import { AfterViewInit, Input, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
 import { StatisticsService } from 'src/app/service/statistics.service';
@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.statsService.buildStats(this.user);
-    
+    console.log(this.user);
+    console.log(this.dashItems);
   }
 }
