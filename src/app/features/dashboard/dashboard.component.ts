@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { AfterViewInit, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
 import { StatisticsService } from 'src/app/service/statistics.service';
@@ -12,7 +12,7 @@ import { User } from 'src/app/shared/models/user';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
@@ -25,13 +25,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.statsService.buildStats(this.user);
 
     console.log(this.user);
     console.log(this.dashItems);
+  }
+
+  ngAfterViewInit() {
+    this.reBuildDashboard();
   }
 
   // Refresh Dashboard
