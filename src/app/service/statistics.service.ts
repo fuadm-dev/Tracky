@@ -64,7 +64,7 @@ export class StatisticsService {
       user.userStats.current = user.start;
     } else {
       user.record.weightLogs = user.record.weightLogs.sort(
-        (a:any, b:any) => a.date - b.date
+        (a: any, b: any) => a.date - b.date
       );
       const latestLog: Weight =
         user.record.weightLogs[user.record.weightLogs.length - 1];
@@ -171,6 +171,12 @@ export class StatisticsService {
   calcOntarget(user: User) {
     user.userStats.onTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+    user.userStats.target.isOnTarget =
+      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+
+    if (user.userStats.target.isOnTarget) {
+      user.userStats.target.message = 'On Target!';
+    } else user.userStats.target.message = 'Off Target!';
   }
 
   // Calculate BMI
