@@ -24,12 +24,10 @@ export class InputService implements OnInit {
   }
 
   logWeight(weightInput: Weight, user: User) {
-    if (weightInput.weight) {
+    if (weightInput) {
       this.resetBmi(weightInput)
       this.updateUserRecord(user, weightInput);
-      
-      // user.record.weightLogs.push(weightInput);
-      this.statsService.buildStats(user);
+      this.resetStatistics(user);
     }
   }
 
