@@ -2,6 +2,7 @@ import { Record } from './record';
 import { Weight } from './weight';
 import { StatsClass } from './stats-class';
 import { Change } from './change';
+import { Target } from './target';
 
 export interface User {
   id: number;
@@ -13,7 +14,7 @@ export interface User {
   dob: string;
   start: Weight;
   change: Change;
-  target: Weight;
+  target: Target;
   record: Record;
   userStats: StatsClass;
   history: Record[];

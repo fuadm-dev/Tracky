@@ -3,6 +3,7 @@ import { User } from '../shared/models/user';
 import { StatisticsService } from './statistics.service';
 import { StatsClass } from '../shared/models/stats-class';
 import { Change } from '../shared/models/change';
+import { Target } from '../shared/models/target';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,7 @@ export class UserService {
         bmi: 0,
         bmiStatus: '',
       },
+      target: new Target(),
     },
     change: new Change(),
     record: {
