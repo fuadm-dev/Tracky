@@ -26,18 +26,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    // this.setOnTarget();
     this.currentDate = this.dateService.setCurrentDate();
-    
   }
   
-  // setOnTarget() {
-  //   // const user = this.userService.getUser();
-  //   this.onTarget = this.user.userStats.onTarget;
-  //   console.log(this.user.userStats);
-    
-  //   if (this.user.userStats.onTarget) {
-  //     this.onTargetMessage = 'On Target!';
-  //   } else this.onTargetMessage = 'Off Target!';
-  // }
 }

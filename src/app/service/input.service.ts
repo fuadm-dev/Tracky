@@ -10,6 +10,7 @@ import { StatisticsService } from './statistics.service';
 })
 export class InputService implements OnInit {
   user: User;
+  height: number;
 
   constructor(
     private userService: UserService,
@@ -19,14 +20,28 @@ export class InputService implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    this.height = this.user.height;
   }
 
   logWeight(weightInput: Weight, user: User) {
     if (weightInput.weight) {
-      weightInput.bmi = this.bmiService.getBmi(weightInput.weight, user.height);
-
-      user.record.weightLogs.push(weightInput);
+      this.resetBmi(weightInput)
+      this.updateUserRecord(user, weightInput);
+      
+      // user.record.weightLogs.push(weightInput);
       this.statsService.buildStats(user);
     }
+  }
+
+  updateUserRecord(user:User, weight: Weight) {
+    user.record.weightLogs.push(weight);
+  }
+
+  resetBmi(input: Weight) {
+    input.bmi = this.bmiService.getBmi(input.weight, this.height);
+  }
+
+  resetStatistics(user: User) {
+    this.statsService.buildStats(user);
   }
 }
