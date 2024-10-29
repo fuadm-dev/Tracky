@@ -1,1 +1,3 @@
-1) Fix onTarget
+1) edit table feature
+2) table pagination
+3) navbar
