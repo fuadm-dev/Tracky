@@ -4,13 +4,13 @@
   </nav>
   <div class="main-container">
     <div class="header">
-      <h1 [ngClass]="onTarget ? 'text-success' : 'text-danger'">
-        {{ onTargetMessage }}
+      <h1 [ngClass]="user.userStats.target.isOnTarget ? 'text-success' : 'text-danger'">
+        {{ user.userStats.target.message }}
         <i
           [ngClass]="{
           bi: true,
-          'bi-emoji-smile-fill': onTarget,
-          'bi-emoji-frown-fill': !onTarget
+          'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
+          'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
         }"
         ></i>
         

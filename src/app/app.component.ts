@@ -22,23 +22,22 @@ export class AppComponent implements OnInit {
   constructor(
     private userService: UserService,
     private dateService: DateService,
-    private userStats: StatisticsService
   ) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.setOnTarget();
+    // this.setOnTarget();
     this.currentDate = this.dateService.setCurrentDate();
     
   }
   
-  setOnTarget() {
-    // const user = this.userService.getUser();
-    this.onTarget = this.user.userStats.onTarget;
-    console.log(this.user.userStats);
+  // setOnTarget() {
+  //   // const user = this.userService.getUser();
+  //   this.onTarget = this.user.userStats.onTarget;
+  //   console.log(this.user.userStats);
     
-    if (this.user.userStats.onTarget) {
-      this.onTargetMessage = 'On Target!';
-    } else this.onTargetMessage = 'Off Target!';
-  }
+  //   if (this.user.userStats.onTarget) {
+  //     this.onTargetMessage = 'On Target!';
+  //   } else this.onTargetMessage = 'Off Target!';
+  // }
 }
