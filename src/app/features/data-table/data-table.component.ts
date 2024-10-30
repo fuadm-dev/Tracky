@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
+import { Weight } from 'src/app/shared/models/weight';
 
 @Component({
   selector: 'data-table',
@@ -10,10 +11,16 @@ import { User } from 'src/app/shared/models/user';
 export class DataTableComponent implements OnInit {
   user: User;
 
-  constructor(private userService: UserService) {
-  }
+  @Output() tableClickEvent = new EventEmitter<Weight>()
+
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+  }
+
+  onTableClick(log: Weight) {
+    this.tableClickEvent.emit(log)
+    console.log(log);
   }
 }
