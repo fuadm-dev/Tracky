@@ -2,7 +2,3 @@
 2) table pagination
 3) navbar
 
-<div _ngcontent-ng-c975311741="" id="editWeightModal" tabindex="-1" aria-labelledby="editWeightModalLabel" class="modal fade" style="display: none;" aria-hidden="true">
-
-<div _ngcontent-ng-c975311741="" id="editWeightModal" tabindex="-1" aria-labelledby="editWeightModalLabel" class="modal fade show" style="display: block;" aria-modal="true" role="dialog">
-

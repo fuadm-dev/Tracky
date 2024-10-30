@@ -19,7 +19,7 @@ export class DataTableComponent implements OnInit {
     this.user = this.userService.getUser();
   }
 
-  onTableClick(log: Weight) {
+  onRowClick(log: Weight) {
     this.tableClickEvent.emit(log)
   }
 }
