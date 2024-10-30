@@ -33,37 +33,25 @@
       </section>
       <!-- Table -->
       <section class="section">
-        <data-table (tableClickEvent)="onTableClick($event)"></data-table>
+        <data-table (tableClickEvent)="onTableClick($event)" data-bs-toggle="modal" href="#exampleModalToggle"></data-table>
       </section>
     </main>
   </div>
 
-  <!-- Button trigger modal -->
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#editWeightModal"
-  >
-    Launch demo modal
-  </button>
-
-  <!-- Modal -->
+  <!-- Edit Weight Modal -->
   <div
-  [ngClass]="{'block': selectedWeightLog}"
     #editModal
-    class="modal fade"
-    id="editWeightModal"
-    tabindex="-1"
-    aria-labelledby="editWeightModalLabel"
+    class="modal"
+    id="exampleModalToggle"
     aria-hidden="true"
+    aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1"
   >
-    <div
-      class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable"
-    >
+    <div class="modal-dialog">
       <div class="modal-content">
+        <!-- Modal Header -->
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editWeightModalLabel">Weight Log</h1>
+          <h4 class="modal-title">User Details:</h4>
           <button
             type="button"
             class="btn-close"
@@ -71,6 +59,8 @@
             aria-label="Close"
           ></button>
         </div>
+
+        <!-- Modal body -->
         <div class="modal-body">
           {{ selectedWeightLog.date.getDate() }}/{{
             selectedWeightLog.date.getMonth()
@@ -80,15 +70,17 @@
           <br />
           {{ selectedWeightLog.bmi.bmi }}
         </div>
+
+        <!-- Modal footer -->
         <div class="modal-footer">
           <button
-            type="button"
-            class="btn btn-secondary"
+            class="btn btn-primary"
+            data-bs-target="#exampleModalToggle"
+            data-bs-toggle="modal"
             data-bs-dismiss="modal"
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

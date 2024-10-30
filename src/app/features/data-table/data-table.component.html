@@ -9,7 +9,7 @@
       <th scope="col">Date</th>
       <th scope="col">Weight Kg</th>
       <th scope="col">BMI</th>
-      <th class="text-center" scope="col"></th>
+      <!-- <th class="text-center" scope="col"></th> -->
     </tr>
   </thead>
   <tbody *ngIf="user.record.weightLogs.length">
@@ -17,7 +17,7 @@
       <td>{{ log.date.getDate() }}/{{ log.date.getMonth() }}/{{log.date.getFullYear()}}</td>
       <td>{{ log.weight }}</td>
       <td>{{ log.bmi.bmi }}</td>
-      <td><i class="bi bi-pencil-fill"></i></td>
+      <!-- <td><i class="bi bi-pencil-fill"></i></td> -->
     </tr>
   </tbody>
 </table>

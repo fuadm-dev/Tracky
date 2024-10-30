@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
   onTargetMessage: string;
   currentDate: string;
 
-  selectedWeightLog: Weight;
+  selectedWeightLog: Weight;;
+  show: boolean = false
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
   @ViewChild('editModal') editModal: ElementRef;
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   onTableClick(log: Weight) {
+    console.log(this.selectedWeightLog);
     this.selectedWeightLog = log;
     console.log(this.editModal.nativeElement);
   }
