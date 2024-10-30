@@ -21,6 +21,5 @@ export class DataTableComponent implements OnInit {
 
   onTableClick(log: Weight) {
     this.tableClickEvent.emit(log)
-    console.log(log);
   }
 }

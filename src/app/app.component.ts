@@ -5,6 +5,7 @@ import { DateService } from './service/date.service';
 import { IDate_ } from './shared/models/_date';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { StatisticsService } from './service/statistics.service';
+import { Weight } from './shared/models/weight';
 
 @Component({
   selector: 'app-root',
@@ -17,16 +18,22 @@ export class AppComponent implements OnInit {
   onTargetMessage: string;
   currentDate: string;
 
+  selectedWeightLog: Weight;
+
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
 
   constructor(
     private userService: UserService,
-    private dateService: DateService,
+    private dateService: DateService
   ) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.currentDate = this.dateService.setCurrentDate();
   }
-  
+
+  onTableClick(log: Weight) {
+    this.selectedWeightLog = log;
+    console.log(this.selectedWeightLog);
+  }
 }
