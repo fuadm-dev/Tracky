@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
 import { Weight } from 'src/app/shared/models/weight';
@@ -11,7 +11,7 @@ import { Weight } from 'src/app/shared/models/weight';
 export class DataTableComponent implements OnInit {
   user: User;
 
-  @Output() tableClickEvent = new EventEmitter<Weight>()
+  @Output() tableClickEvent = new EventEmitter<Weight>();
 
   constructor(private userService: UserService) {}
 
@@ -20,6 +20,6 @@ export class DataTableComponent implements OnInit {
   }
 
   onRowClick(log: Weight) {
-    this.tableClickEvent.emit(log)
+    this.tableClickEvent.emit(log);
   }
 }

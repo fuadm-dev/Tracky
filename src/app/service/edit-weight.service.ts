@@ -8,6 +8,4 @@ export class EditWeightService {
 
   constructor(private userService: UserService) { }
 
-  
-
 }

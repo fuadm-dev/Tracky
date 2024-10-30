@@ -33,16 +33,21 @@
       </section>
       <!-- Table -->
       <section class="section">
-        <data-table
+        <button
+          class="btn btn-primary"
+          data-bs-target="#exampleModalToggle"
           data-bs-toggle="modal"
-          href="#exampleModalToggle"
-        ></data-table>
+          ng-disabled="temp"
+        >
+          modal
+        </button>
+        <data-table (tableClickEvent)="onRowClick($event)"></data-table>
       </section>
     </main>
   </div>
-
   <!-- Edit Weight Modal -->
   <div
+    *ngIf="selectedWeightLog"
     #editModal
     class="modal"
     id="exampleModalToggle"
