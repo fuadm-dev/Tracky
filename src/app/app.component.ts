@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   currentDate: string;
 
   selectedWeightLog: Weight;
-  temp: boolean = false;
+  checked: boolean = true;
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
 

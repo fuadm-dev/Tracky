@@ -37,7 +37,7 @@
           class="btn btn-primary"
           data-bs-target="#exampleModalToggle"
           data-bs-toggle="modal"
-          ng-disabled="temp"
+          [disabled]="selectedWeightLog == undefined"
         >
           modal
         </button>
