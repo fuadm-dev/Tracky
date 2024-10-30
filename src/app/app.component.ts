@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UserService } from './service/user.service';
 import { User } from './shared/models/user';
 import { DateService } from './service/date.service';
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   selectedWeightLog: Weight;
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
+  @ViewChild('editModal') editModal: ElementRef;
 
   constructor(
     private userService: UserService,
@@ -29,11 +30,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    this.selectedWeightLog = this.user.userStats.current;
     this.currentDate = this.dateService.setCurrentDate();
   }
 
   onTableClick(log: Weight) {
     this.selectedWeightLog = log;
-    console.log(this.selectedWeightLog);
+    console.log(this.editModal.nativeElement);
   }
 }
