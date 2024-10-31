@@ -1,4 +1,4 @@
-1) finish edit/modal feature
+1) finish edit/modal 2 clicks issue
 2) table pagination
 3) navbar
 
