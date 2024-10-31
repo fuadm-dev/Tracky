@@ -32,8 +32,18 @@ export class AppComponent implements OnInit {
     this.currentDate = this.dateService.setCurrentDate();
   }
 
-  onRowClick(log: Weight) {
+  openModal(log: Weight) {
     this.selectedWeightLog = log;
+    const modelContainer = document.getElementById('myModal');
+    if (modelContainer != null) {
+      modelContainer.style.display = 'block'
+    }
     console.log(log);
+  }
+  closeModal() {
+    const modelContainer = document.getElementById('myModal');
+    if (modelContainer != null) {
+      modelContainer.style.display = 'none'
+    }
   }
 }

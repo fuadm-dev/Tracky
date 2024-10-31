@@ -1,4 +1,4 @@
-1) edit table feature
+1) finish edit/modal feature
 2) table pagination
 3) navbar
 

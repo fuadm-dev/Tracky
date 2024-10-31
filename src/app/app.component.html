@@ -33,38 +33,27 @@
       </section>
       <!-- Table -->
       <section class="section">
-        <button
-          class="btn btn-primary"
-          data-bs-target="#exampleModalToggle"
+        <data-table
+          data-bs-target="#myModal"
           data-bs-toggle="modal"
-          [disabled]="selectedWeightLog == undefined"
-        >
-          modal
-        </button>
-        <data-table (tableClickEvent)="onRowClick($event)"></data-table>
+          (tableClickEvent)="openModal($event)"
+        ></data-table>
       </section>
     </main>
   </div>
-  <!-- Edit Weight Modal -->
-  <div
-    *ngIf="selectedWeightLog"
-    #editModal
-    class="modal"
-    id="exampleModalToggle"
-    aria-hidden="true"
-    aria-labelledby="exampleModalToggleLabel"
-    tabindex="-1"
-  >
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal" *ngIf="selectedWeightLog">
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">User Details:</h4>
+          <h4 class="modal-title">Modal Heading</h4>
           <button
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
+            (click)="closeModal()"
           ></button>
         </div>
 
@@ -82,10 +71,10 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button
-            class="btn btn-primary"
-            data-bs-target="#exampleModalToggle"
-            data-bs-toggle="modal"
+            type="button"
+            class="btn btn-danger"
             data-bs-dismiss="modal"
+            (click)="closeModal()"
           >
             Close
           </button>
@@ -93,6 +82,5 @@
       </div>
     </div>
   </div>
-
   <!-- <router-outlet></router-outlet> -->
 </div>
