@@ -5,7 +5,7 @@
   --orange: #ff441f;
   --grey-bg: #ecf3f5;
   --light-grey: #a6a6a6;
-  --dark-grey: #6C757D;
+  --dark-grey: #6c757d;
   --red: red;
   --green: #198754;
   --blue: #5499c2;
@@ -76,8 +76,8 @@
   display: inline-block;
   margin-bottom: 20px;
   position: relative;
-  width: 220px;
-  height: 175px;
+  width: 240px;
+  height: 185px;
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
