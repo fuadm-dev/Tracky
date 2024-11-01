@@ -17,6 +17,7 @@ export class DashItemComponent implements OnInit {
   @Input() elapsedWeekAsPercent?: number;
   @Input() calendar?: boolean = true;
   @Input() bmiComponent?: boolean = true;
+  @Input() bmiStatus?: boolean = true;
 
   user: User;
   userStats: StatsClass;

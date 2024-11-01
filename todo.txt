@@ -1,4 +1,4 @@
-*) elapsed & change items
+*) elapsed time
 *) trend item
 *) edit/modal 2 clicks issue
 *) profile UI

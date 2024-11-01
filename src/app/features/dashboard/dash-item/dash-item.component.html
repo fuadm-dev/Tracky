@@ -27,7 +27,7 @@
     <span class="weight roboto-light"> {{ weight }}{{ units }}</span>
     <!-- BMI component -->
     <span class="roboto-bold" *ngIf="bmiComponent">
-      <app-bmi [height]="user.height" [weight]="weight"> </app-bmi>
+      <app-bmi [height]="user.height" [weight]="weight" [showBmiStatus]="bmiStatus"> </app-bmi>
     </span>
   </div>
 </div>

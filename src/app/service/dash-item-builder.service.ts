@@ -22,8 +22,7 @@ export class DashItemBuilderService {
       date: user.userStats.start.date,
       calendar: true,
       bmiComponent: true,
-      bmi: true;
-      bmiStatus: true
+      bmiStatus: true,
     };
 
     // build Current-Item
@@ -34,6 +33,7 @@ export class DashItemBuilderService {
       date: user.userStats.current.date,
       calendar: true,
       bmiComponent: true,
+      bmiStatus: true,
     };
 
     // build Target-Item
@@ -44,6 +44,7 @@ export class DashItemBuilderService {
       date: user.userStats.target.date,
       calendar: true,
       bmiComponent: true,
+      bmiStatus: true,
     };
 
     // build Change-Item
@@ -53,6 +54,7 @@ export class DashItemBuilderService {
       weight: user.userStats.change.weightChange,
       calendar: false,
       bmiComponent: true,
+      bmiStatus: false,
     };
 
     // build Predicted-Item
@@ -63,6 +65,7 @@ export class DashItemBuilderService {
       date: user.userStats.predicted.date,
       calendar: true,
       bmiComponent: true,
+      bmiStatus: true,
     };
 
     // build Progress-Item
@@ -73,6 +76,7 @@ export class DashItemBuilderService {
       progress: user.userStats.pctProgress,
       calendar: false,
       bmiComponent: false,
+      bmiStatus: false,
     };
 
     // build Time-Item
@@ -83,6 +87,7 @@ export class DashItemBuilderService {
       progress: elapsedWeekAsPercent,
       calendar: false,
       bmiComponent: false,
+      bmiStatus: false,
     };
 
     dashItemsArr.push(

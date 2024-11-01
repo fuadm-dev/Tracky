@@ -7,6 +7,5 @@ export interface IDashItem {
   elapsedWeekAsPercent?: number;
   calendar?: boolean;
   bmiComponent?: boolean;
-  bmi?: boolean;
   bmiStatus?: boolean;
 }
