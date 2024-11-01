@@ -10,6 +10,7 @@ export class DashItemBuilderService {
 
   buildDashItems(user: User): IDashItem[] {
     let dashItemsArr: IDashItem[] = [];
+    
     // build Start-Item
     let elapsedWeekAsPercent: number = Math.round(
       (user.userStats.elapsedTime.weeks / user.userStats.totalTime.weeks) * 100

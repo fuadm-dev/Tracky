@@ -1,29 +1,20 @@
 import { Injectable } from '@angular/core';
-import { UserService } from './user.service';
 import { User } from '../shared/models/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SetOnTargetService {
-  user: User;
-  constructor(private userService: UserService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.user = this.userService.getUser();
-  }
+  setOnTargetValue(user: User) {
+    user.userStats.onTarget =
+      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+    user.userStats.target.isOnTarget =
+      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
 
-  setOnTargetValue() {
-    let onTarget = {
-      isOnTarget: true,
-      message: '',
-    };
-
-    this.user.userStats.onTarget = this.user.userStats.onTarget;
-    console.log(this.user.userStats);
-
-    if (this.user.userStats.onTarget) {
-      onTarget.message = 'On Target!';
-    } else onTarget.message = 'Off Target!';
+    if (user.userStats.target.isOnTarget) {
+      user.userStats.target.message = 'On Target';
+    } else user.userStats.target.message = 'Off Target';
   }
 }

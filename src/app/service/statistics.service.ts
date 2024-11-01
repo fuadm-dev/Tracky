@@ -5,6 +5,7 @@ import { StatsClass } from '../shared/models/stats-class';
 import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
 import { Weight } from '../shared/models/weight';
+import { SetOnTargetService } from './set-on-target.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class StatisticsService {
 
   constructor(
     private bmiService: BmiService,
-    private dateService: DateService
+    private dateService: DateService,
+    private setOnTarget: SetOnTargetService
   ) {}
 
   buildStats(user: User): StatsClass {
@@ -126,13 +128,17 @@ export class StatisticsService {
     user.userStats.predicted.weight = Math.round(
       user.userStats.current.weight - rate
     );
-    // console.log(user.userStats.remainingTime.weeks);
-
+ 
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(
       user.userStats.predicted.weight,
       user.height
     );
+
+    // set predicted Date
+    user.userStats.predicted.date = user.userStats.target.date;
+    console.log(user.userStats.predicted);
+    
   }
 
   // Calculate Changes
@@ -169,14 +175,7 @@ export class StatisticsService {
 
   // Calculate Ontarget
   calcOntarget(user: User) {
-    user.userStats.onTarget =
-      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
-    user.userStats.target.isOnTarget =
-      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
-
-    if (user.userStats.target.isOnTarget) {
-      user.userStats.target.message = 'On Target!';
-    } else user.userStats.target.message = 'Off Target!';
+    this.setOnTarget.setOnTargetValue(user);
   }
 
   // Calculate BMI
