@@ -137,7 +137,6 @@ export class StatisticsService {
 
     // set predicted Date
     user.userStats.predicted.date = user.userStats.target.date;
-    console.log(user.userStats.predicted);
     
   }
 
