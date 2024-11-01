@@ -14,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 4%;
 }
 
 .header span {
@@ -23,7 +24,14 @@
   border: 1px solid var(--light-grey);
   background-color: #fff;
   border-radius: 3px;
-  padding: 8px 20px;
+}
+
+.onTarget{
+  padding: 4px 18px;
+}
+
+.currentDate{
+  padding: 14px 20px;  
 }
 
 .section {
@@ -33,9 +41,9 @@
   background: #fff;
   border-radius: 2px;
   margin-bottom: 20px;
-  padding: 30px;
+  padding: 25px;
   position: relative;
-  width: 90%;
+  width: 87%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }

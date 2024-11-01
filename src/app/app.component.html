@@ -12,10 +12,10 @@
       </section>
       <!-- Dashboard -->
       <section class="section">
-        <div class="container px-5">
+        <div class="container">
           <div class="header">
             <span
-              class="text-white fs-4"
+              class="onTarget text-white fs-4"
               [ngClass]="
                 user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
               "
@@ -30,7 +30,7 @@
                 }"
               ></i>
             </span>
-            <span>{{ currentDate }}<i class="ms-1 bi bi-calendar3"></i></span>
+            <span class="fs-5 currentDate">{{ currentDate }}<i class="ms-2 bi bi-calendar3"></i></span>
           </div>
           <app-dashboard></app-dashboard>
         </div>
