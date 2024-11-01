@@ -17,6 +17,11 @@
   margin: 0 4%;
 }
 
+.input-container{
+  margin: 0 auto;
+  width: 90%;
+}
+
 .header span {
   display: flex;
   justify-content: center;

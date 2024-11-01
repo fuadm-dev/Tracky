@@ -6,9 +6,11 @@
     <main class="center-y mt-4">
       <!-- Input -->
       <section class="section">
-        <data-input
-          (onWeightInput)="dashboardComponent.reBuildDashboard()"
-        ></data-input>
+        <div class="input-container">
+          <data-input
+            (onWeightInput)="dashboardComponent.reBuildDashboard()"
+          ></data-input>
+        </div>
       </section>
       <!-- Dashboard -->
       <section class="section">

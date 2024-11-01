@@ -1,32 +1,17 @@
-td, th{
+td,
+th {
   text-align: center;
 }
 
-td{
+td {
   cursor: pointer;
 }
 
-td i{
+td i {
   color: #555;
 }
 
-
-.bi-emoji-smile,
-.bi-arrow-up{
-  color: rgb(0, 255, 0);
-  font-size: 1.3rem;
-  font-weight: 900;
-}
-
-.bi-emoji-neutral{
-  color: rgb(175, 175, 175);
-  font-size: 1.3rem;
-  font-weight: 900;
-}
-
-.bi-emoji-frown,
-.bi-arrow-down{
-  color: red;
-  font-size: 1.3rem;
-  font-weight: 900;
+.tableContainer {
+  margin: auto;
+  width: 90%;
 }
