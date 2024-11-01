@@ -3,7 +3,6 @@
     <app-navbar></app-navbar>
   </nav>
   <div class="main-container">
-    
     <main class="center-y mt-4">
       <!-- Input -->
       <section class="section">
@@ -13,24 +12,28 @@
       </section>
       <!-- Dashboard -->
       <section class="section">
-        <div class="header">
-      <h3
-        [ngClass]="
-          user.userStats.target.isOnTarget ? 'text-success' : 'text-danger'
-        "
-      >
-        {{ user.userStats.target.message }}
-        <i
-          [ngClass]="{
-            bi: true,
-            'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
-            'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
-          }"
-        ></i>
-      </h3>
-      <span>{{ currentDate }}<i class="ms-1 bi bi-calendar3"></i></span>
-    </div>
-        <app-dashboard></app-dashboard>
+        <div class="container px-5">
+          <div class="header">
+            <h3
+              [ngClass]="
+                user.userStats.target.isOnTarget
+                  ? 'text-success'
+                  : 'text-danger'
+              "
+            >
+              {{ user.userStats.target.message }}
+              <i
+                [ngClass]="{
+                  bi: true,
+                  'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
+                  'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
+                }"
+              ></i>
+            </h3>
+            <span>{{ currentDate }}<i class="ms-1 bi bi-calendar3"></i></span>
+          </div>
+          <app-dashboard></app-dashboard>
+        </div>
       </section>
       <!-- Table -->
       <section class="section">

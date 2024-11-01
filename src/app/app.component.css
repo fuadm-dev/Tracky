@@ -16,13 +16,13 @@
   align-items: center;
 }
 
-
 .header span {
   color: #000;
   font-weight: bold;
   border: 1px solid var(--light-grey);
   background-color: #fff;
   border-radius: 3px;
+  padding: 4px 8px;
 }
 
 .section {
