@@ -14,22 +14,22 @@
       <section class="section">
         <div class="container px-5">
           <div class="header">
-            <h3
+            <span
+              class="text-white fs-4"
               [ngClass]="
-                user.userStats.target.isOnTarget
-                  ? 'text-success'
-                  : 'text-danger'
+                user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
               "
             >
               {{ user.userStats.target.message }}
               <i
+                class="ms-2 fs-2"
                 [ngClass]="{
                   bi: true,
                   'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
                   'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
                 }"
               ></i>
-            </h3>
+            </span>
             <span>{{ currentDate }}<i class="ms-1 bi bi-calendar3"></i></span>
           </div>
           <app-dashboard></app-dashboard>

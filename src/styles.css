@@ -72,7 +72,6 @@
 /* Dashboard-item */
 .box-small {
   background: #fff;
-  border-radius: 2px;
   display: inline-block;
   margin-bottom: 20px;
   position: relative;
@@ -140,7 +139,7 @@
   top: 13px;
   right: 13px;
   border: 1px solid #cecece;
-  border-radius: 8px;
+  border-radius: 3px;
 }
 .date-box :nth-child(1) {
   display: flex;

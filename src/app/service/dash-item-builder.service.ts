@@ -22,6 +22,8 @@ export class DashItemBuilderService {
       date: user.userStats.start.date,
       calendar: true,
       bmiComponent: true,
+      bmi: true;
+      bmiStatus: true
     };
 
     // build Current-Item
