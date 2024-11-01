@@ -1,4 +1,7 @@
-.profile,
-.logo {
-  color: #333;
+.nav-container {
+  width: 73%;
+}
+
+.bi-person-gear {
+  font-size: 43px;
 }
