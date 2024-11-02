@@ -1,5 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
 import { StatisticsService } from 'src/app/service/statistics.service';
 import { UserService } from 'src/app/service/user.service';
@@ -20,11 +21,13 @@ export class DashboardComponent implements OnInit {
   constructor(
     private userService: UserService,
     private statsService: StatisticsService,
-    private dashBuilder: DashItemBuilderService
+    private dashBuilder: DashItemBuilderService,
+    private chartService: ChartService,
   ) {}
 
   ngOnInit() {
     this.reBuildDashboard();
+    this.chartService.getChartData(this.user);
   }
 
   // Refresh Dashboard
