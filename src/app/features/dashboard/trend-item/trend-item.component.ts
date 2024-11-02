@@ -29,7 +29,14 @@ export class TrendItemComponent implements OnInit {
           },
         ],
       },
-      options: {},
+      options: {
+        plugins: {
+        legend: {
+          display: false
+        }
+      },
+      },
+      
     });
     console.log(weightChart.data.datasets[0].data[0]);
     
