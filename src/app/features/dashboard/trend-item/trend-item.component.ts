@@ -20,17 +20,19 @@ export class TrendItemComponent implements OnInit {
     const weightChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [118, 114, 110, 108, 107, 107, 106, 105, 103, 100],
             borderWidth: 1,
           },
         ],
       },
       options: {},
     });
+    console.log(weightChart.data.datasets[0].data[0]);
+    
   }
   
 }
