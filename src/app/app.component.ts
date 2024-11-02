@@ -1,9 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from './service/user.service';
 import { User } from './shared/models/user';
 import { DateService } from './service/date.service';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { Weight } from './shared/models/weight';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-root',

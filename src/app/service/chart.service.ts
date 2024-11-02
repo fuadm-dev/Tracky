@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 
 @Injectable({
@@ -8,10 +8,17 @@ export class ChartService {
   constructor() {}
 
   getChartData(user: User) {
+    let chartArr = [];
+
     console.log(user.record.weightLogs);
+
     user.record.weightLogs.forEach((w) => {
-      console.log(w.date.getMonth());
-      console.log(w.weight);
+      let data = [];
+      data.push(w.date.getMonth());
+      data.push(w.weight);
+      chartArr.push(data);
     });
+
+    console.log(chartArr);
   }
 }
