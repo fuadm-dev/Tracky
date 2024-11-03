@@ -3,5 +3,4 @@ export class _Time {
   weeks: number = 0;
   months: number = 0;
   years: number = 0;
-
 }
