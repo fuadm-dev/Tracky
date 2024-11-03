@@ -37,7 +37,7 @@
                 user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
               "
               class="fs-5"
-              >{{ currentDate }}<i class="ms-2 bi bi-calendar3"></i
+              >{{ currentDate | date: 'short':'GMT'}}<i class="ms-2 bi bi-calendar3"></i
             ></span>
           </div>
           <app-dashboard></app-dashboard>

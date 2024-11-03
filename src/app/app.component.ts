@@ -4,6 +4,7 @@ import { User } from './shared/models/user';
 import { DateService } from './service/date.service';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { Weight } from './shared/models/weight';
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -14,22 +15,17 @@ export class AppComponent implements OnInit {
   user: User;
   onTarget: boolean;
   onTargetMessage: string;
-  currentDate: string;
+  currentDate = new Date();
 
   selectedWeightLog: Weight;
   checked: boolean = true;
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
 
-  constructor(
-    private userService: UserService,
-    private dateService: DateService
-  ) {}
+  constructor( private userService: UserService ) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    // this.selectedWeightLog = this.user.userStats.current;
-    this.currentDate = this.dateService.setCurrentDate();
   }
 
   openModal(log: Weight) {
