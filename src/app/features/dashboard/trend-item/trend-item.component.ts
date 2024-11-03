@@ -24,7 +24,7 @@ export class TrendItemComponent implements OnInit {
         datasets: [
           {
             label: '# of Votes',
-            data: [118, 114, 110, 108, 107, 107, 106, 105, 103, 100],
+            data: [118, 114, 110, 108, 107, 107, 106, 105, 103, 100, 99, 98],
             borderWidth: 1,
           },
         ],
