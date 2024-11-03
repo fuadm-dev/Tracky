@@ -1,4 +1,4 @@
-*) finish trend item
+*) trend item - chart earliest weight for each month
 *) edit/modal 2 clicks issue
 *) profile UI
 *) log in UI

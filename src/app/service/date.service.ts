@@ -5,6 +5,27 @@ import { _Time } from '../shared/models/_time';
   providedIn: 'root',
 })
 export class DateService {
+  constructor() {}
+
+  getMonthName(monthNum: number): string{
+    const monthNames = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+
+    return monthNames[monthNum];
+  }
+
   calcElapsedTime(laterDate: Date, earlierDate: Date) {
     const timeElapsed: _Time = new _Time();
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;

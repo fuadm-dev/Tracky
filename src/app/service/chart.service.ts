@@ -1,29 +1,24 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
-import { DatePipe } from "@angular/common";
+import { DateService } from './date.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChartService {
-  constructor() {}
+  constructor(private dateService: DateService) {}
+  datesArr = [];
+  months = [];
+  data = [];
 
-  getChartData(user: User) {
-    let chartArr = [];
-    let months = [];
-    let data = [];
+  getMonths(user: User) {
+    user.record.weightLogs.forEach((w) => {
+      let monthName = this.dateService.getMonthName(w.date.getMonth());
+      this.months.push(monthName);
+      this.data.push(w.weight);
+    });
 
-    const myDate = new Date();
-
-    console.log(myDate);
-
-    // user.record.weightLogs.forEach((w) => {
-    //   let data = [];
-    //   data.push(w.date.getMonth());
-    //   data.push(w.weight);
-    //   chartArr.push(data);
-    // });
-
-    // console.l g(chartArr);
+    console.log(this.months);
+    console.log(this.data);
   }
 }

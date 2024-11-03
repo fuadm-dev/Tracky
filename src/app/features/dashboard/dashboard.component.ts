@@ -22,12 +22,12 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private statsService: StatisticsService,
     private dashBuilder: DashItemBuilderService,
-    private chartService: ChartService,
+    private chartService: ChartService
   ) {}
 
   ngOnInit() {
     this.reBuildDashboard();
-    this.chartService.getChartData(this.user);
+    this.chartService.getMonths(this.user);
   }
 
   // Refresh Dashboard
