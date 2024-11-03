@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from './service/user.service';
 import { User } from './shared/models/user';
-import { DateService } from './service/date.service';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { Weight } from './shared/models/weight';
-import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,7 @@ export class AppComponent implements OnInit {
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
 
-  constructor( private userService: UserService ) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
