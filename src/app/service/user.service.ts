@@ -49,6 +49,62 @@ export class UserService {
           },
         },
         {
+          date: new Date(2024, 6, 8),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 4, 1),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 5, 8),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 5, 1),
+          weight: 118.5,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 6, 1),
+          weight: 118,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 6, 14),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 7, 10),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
           date: new Date(2024, 7, 1),
           weight: 116,
           bmi: {
@@ -65,8 +121,48 @@ export class UserService {
           },
         },
         {
+          date: new Date(2024, 8, 10),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 4, 9),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 9, 20),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
           date: new Date(2024, 9, 27),
           weight: 105.5,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 10, 1),
+          weight: 119,
+          bmi: {
+            bmi: 0,
+            bmiStatus: '',
+          },
+        },
+        {
+          date: new Date(2024, 10, 10),
+          weight: 119,
           bmi: {
             bmi: 0,
             bmiStatus: '',

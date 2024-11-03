@@ -23,8 +23,8 @@ export class TrendItemComponent implements OnInit {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
           {
-            label: '# of Votes',
-            data: [120, 99, 118, 114, 110, 108, 107, 107, 106, 105, 103, 100, 99, 98],
+            label: 'kg',
+            data: [120, 118, 114, 110, 108, 107, 107, 106, 105, 103, 100, 99, 98],
             borderWidth: 1,
           },
         ],
