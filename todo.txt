@@ -1,6 +1,4 @@
-*) trend item
-  https://www.chartjs.org/docs/latest/charts/line.html
-  https://www.youtube.com/watch?v=IyVdmvOVXlU&t=180s
+*) finish trend item
 *) edit/modal 2 clicks issue
 *) profile UI
 *) log in UI

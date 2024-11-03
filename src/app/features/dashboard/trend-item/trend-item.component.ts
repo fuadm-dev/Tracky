@@ -38,7 +38,6 @@ export class TrendItemComponent implements OnInit {
       },
       
     });
-    console.log(weightChart.data.datasets[0].data[0]);
     
   }
   
