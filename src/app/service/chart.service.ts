@@ -12,25 +12,22 @@ export class ChartService {
   data = [];
 
   getMonths(user: User) {
-    let year = {
-      jan: [],
-      feb: [],
-      march: [],
-      apr: [],
-      may: [],
-      jun: [],
-      jul: [],
-      aug: [],
-      sep: [],
-      oct: [],
-      nov: [],
-      dec: [],
-    }
+    let year = [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+    ]
+
     user.record.weightLogs.forEach((w) => {
-      let monthName = this.dateService.getMonthName(w.date.getMonth());
-      this.months.push(monthName);
-      this.data.push(w.weight);
-      console.log(`${w.date.getDate()}/${w.date.getMonth()}`);
       
     });
   }
