@@ -17,7 +17,7 @@ export class TrendItemComponent implements OnInit {
     const chartCanvas = document.getElementById('weightChart') as HTMLCanvasElement;
     const ctx = chartCanvas.getContext('2d');
 
-    const weightChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: 'line',
       data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],

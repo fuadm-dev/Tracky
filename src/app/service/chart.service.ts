@@ -38,6 +38,12 @@ export class ChartService implements OnInit {
     }
 
     //Return
-    console.log(year); 
+    console.log(year);
+    year.forEach(e => {
+      if (e.length) {
+        console.log(e);
+      }
+    });
+    return year 
   }
 }
