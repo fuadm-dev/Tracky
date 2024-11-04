@@ -1,4 +1,5 @@
 *) trend item - chart earliest weight for each month
+*) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue
 *) profile UI
