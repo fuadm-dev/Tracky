@@ -1,23 +1,18 @@
 import { Injectable, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
 import { Weight } from '../shared/models/weight';
-import { UserService } from './user.service';
+import { DateService } from './date.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChartService implements OnInit {
-  constructor(private userService: UserService) {}
-  user: User;
+  constructor(private dateService: DateService) {}
 
-  ngOnInit(): void {
-    this.user = this.userService.getUser();
-    this.getMonths(this.user);
-  }
-
-  datesArr = [];
   months = [];
-  data = [];
+  weights = [];
+
+  ngOnInit(): void {}
 
   getMonths(user: User) {
     let userWeightLogs = user.record.weightLogs;
@@ -34,16 +29,18 @@ export class ChartService implements OnInit {
 
     //Take earliest weightlog from each month
     for (let i = 0; i < year.length; i++) {
-      year[i].splice(1)
+      year[i].splice(1);
     }
 
     //Return
     console.log(year);
-    year.forEach(e => {
+
+    year.forEach((e) => {
       if (e.length) {
-        console.log(e);
+        console.log(this.dateService.getMonthName(e[0].date.getMonth()));
+        console.log(e[0].weight);
       }
     });
-    return year 
+    return year;
   }
 }
