@@ -13,6 +13,7 @@ export class ChartService {
   data = [];
 
   getMonths(user: User) {
+    const userWeightLogs = user.record.weightLogs;
     let year: Weight[][] = [
       [],
       [],
@@ -28,10 +29,10 @@ export class ChartService {
       [],
     ]
 
-    
 
-    for (let i = 0; i < user.record.weightLogs.length; i++) {
-      const weight = user.record.weightLogs[i];
+
+    for (let i = 0; i < userWeightLogs.length; i++) {
+      const weight = userWeightLogs[i];
       year[weight.date.getMonth()].push(weight);
     }
 
