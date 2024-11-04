@@ -28,6 +28,8 @@ export class ChartService {
       [],
     ]
 
+    
+
     for (let i = 0; i < user.record.weightLogs.length; i++) {
       const weight = user.record.weightLogs[i];
       year[weight.date.getMonth()].push(weight);
