@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 import { DateService } from './date.service';
+import { Weight } from '../shared/models/weight';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class ChartService {
   data = [];
 
   getMonths(user: User) {
-    let year = [
+    let year: Weight[][] = [
       [],
       [],
       [],
@@ -27,10 +28,13 @@ export class ChartService {
       [],
     ]
 
-    user.record.weightLogs.forEach((w) => {
-      
-    });
-  }
+    for (let i = 0; i < user.record.weightLogs.length; i++) {
+      const weight = user.record.weightLogs[i];
+      year[weight.date.getMonth()].push(weight);
+    }
 
+    console.log(year);
+    
+  }
 
 }
