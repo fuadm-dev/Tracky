@@ -7,20 +7,20 @@ import { _Time } from '../shared/models/_time';
 export class DateService {
   constructor() {}
 
-  getMonthName(monthNum: number): string{
+  getMonthName(monthNum: number): string {
     const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
       'May',
       'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ];
 
     return monthNames[monthNum];
