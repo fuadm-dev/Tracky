@@ -17,7 +17,7 @@ export class ChartService {
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
 
     //Sort logs in date order
-    userWeightLogs = userWeightLogs.sort(
+    userWeightLogs.sort(
       (a, b) => b.date.getTime() - a.date.getTime()
     );
     console.log(userWeightLogs);
