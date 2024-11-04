@@ -114,7 +114,7 @@ export class UserService {
         },
         {
           date: new Date(2024, 8, 1),
-          weight: 110,
+          weight: 114,
           bmi: {
             bmi: 0,
             bmiStatus: '',
@@ -138,7 +138,7 @@ export class UserService {
         },
         {
           date: new Date(2024, 9, 20),
-          weight: 119,
+          weight: 113,
           bmi: {
             bmi: 0,
             bmiStatus: '',
@@ -154,7 +154,7 @@ export class UserService {
         },
         {
           date: new Date(2024, 10, 1),
-          weight: 119,
+          weight: 114,
           bmi: {
             bmi: 0,
             bmiStatus: '',

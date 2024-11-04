@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.reBuildDashboard();
-    this.chartService.getMonths(this.user);
+    this.chartService.buildChartData(this.user);
   }
 
   // Refresh Dashboard

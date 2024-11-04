@@ -1,22 +1,20 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../shared/models/user';
 import { Weight } from '../shared/models/weight';
 import { DateService } from './date.service';
+import { IChart } from '../shared/models/ichart';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ChartService implements OnInit {
+export class ChartService {
   constructor(private dateService: DateService) {}
 
-  months = [];
-  weights = [];
-
-  ngOnInit(): void {}
-
-  getMonths(user: User) {
+  buildChartData(user: User): IChart {
     let userWeightLogs = user.record.weightLogs;
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
+    let months = [];
+    let weights = [];
 
     //Sort logs in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
@@ -32,15 +30,22 @@ export class ChartService implements OnInit {
       year[i].splice(1);
     }
 
-    //Return
-    console.log(year);
-
+    //Group months and weights into seperate arrays
     year.forEach((e) => {
       if (e.length) {
-        console.log(this.dateService.getMonthName(e[0].date.getMonth()));
-        console.log(e[0].weight);
+        const month = this.dateService.getMonthName(e[0].date.getMonth());
+        const weight = e[0].weight;
+        months.push(month);
+        weights.push(weight);
       }
     });
-    return year;
+
+    //Build chart object
+    let chart: IChart = {
+      months: [...months],
+      weights: [...weights],
+    };
+
+    return chart;
   }
 }
