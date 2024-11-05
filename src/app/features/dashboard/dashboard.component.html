@@ -3,7 +3,7 @@
   class="d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-2"
 >
 <!-- Trend item -->
-<trend-item></trend-item>
+<trend-item [chartData]="chartDataset"></trend-item>
   <!-- Test Section -->
   <div *ngFor="let item of dashItems">
     <dash-item

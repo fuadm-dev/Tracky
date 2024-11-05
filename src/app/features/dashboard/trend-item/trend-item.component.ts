@@ -14,9 +14,8 @@ Chart.register(...registerables);
 })
 export class TrendItemComponent implements OnInit {
   user: User;
-  chartData: IChart;
-  chartCanvas = document.getElementById('weightChart') as HTMLCanvasElement;
-
+  @Input() chartData: IChart;
+  chartCanvas: HTMLCanvasElement;
   constructor(
     private chartService: ChartService,
     private userService: UserService
@@ -24,44 +23,18 @@ export class TrendItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.chartData = this.chartService.buildChartData(this.user);
-    this.refreshTrendData(this.chartData);
-    console.log(this.chartData);
-  }
-
-  refreshTrendData(chartDataSet: IChart) {
-    
-    // this.drawLineChart(chartDataSet);
-
-    console.log('refreshTrendData...');
-  }
-
-  drawLineChart(chartData: IChart) {
-    const chartCanvas = document.getElementById(
+    // this.chartData = this.chartService.buildChartData(this.user);
+    this.chartCanvas = document.getElementById(
       'weightChart'
     ) as HTMLCanvasElement;
 
-    const ctx = chartCanvas.getContext('2d');
-
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: chartData.months,
-        datasets: [
-          {
-            label: 'kg',
-            data: chartData.weights,
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-      },
-    });
+    this.refreshTrendData(this.chartData, this.chartCanvas);
+    console.log(this.chartData);
   }
+
+  refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
+   this.chartService.drawChart(chartDataSet, canvas); 
+    console.log('refreshTrendData...');
+  }
+
 }
