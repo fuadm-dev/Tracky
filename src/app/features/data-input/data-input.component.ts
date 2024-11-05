@@ -32,7 +32,7 @@ export class DataInputComponent implements OnInit {
   }
 
   onLogWeight() {
-    const inputWeight: number = this.weightKg.nativeElement.value;
+    const inputWeight: number = +this.weightKg.nativeElement.value;
     const inputDate: string = this.weightDate.nativeElement.value;
 
     if (inputWeight > 50 && Date.parse(inputDate)) {

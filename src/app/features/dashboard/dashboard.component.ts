@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
@@ -36,6 +36,8 @@ export class DashboardComponent implements OnInit {
     this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
+    let chart = this.chartService.buildChartData(this.user);
     console.log(this.user);
+    console.log(chart);
   }
 }

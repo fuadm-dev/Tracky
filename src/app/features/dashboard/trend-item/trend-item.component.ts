@@ -19,11 +19,16 @@ export class TrendItemComponent implements OnInit {
   constructor(private chartService:ChartService, private userService:UserService) {}
 
   ngOnInit(): void {
-    this.user = this.userService.getUser()
-    this.chartData = this.chartService.buildChartData(this.user)
-    this.drawLineChart();
-    console.log(this.chartData);
-      
+    this.user = this.userService.getUser();
+    this.refreshTrendData();    
+    console.log(this.chartData);      
+  }
+
+  refreshTrendData(){
+    this.chartData = this.chartService.buildChartData(this.user);
+    this.drawLineChart();    
+    console.log('refreshTrendData...');
+    
   }
 
   drawLineChart(){
