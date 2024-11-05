@@ -1,4 +1,4 @@
-*) refresh chart - dashComp needs  / destroy?
+*) refresh chart - dashComp needs canvasEl / destroy?
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue
