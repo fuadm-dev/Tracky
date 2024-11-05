@@ -17,6 +17,8 @@ export class TrendItemComponent implements OnInit {
   user: User;
   chartData: IChart;
   chartCanvas: HTMLCanvasElement;
+  chart: Chart;
+
   constructor(
     private chartService: ChartService,
     private userService: UserService
@@ -30,21 +32,16 @@ export class TrendItemComponent implements OnInit {
       'weightChart'
     ) as HTMLCanvasElement;
 
-    this.refreshTrendData(this.chartData, this.chartCanvas);
+    this.chart = this.refreshTrendData(this.chartData, this.chartCanvas);
     console.log(this.chartData);
   }
 
-  refreshChart(){
-    const canvas = <HTMLCanvasElement>document.getElementById('weightChart');
-    // const ctx = canvas.getContext('2d');
-
-   const myChart = new Chart(canvas, config);
-
-    // this.refreshTrendData(this.chartData, this.chartCanvas);
+  refreshChart(chartObj: IChart) {
+    // this.chart.data.labels = chartObj.months;
+    // this.chart.data.datasets[0].data = chartObj.weights;
   }
 
   refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
-    this.chartService.drawChart(chartDataSet, canvas);
-    console.log('refreshTrendData...');
+    return this.chartService.drawChart(chartDataSet, canvas);
   }
 }

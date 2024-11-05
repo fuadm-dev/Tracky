@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this.trendItemComponent.refreshChart();
+    this.trendItemComponent.refreshChart(this.chartDataset);
   }
 
   ngOnInit() {
