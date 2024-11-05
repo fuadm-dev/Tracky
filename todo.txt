@@ -1,4 +1,4 @@
-*) trend item - refresh
+*) trend item - refresh chart img
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue

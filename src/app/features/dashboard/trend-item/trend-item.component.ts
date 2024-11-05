@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Chart, registerables } from 'chart.js';
 import { ChartService } from 'src/app/service/chart.service';
@@ -20,29 +20,29 @@ export class TrendItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.refreshTrendData();    
+    this.chartData = this.chartService.buildChartData(this.user);
+    this.refreshTrendData(this.chartData);    
     console.log(this.chartData);      
   }
 
-  refreshTrendData(){
-    this.chartData = this.chartService.buildChartData(this.user);
-    this.drawLineChart();    
+  refreshTrendData(chartDataSet: IChart){
+    this.drawLineChart(chartDataSet);    
     console.log('refreshTrendData...');
     
   }
 
-  drawLineChart(){
+  drawLineChart(chartData:IChart){
     const chartCanvas = document.getElementById('weightChart') as HTMLCanvasElement;
     const ctx = chartCanvas.getContext('2d');
 
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: this.chartData.months,
+        labels: chartData.months,
         datasets: [
           {
             label: 'kg',
-            data: this.chartData.weights,
+            data: chartData.weights,
             borderWidth: 1,
           },
         ],

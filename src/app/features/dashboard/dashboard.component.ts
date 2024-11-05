@@ -4,6 +4,7 @@ import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
 import { StatisticsService } from 'src/app/service/statistics.service';
 import { UserService } from 'src/app/service/user.service';
+import { IChart } from 'src/app/shared/models/ichart';
 import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit {
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
+  chartDataset:IChart
 
   constructor(
     private userService: UserService,
