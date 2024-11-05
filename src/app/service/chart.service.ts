@@ -50,6 +50,14 @@ export class ChartService {
     return chart;
   }
 
+  updateChart(months:string[], weights: number[], chart:Chart){
+    let monthsArr = chart.data.labels;
+    let weightsArr = chart.data.datasets[0].data;
+
+    monthsArr.splice(0, monthsArr.length, ...months);
+    weightsArr.splice(0, weightsArr.length, ...weights);
+  }
+
   drawChart(charData: IChart, chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');
 

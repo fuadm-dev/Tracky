@@ -41,7 +41,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.reBuildDashboard();
-    this.chartService.buildChartData(this.user);
   }
 
   // Refresh Dashboard
