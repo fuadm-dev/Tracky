@@ -1,4 +1,4 @@
-*) trend item - refresh chart img
+*) refresh chart - dashComp needs  / destroy?
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue

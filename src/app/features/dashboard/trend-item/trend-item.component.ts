@@ -32,9 +32,12 @@ export class TrendItemComponent implements OnInit {
     console.log(this.chartData);
   }
 
-  refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
-   this.chartService.drawChart(chartDataSet, canvas); 
-    console.log('refreshTrendData...');
+  refreshChart() {
+    this.refreshTrendData(this.chartData, this.chartCanvas);
   }
 
+  refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
+    this.chartService.drawChart(chartDataSet, canvas);
+    console.log('refreshTrendData...');
+  }
 }
