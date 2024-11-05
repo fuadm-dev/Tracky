@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Chart, registerables } from 'chart.js';
+import { config } from 'rxjs';
 import { ChartService } from 'src/app/service/chart.service';
 import { UserService } from 'src/app/service/user.service';
 import { IChart } from 'src/app/shared/models/ichart';
@@ -34,7 +35,11 @@ export class TrendItemComponent implements OnInit {
   }
 
   refreshChart(){
-    this.chartService.updateChart(this.chartData.months, this.chartData.weights, )
+    const canvas = <HTMLCanvasElement>document.getElementById('weightChart');
+    // const ctx = canvas.getContext('2d');
+
+   const myChart = new Chart(canvas, config);
+
     // this.refreshTrendData(this.chartData, this.chartCanvas);
   }
 
