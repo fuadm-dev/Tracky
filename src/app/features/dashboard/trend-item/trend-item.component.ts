@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Chart, registerables } from 'chart.js';
 import { ChartService } from 'src/app/service/chart.service';
@@ -14,7 +14,7 @@ Chart.register(...registerables);
 })
 export class TrendItemComponent implements OnInit {
   user: User;
-  @Input() chartData: IChart;
+  chartData: IChart;
   chartCanvas: HTMLCanvasElement;
   constructor(
     private chartService: ChartService,
@@ -23,7 +23,7 @@ export class TrendItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    // this.chartData = this.chartService.buildChartData(this.user);
+    this.chartData = this.chartService.buildChartData(this.user);
     this.chartCanvas = document.getElementById(
       'weightChart'
     ) as HTMLCanvasElement;

@@ -1,4 +1,9 @@
-import { AfterContentInit, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Component } from '@angular/core';
 import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
@@ -15,7 +20,7 @@ import { TrendItemComponent } from './trend-item/trend-item.component';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit, AfterViewInit {
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
@@ -30,6 +35,10 @@ export class DashboardComponent implements OnInit{
     private chartService: ChartService
   ) {}
 
+  ngAfterViewInit(): void {
+    
+  }
+
   ngOnInit() {
     this.reBuildDashboard();
     this.chartService.buildChartData(this.user);
@@ -42,7 +51,7 @@ export class DashboardComponent implements OnInit{
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     let chart = this.chartService.buildChartData(this.user);
-    // this.chartService.drawChart(chart);
+    
     console.log(this.user);
     console.log(chart);
   }
