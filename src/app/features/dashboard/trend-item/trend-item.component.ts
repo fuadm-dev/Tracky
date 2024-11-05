@@ -14,25 +14,33 @@ Chart.register(...registerables);
 })
 export class TrendItemComponent implements OnInit {
   user: User;
-  chartData:IChart;
+  chartData: IChart;
+  chartCanvas = document.getElementById('weightChart') as HTMLCanvasElement;
 
-  constructor(private chartService:ChartService, private userService:UserService) {}
+  constructor(
+    private chartService: ChartService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.chartData = this.chartService.buildChartData(this.user);
-    this.refreshTrendData(this.chartData);    
-    console.log(this.chartData);      
+    this.refreshTrendData(this.chartData);
+    console.log(this.chartData);
   }
 
-  refreshTrendData(chartDataSet: IChart){
-    this.drawLineChart(chartDataSet);    
-    console.log('refreshTrendData...');
+  refreshTrendData(chartDataSet: IChart) {
     
+    // this.drawLineChart(chartDataSet);
+
+    console.log('refreshTrendData...');
   }
 
-  drawLineChart(chartData:IChart){
-    const chartCanvas = document.getElementById('weightChart') as HTMLCanvasElement;
+  drawLineChart(chartData: IChart) {
+    const chartCanvas = document.getElementById(
+      'weightChart'
+    ) as HTMLCanvasElement;
+
     const ctx = chartCanvas.getContext('2d');
 
     new Chart(ctx, {
@@ -49,14 +57,11 @@ export class TrendItemComponent implements OnInit {
       },
       options: {
         plugins: {
-        legend: {
-          display: false
-        }
+          legend: {
+            display: false,
+          },
+        },
       },
-      },
-      
     });
-    
   }
-  
 }

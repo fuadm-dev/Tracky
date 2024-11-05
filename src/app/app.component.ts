@@ -3,8 +3,6 @@ import { UserService } from './service/user.service';
 import { User } from './shared/models/user';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { Weight } from './shared/models/weight';
-import { TrendItemComponent } from './features/dashboard/trend-item/trend-item.component';
-import { DataTableComponent } from './features/data-table/data-table.component';
 
 @Component({
   selector: 'app-root',

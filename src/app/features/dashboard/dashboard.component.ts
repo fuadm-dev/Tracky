@@ -8,17 +8,20 @@ import { IChart } from 'src/app/shared/models/ichart';
 import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
+import { TrendItemComponent } from './trend-item/trend-item.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit{
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
-  chartDataset:IChart
+  chartDataset: IChart;
+
+  @ViewChild(TrendItemComponent) trendItemComponent: TrendItemComponent;
 
   constructor(
     private userService: UserService,
@@ -26,6 +29,7 @@ export class DashboardComponent implements OnInit {
     private dashBuilder: DashItemBuilderService,
     private chartService: ChartService
   ) {}
+
 
   ngOnInit() {
     this.reBuildDashboard();
@@ -41,5 +45,6 @@ export class DashboardComponent implements OnInit {
     let chart = this.chartService.buildChartData(this.user);
     console.log(this.user);
     console.log(chart);
+    
   }
 }

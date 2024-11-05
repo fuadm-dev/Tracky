@@ -3,6 +3,7 @@ import { User } from '../shared/models/user';
 import { Weight } from '../shared/models/weight';
 import { DateService } from './date.service';
 import { IChart } from '../shared/models/ichart';
+import { Chart } from 'chart.js';
 
 @Injectable({
   providedIn: 'root',
@@ -47,5 +48,30 @@ export class ChartService {
     };
 
     return chart;
+  }
+
+  drawChart(charData: IChart, chartElement: HTMLCanvasElement) {
+    const ctx = chartElement.getContext('2d');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: charData.months,
+        datasets: [
+          {
+            label: 'kg',
+            data: charData.weights,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
   }
 }
