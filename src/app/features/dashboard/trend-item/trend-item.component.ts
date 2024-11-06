@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Chart, registerables } from 'chart.js';
-import { config } from 'rxjs';
 import { ChartService } from 'src/app/service/chart.service';
 import { UserService } from 'src/app/service/user.service';
 import { IChart } from 'src/app/shared/models/ichart';
@@ -33,11 +31,7 @@ export class TrendItemComponent implements OnInit {
     this.chart = this.chartService.drawChart(this.chartData, this.chartCanvas);
   }
 
-  refreshChart(updatedChartData:IChart) {
+  refreshChart(updatedChartData: IChart) {
     this.chartService.updateChart(updatedChartData, this.chart);
-  }
-
-  refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
-    return this.chartService.drawChart(chartDataSet, canvas);
   }
 }

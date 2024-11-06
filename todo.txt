@@ -1,6 +1,4 @@
-*) refresh chart - dashComp needs canvasEl / destroy?
-    https://www.youtube.com/watch?v=Ac5pzmHO3_A
-    https://codepen.io/vpolston/pen/KKRoEBY
+*) chart year/record/history
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue

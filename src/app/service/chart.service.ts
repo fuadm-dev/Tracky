@@ -50,18 +50,7 @@ export class ChartService {
     return chart;
   }
 
-  updateChart(chartData: IChart, chart: Chart) {
-    if (chartData) {
-      let monthsArr = chart.data.labels;
-      let weightsArr = chart.data.datasets[0].data;
-
-      monthsArr.splice(0, monthsArr.length, ...chartData.months);
-      weightsArr.splice(0, weightsArr.length, ...chartData.weights);
-
-      chart.update(); 
-    }
-  }
-
+  //Draw chart
   drawChart(charData: IChart, chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');
 
@@ -85,5 +74,18 @@ export class ChartService {
         },
       },
     });
+  }
+
+  //Update chart
+  updateChart(chartData: IChart, chart: Chart) {
+    if (chartData) {
+      let monthsArr = chart.data.labels;
+      let weightsArr = chart.data.datasets[0].data;
+
+      monthsArr.splice(0, monthsArr.length, ...chartData.months);
+      weightsArr.splice(0, weightsArr.length, ...chartData.weights);
+
+      chart.update();
+    }
   }
 }
