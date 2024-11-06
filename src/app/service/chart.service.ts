@@ -23,9 +23,10 @@ export class ChartService {
     //Sort userWeightLog Objects in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
 
-    //
-
-
+    //de-duplicate by year & month
+    console.log(userWeightLogs[0].date.getFullYear());
+    console.log(userWeightLogs[0].date.getMonth() + '/' + userWeightLogs[0].date.getFullYear());
+    
 
     //----------------------------------------
     //Group logs by months into year array
