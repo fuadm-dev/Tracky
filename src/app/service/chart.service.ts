@@ -20,6 +20,7 @@ export class ChartService {
     //Sort logs in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
 
+    //----------------------------------------
     //Group logs by months into year array
     for (let i = 0; i < userWeightLogs.length; i++) {
       const weight = userWeightLogs[i];
@@ -30,6 +31,7 @@ export class ChartService {
     for (let i = 0; i < year.length; i++) {
       year[i].splice(1);
     }
+    //----------------------------------------
 
     //Group months and weights into seperate arrays
     year.forEach((e) => {
