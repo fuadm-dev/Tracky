@@ -12,13 +12,20 @@ export class ChartService {
   constructor(private dateService: DateService) {}
 
   buildChartData(user: User): IChart {
+    let userWeights: Weight[];
+    let weightChart: IChart;
+
     let userWeightLogs = user.record.weightLogs;
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
     let months = [];
     let weights = [];
 
-    //Sort logs in date order
+    //Sort userWeightLog Objects in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
+
+    //
+
+
 
     //----------------------------------------
     //Group logs by months into year array
