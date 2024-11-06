@@ -20,7 +20,7 @@ import { TrendItemComponent } from './trend-item/trend-item.component';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit {
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
@@ -35,10 +35,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private chartService: ChartService
   ) {}
 
-  ngAfterViewInit(): void {
-    this.trendItemComponent.refreshChart(this.chartDataset);
-  }
-
   ngOnInit() {
     this.reBuildDashboard();
   }
@@ -50,7 +46,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     let chart = this.chartService.buildChartData(this.user);
-    
+    if (this.trendItemComponent) {
+      this.trendItemComponent.refreshChart(chart);
+    }
     console.log(this.user);
     console.log(chart);
   }

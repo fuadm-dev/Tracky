@@ -26,19 +26,15 @@ export class TrendItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.chartData = this.chartService.buildChartData(this.user);
-
     this.chartCanvas = document.getElementById(
       'weightChart'
     ) as HTMLCanvasElement;
-
-    this.chart = this.refreshTrendData(this.chartData, this.chartCanvas);
-    console.log(this.chartData);
+    this.chartData = this.chartService.buildChartData(this.user);
+    this.chart = this.chartService.drawChart(this.chartData, this.chartCanvas);
   }
 
-  refreshChart(chartObj: IChart) {
-    // this.chart.data.labels = chartObj.months;
-    // this.chart.data.datasets[0].data = chartObj.weights;
+  refreshChart(updatedChartData:IChart) {
+    this.chartService.updateChart(updatedChartData, this.chart);
   }
 
   refreshTrendData(chartDataSet: IChart, canvas: HTMLCanvasElement) {
