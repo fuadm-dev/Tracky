@@ -56,6 +56,8 @@ export class ChartService {
 
     monthsArr.splice(0, monthsArr.length, ...months);
     weightsArr.splice(0, weightsArr.length, ...weights);
+
+    chart.update();
   }
 
   drawChart(charData: IChart, chartElement: HTMLCanvasElement) {
