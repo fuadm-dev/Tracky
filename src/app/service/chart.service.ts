@@ -26,8 +26,8 @@ export class ChartService {
     //add month/year field
     userWeightLogs.forEach((w) => {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
-      console.log(w.monthDate);
-      let x = [new Set(...userWeightLogs)];
+      let x = [...new Set(userWeightLogs)];
+      x.forEach(w => w.monthDate)
     });
 
     //de-duplicate by year & month
