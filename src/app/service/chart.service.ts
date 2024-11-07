@@ -11,15 +11,19 @@ import { Chart } from 'chart.js';
 export class ChartService {
   constructor(private dateService: DateService) {}
 
+  checkIfDuplicate(weightObj1: Weight, weightObj2: Weight): boolean {
+    return weightObj1.monthDate === weightObj2.monthDate;
+  }
+
   buildChartData(user: User): IChart {
     let userWeights: Weight[];
     let weightChart: IChart;
+    let unique = [];
 
     let userWeightLogs = user.record.weightLogs;
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
     let months = [];
     let weights = [];
-    let unique = [];
 
     //Sort userWeightLog Objects in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
@@ -27,22 +31,25 @@ export class ChartService {
     //add month/year field
     userWeightLogs.forEach((w) => {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
-      // console.log(w.monthDate);
-            
-      if(!unique.length){
+    });
+
+    userWeightLogs.forEach((w, i) => {
+      if (unique.length == 0) {
         unique.push(w);
       }
 
-      if () {
-        unique.push(w)
+      if (unique[i]) {
+        let isDuplicate = this.checkIfDuplicate(unique[i], w);
+        console.log(isDuplicate);
+        if(!isDuplicate){
+          unique.push(w)
+        }
       }
+      
     });
 
     console.log(unique);
     
-    
-
-    //de-duplicate by year & month
 
     //----------------------------------------
     //Group logs by months into year array
