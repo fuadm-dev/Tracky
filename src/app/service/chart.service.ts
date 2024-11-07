@@ -23,10 +23,14 @@ export class ChartService {
     //Sort userWeightLog Objects in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
 
+    //add month/year field
+    userWeightLogs.forEach((w) => {
+      w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
+      console.log(w.monthDate);
+      let x = [new Set(...userWeightLogs)];
+    });
+
     //de-duplicate by year & month
-    console.log(userWeightLogs[0].date.getFullYear());
-    console.log(userWeightLogs[0].date.getMonth() + '/' + userWeightLogs[0].date.getFullYear());
-    
 
     //----------------------------------------
     //Group logs by months into year array
