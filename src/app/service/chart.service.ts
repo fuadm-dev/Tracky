@@ -11,7 +11,7 @@ import { Chart } from 'chart.js';
 export class ChartService {
   constructor(private dateService: DateService) {}
 
-  deDuplicateLogs(weighObjArr: Weight[]) {
+  deDuplicateWeightLogs(weighObjArr: Weight[]) {
     let uniqueWeightArr: Weight[];
     weighObjArr.reduce((accumulator: Weight[], current) => {
       if (
@@ -42,7 +42,7 @@ export class ChartService {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
     });
 
-    this.deDuplicateLogs(userWeightLogs);
+    this.deDuplicateWeightLogs(userWeightLogs);
 
     //----------------------------------------
     //Group logs by months into year array
