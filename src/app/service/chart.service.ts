@@ -19,6 +19,7 @@ export class ChartService {
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
     let months = [];
     let weights = [];
+    let unique = [];
 
     //Sort userWeightLog Objects in date order
     userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
@@ -27,24 +28,15 @@ export class ChartService {
     userWeightLogs.forEach((w) => {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
       // console.log(w.monthDate);
-      let x = [...new Set(userWeightLogs)];
-      x.forEach((w) => {
-        // console.log(w.monthDate);
-        // console.log('----');
-      });
-    });
-
-    let unique = [];
-    for (let i = 0; i < userWeightLogs.length; i++) {
-      const w = userWeightLogs[i];
-      if (!unique.length) {
+            
+      if(!unique.length){
         unique.push(w);
-      } else if(unique.length){
-        if (w.monthDate) {
-          
-        }
       }
-    }
+
+      if () {
+        unique.push(w)
+      }
+    });
 
     console.log(unique);
     
