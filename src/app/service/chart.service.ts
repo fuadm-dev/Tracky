@@ -34,9 +34,19 @@ export class ChartService {
       });
     });
 
-    let key = 'motnDate'
-    let monthData = [...new Set(userWeightLogs.map((w) => w.monthDate))];
-    console.log(monthData);
+    let unique = [];
+    for (let i = 0; i < userWeightLogs.length; i++) {
+      const w = userWeightLogs[i];
+      if (!unique.length) {
+        unique.push(w);
+      } else if(unique.length){
+        if (w.monthDate) {
+          
+        }
+      }
+    }
+
+    console.log(unique);
     
     
 
