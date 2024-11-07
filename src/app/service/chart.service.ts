@@ -45,8 +45,6 @@ export class ChartService {
         unique.push(w)
       }  
       console.log(isDuplicate);
-      
-
     }
     
     console.log(unique);
