@@ -11,20 +11,24 @@ import { Chart } from 'chart.js';
 export class ChartService {
   constructor(private dateService: DateService) {}
 
-  checkIfDuplicate(weightObjArr:Weight[], weightObj: Weight): boolean {
-    if (weightObjArr.length > 0) {
-      weightObjArr.forEach((w) => {
-        return w.monthDate === weightObj.monthDate;
-      });
-    }
-    return false
+  deDuplicateLogs(weighObjArr: Weight[]) {
+    let uniqueWeightArr: Weight[];
+    weighObjArr.reduce((accumulator: Weight[], current) => {
+      if (
+        !accumulator.find(
+          (item) => `${item.monthDate}` === `${current.monthDate}`
+        )
+      ) {
+        accumulator.push(current);
+      }
+      uniqueWeightArr = accumulator;
+      return accumulator;
+    }, []);
+    console.log(uniqueWeightArr);
+    ;
   }
 
   buildChartData(user: User): IChart {
-    let userWeights: Weight[];
-    let weightChart: IChart;
-    let unique = [];
-
     let userWeightLogs = user.record.weightLogs;
     let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
     let months = [];
@@ -38,16 +42,7 @@ export class ChartService {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
     });
 
-    for (let i = 0; i < userWeightLogs.length; i++) {
-      const w = userWeightLogs[i];
-      let isDuplicate = this.checkIfDuplicate(unique, w)   
-      if (!isDuplicate) {
-        unique.push(w)
-      }  
-      console.log(isDuplicate);
-    }
-    
-    console.log(unique);
+    this.deDuplicateLogs(userWeightLogs);
 
     //----------------------------------------
     //Group logs by months into year array
