@@ -1,4 +1,4 @@
-*) chart - apply deDuplicate()
+*) chart - refactor to apply deDuplicate() where nessesary
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue
