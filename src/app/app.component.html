@@ -7,9 +7,7 @@
       <!-- Input -->
       <section class="section">
         <div class="input-container">
-          <data-input
-            (onWeightInput)="refreshData()"
-          ></data-input>
+          <data-input (onWeightInput)="refreshData()"></data-input>
         </div>
       </section>
       <!-- Dashboard -->
@@ -17,27 +15,32 @@
         <div class="container">
           <div class="header">
             <span
-              class="onTarget text-white fs-4"
-              [ngClass]="
-                user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
-              "
+            class="onTarget text-white fs-4"
+            [ngClass]="
+            user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
+            "
             >
               {{ user.userStats.target.message }}
               <i
-                class="ms-2 fs-2"
-                [ngClass]="{
-                  bi: true,
-                  'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
-                  'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
-                }"
+              class="ms-2 fs-2"
+              [ngClass]="{
+                bi: true,
+                'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
+                'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
+              }"
               ></i>
             </span>
+            <div class="d-flex">
+              <img src="../assets/party-popper_Right.gif" width="100px" />
+              <img src="../assets/" width="100px" />
+            </div>
             <span
               [ngClass]="
                 user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
               "
               class="fs-5"
-              >{{ currentDate | date: 'dd-MMM-yyyy'}}<i class="ms-2 bi bi-calendar3"></i
+              >{{ currentDate | date : "dd-MMM-yyyy"
+              }}<i class="ms-2 bi bi-calendar3"></i
             ></span>
           </div>
           <app-dashboard></app-dashboard>
