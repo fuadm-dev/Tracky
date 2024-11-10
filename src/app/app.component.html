@@ -14,22 +14,25 @@
       <section class="section">
         <div class="container">
           <div class="header">
-            <span
-              class="onTarget text-white fs-4"
-              [ngClass]="
-                user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
-              "
-            >
-              {{ user.userStats.target.message }}
-              <i
-                class="ms-2 fs-2"
-                [ngClass]="{
-                  bi: true,
-                  'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
-                  'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
-                }"
-              ></i>
-            </span>
+            <div class="d-flex align-items-center">
+              <span
+                class="onTarget text-white fs-4"
+                [ngClass]="
+                  user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
+                "
+              >
+                {{ user.userStats.target.message }}
+                <i
+                  class="ms-2 fs-2"
+                  [ngClass]="{
+                    bi: true,
+                    'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
+                    'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
+                  }"
+                ></i>
+              </span>
+              <img class="ms-2" src="../assets/Party2.gif" width="60px" />
+            </div>
             <span
               [ngClass]="
                 user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
