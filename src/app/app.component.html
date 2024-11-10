@@ -11,7 +11,7 @@
         </div>
       </section>
       <!-- Dashboard -->
-      <section class="section">
+      <section class="section" [ngClass]="{'dash-container': user.userStats.target.isOnTarget}">
         <div class="container">
           <div class="header">
             <div class="d-flex align-items-center">
@@ -31,7 +31,7 @@
                   }"
                 ></i>
               </span>
-              <img class="ms-2" src="../assets/Party2.gif" width="60px" />
+              <img *ngIf="user.userStats.target.isOnTarget" class="ms-2" src="../assets/baloons.gif" width="100px" />
             </div>
             <span
               [ngClass]="

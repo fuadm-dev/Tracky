@@ -50,8 +50,8 @@
 }
 
 .dash-container {
-  background-image: url(../assets/Party2.gif);
+  background-image: url(../assets/party-popper_Right.gif);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top100;
 }
