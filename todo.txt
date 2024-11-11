@@ -1,5 +1,5 @@
 *) chart - refactor to apply deDuplicate() where nessesary
-*) predicted
+*) predicted accuracy
 *) bmi change color
 *) max calendar date
 *) edit/modal 2 clicks issue
