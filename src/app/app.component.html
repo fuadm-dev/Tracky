@@ -19,13 +19,18 @@
           <div class="header">
             <div class="d-flex align-items-center">
               <span
-                class="onTarget text-white fs-4"
+                class="text-white fs-5"
                 [ngClass]="
                   user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
                 "
               >
-                {{ user.userStats.target.message }} 
-                <div *ngIf="!user.userStats.target.isOnTarget" class="ms-2">{{user.userStats.target.offTargetBy}}kg</div>
+                {{ user.userStats.target.message }}
+                <div
+                  *ngIf="!user.userStats.target.isOnTarget"
+                  class="text-white fs-5 fw-bold ms-2"
+                >
+                  {{ user.userStats.target.offTargetBy }}kg
+                </div>
                 <i
                   class="ms-2 fs-2"
                   [ngClass]="{
@@ -39,6 +44,12 @@
                 *ngIf="user.userStats.target.isOnTarget"
                 class="partyGif"
                 src="../assets/Party2.gif"
+                width="100px"
+              />
+              <img
+                *ngIf="!user.userStats.target.isOnTarget"
+                class="partyGif"
+                src="../assets/u-got-this.gif"
                 width="100px"
               />
             </div>
