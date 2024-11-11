@@ -24,13 +24,14 @@
                   user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
                 "
               >
-                {{ user.userStats.target.message }}
+                {{ user.userStats.target.message }} 
+                <div *ngIf="!user.userStats.target.isOnTarget" class="ms-2">{{user.userStats.target.offTargetBy}}kg</div>
                 <i
                   class="ms-2 fs-2"
                   [ngClass]="{
                     bi: true,
                     'bi-emoji-smile-fill': user.userStats.target.isOnTarget,
-                    'bi-emoji-frown-fill': !user.userStats.target.isOnTarget
+                    '': !user.userStats.target.isOnTarget
                   }"
                 ></i>
               </span>
