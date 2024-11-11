@@ -50,14 +50,15 @@ export class DashboardComponent implements OnInit {
     if (this.trendItemComponent) {
       this.trendItemComponent.refreshChart(chart);
     }
+    
     console.log(this.user);
     console.log(chart);
+
     let expectedLoss = this.user.userStats.lossRate.expected *
       this.user.userStats.elapsedTime.weeks;
       let expectedWeight = this.user.start.weight - expectedLoss;
       console.log(
         Math.round((this.user.userStats.current.weight - expectedWeight)*10)/10
       );
-      
   }
 }
