@@ -8,7 +8,6 @@ export class SetOnTargetService {
   constructor() {}
 
   setOnTargetValue(user: User) {
-    let offTargetBy: number;
     user.userStats.target.offTargetBy = 100;
 
     user.userStats.target.isOnTarget =
@@ -18,6 +17,5 @@ export class SetOnTargetService {
       user.userStats.target.message = 'On Target';
     } else user.userStats.target.message = 'Off Target';
 
-    // console.log(user.userStats.target.offTargetBy);
   }
 }

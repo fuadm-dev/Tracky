@@ -14,6 +14,7 @@ import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,5 +52,12 @@ export class DashboardComponent implements OnInit {
     }
     console.log(this.user);
     console.log(chart);
+    let expectedLoss = this.user.userStats.lossRate.expected *
+      this.user.userStats.elapsedTime.weeks;
+      let expectedWeight = this.user.start.weight - expectedLoss;
+      console.log(
+        Math.round((this.user.userStats.current.weight - expectedWeight)*10)/10
+      );
+      
   }
 }

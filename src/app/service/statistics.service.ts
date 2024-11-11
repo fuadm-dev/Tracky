@@ -157,8 +157,6 @@ export class StatisticsService {
       Math.ceil(
         (user.userStats.current.bmi.bmi - user.userStats.start.bmi.bmi) * 10
       ) / 10;
-
-      console.log(user.userStats.change.weightChange);
       
   }
 
