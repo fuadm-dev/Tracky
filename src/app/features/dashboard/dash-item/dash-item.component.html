@@ -6,12 +6,20 @@
     </div>
 
     <!-- Title & weight -->
-    <span class="title roboto-bold fs-5">{{ title }} <i *ngIf="!progress" class="ms-2 fa-solid fa-weight-scale"></i></span>
+    <span class="title roboto-bold fs-5"
+      >{{ title }}
+      <i *ngIf="!progress" class="ms-2 fa-solid fa-weight-scale"></i
+    ></span>
+
     <!-- Progress Bar -->
     <div class="p-2" *ngIf="progress">
       <div class="progress">
         <div
-          [ngClass]="title.toLowerCase().includes('progress') ? 'bg-success' : 'bg-secondary'"
+          [ngClass]="
+            title.toLowerCase().includes('progress')
+              ? 'bg-success'
+              : 'bg-secondary'
+          "
           class="progress-bar"
           role="progressbar"
           [style.width.%]="progress"
@@ -24,10 +32,22 @@
       </div>
     </div>
     <!-- End Progress Bar -->
-    <span class="weight roboto-light"> {{ weight }}{{ units }}</span>
+    <div
+      [ngStyle]="{ 'color': title === 'Change' && weight > 0 ? 'red' : 'green' }"
+    >
+      <span class="weight roboto-light"
+        ><span *ngIf="title === 'Change' && weight > 0">+</span> {{ weight
+        }}{{ units }}</span
+      >
+    </div>
     <!-- BMI component -->
     <span class="roboto-bold" *ngIf="bmiComponent">
-      <app-bmi [height]="user.height" [weight]="weight" [showBmiStatus]="bmiStatus"> </app-bmi>
+      <app-bmi
+        [height]="user.height"
+        [weight]="weight"
+        [showBmiStatus]="bmiStatus"
+      >
+      </app-bmi>
     </span>
   </div>
 </div>

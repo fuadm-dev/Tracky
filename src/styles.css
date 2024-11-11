@@ -71,7 +71,6 @@
 
 /* Dashboard-item */
 .box-small {
-  display: flex;
   justify-content: center;
   align-items: center;
   background: #fff;
