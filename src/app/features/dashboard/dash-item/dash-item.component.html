@@ -1,5 +1,6 @@
-<div class="box-small">
-  <div class="boxContent">
+<div  [ngClass]="{'pb-4': progress}" class="box-small">
+  <div [ngClass]="{'align-items-center': !calendar}"
+   class="boxContent">
     <!-- Calendar component -->
     <div class="calendar" *ngIf="calendar">
       <calendar [date]="date"></calendar>
@@ -32,12 +33,10 @@
       </div>
     </div>
     <!-- End Progress Bar -->
-    <div
-      [ngStyle]="{ 'color': title === 'Change' && weight > 0 ? 'red' : 'green' }"
-    >
-      <span class="weight roboto-light"
-        ><span *ngIf="title === 'Change' && weight > 0">+</span> {{ weight
-        }}{{ units }}</span
+    <div [ngStyle]="{ color: title === 'Change' && weight > 0 ? 'red' : '' }">
+      <span class="weight roboto-light">
+        <p *ngIf="title === 'Change' && weight > 0">+</p>
+        {{ weight }}{{ units }}</span
       >
     </div>
     <!-- BMI component -->
