@@ -49,6 +49,10 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.partyGif {
+  margin-left: -10px;
+}
+
 .dash-container {
   background-image: url(../assets/confetti.gif);
   background-repeat: no-repeat;
