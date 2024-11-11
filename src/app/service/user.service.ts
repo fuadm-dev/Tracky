@@ -34,6 +34,7 @@ export class UserService {
         bmiStatus: '',
       },
       isOnTarget: false,
+      offTargetBy: 0,
       message: '',
     },
     change: new Change(),

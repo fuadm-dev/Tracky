@@ -15,6 +15,5 @@ export class StatsClass {
   remainingTime: _Time = new _Time();
   elapsedTime: _Time = new _Time();
   change: Change = new Change();
-  onTarget: boolean = false;
   pctProgress: number = 0;
 }

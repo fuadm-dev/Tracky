@@ -8,13 +8,16 @@ export class SetOnTargetService {
   constructor() {}
 
   setOnTargetValue(user: User) {
-    user.userStats.onTarget =
-      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+    let offTargetBy: number;
+    user.userStats.target.offTargetBy = 100;
+
     user.userStats.target.isOnTarget =
       user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
 
     if (user.userStats.target.isOnTarget) {
       user.userStats.target.message = 'On Target';
     } else user.userStats.target.message = 'Off Target';
+
+    // console.log(user.userStats.target.offTargetBy);
   }
 }

@@ -5,5 +5,6 @@ export class Target {
   weight: number;
   bmi?: IBmi;
   isOnTarget: boolean;
+  offTargetBy: number = 0;
   message: string;
 }
