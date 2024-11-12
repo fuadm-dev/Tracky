@@ -18,8 +18,11 @@ import { Weight } from 'src/app/shared/models/weight';
 })
 export class DataInputComponent implements OnInit {
   user: User;
+   dp = document.getElementById('dateOfWeight');
+   dp.nativeElement.setAttribute('min', '2024-03-15');
+   dp.nativeElement.setAttribute('max', '2024-03-31')
+   
   @Output() onWeightInput = new EventEmitter<User>();
-
   @ViewChild('weightInput') weightKg: ElementRef;
   @ViewChild('weightDate') weightDate: ElementRef;
 

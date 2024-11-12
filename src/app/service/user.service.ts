@@ -177,14 +177,6 @@ export class UserService {
             bmiStatus: '',
           },
         },
-        // {
-        //   date: new Date(2024, 11, 2),
-        //   weight: 111,
-        //   bmi: {
-        //     bmi: 0,
-        //     bmiStatus: '',
-        //   },
-        // },
       ],
       isHistory: false,
     },
