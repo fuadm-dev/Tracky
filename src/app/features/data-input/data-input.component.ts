@@ -18,10 +18,8 @@ import { Weight } from 'src/app/shared/models/weight';
 })
 export class DataInputComponent implements OnInit {
   user: User;
-   dp = document.getElementById('dateOfWeight');
-   dp.nativeElement.setAttribute('min', '2024-03-15');
-   dp.nativeElement.setAttribute('max', '2024-03-31')
-   
+  dp = document.getElementById('dateOfWeight');
+  dateToday: string = this.getTodaysDate();
   @Output() onWeightInput = new EventEmitter<User>();
   @ViewChild('weightInput') weightKg: ElementRef;
   @ViewChild('weightDate') weightDate: ElementRef;
@@ -32,6 +30,15 @@ export class DataInputComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.user = this.userService.getUser();
+  }
+
+  getTodaysDate(): string {
+    const date: Date = new Date();
+
+    const todaysDate:string = `${date.getDate()}-${
+      date.getMonth() + 1
+    }-${date.getFullYear()}`;
+    return todaysDate;
   }
 
   onLogWeight() {
