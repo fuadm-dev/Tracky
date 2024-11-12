@@ -9,15 +9,15 @@ export class SetOnTargetService {
 
   setOnTargetValue(user: User) {
     let expectedLoss =
-      user.userStats.lossRate.expected *
-      user.userStats.elapsedTime.weeks;  
-      
-      let expectedWeight = user.start.weight - expectedLoss;
-      
-      user.userStats.target.offTargetBy = Math.round((user.userStats.current.weight - expectedWeight) * 10) / 10;
+      user.userStats.lossRate.expected * user.userStats.elapsedTime.weeks;
 
-      user.userStats.target.isOnTarget =
-      user.userStats.lossRate.actual >= user.userStats.lossRate.expected;
+    let expectedWeight = user.start.weight - expectedLoss;
+
+    user.userStats.target.offTargetBy =
+      Math.round((user.userStats.current.weight - expectedWeight) * 10) / 10;
+
+    user.userStats.target.isOnTarget =
+      user.userStats.current.weight <= expectedWeight;
 
     if (user.userStats.target.isOnTarget) {
       user.userStats.target.message = 'On Target';
@@ -25,5 +25,4 @@ export class SetOnTargetService {
 
     console.log(expectedWeight);
   }
-  
 }
