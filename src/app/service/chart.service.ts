@@ -14,6 +14,7 @@ export class ChartService {
   deDuplicateWeightLogs(weighObjArr: Weight[]): IChart {
     let chart: IChart = { weights: [], months: [] };
     let uniqueWeightArr: Weight[];
+
     weighObjArr.reduce((accumulator: Weight[], current) => {
       if (
         !accumulator.find(
@@ -38,14 +39,13 @@ export class ChartService {
 
   buildChartData(user: User): IChart {
     let userWeightLogs = user.record.weightLogs;
-    let chart = this.deDuplicateWeightLogs(userWeightLogs);
-
+    
     //add month/year field
     userWeightLogs.forEach((w) => {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
     });
     
-    return chart
+    return this.deDuplicateWeightLogs(userWeightLogs);
   }
 
   //Draw chart
