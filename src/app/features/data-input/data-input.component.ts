@@ -35,9 +35,10 @@ export class DataInputComponent implements OnInit {
   getTodaysDate(): string {
     const date: Date = new Date();
 
-    const todaysDate:string = `${date.getDate()}-${
+    const todaysDate:string = `${date.getFullYear()}-${
       date.getMonth() + 1
-    }-${date.getFullYear()}`;
+    }-${date.getDate()}`;
+    
     return todaysDate;
   }
 
