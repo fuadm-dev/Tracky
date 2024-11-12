@@ -32,15 +32,19 @@ export class ChartService {
       chart.months.push(this.dateService.getMonthName(e.date.getMonth()));
     }
 
+    console.log(chart);
     return chart;
   }
-  
+
   buildChartData(user: User): IChart {
     let userWeightLogs = user.record.weightLogs;
     let chart = this.deDuplicateWeightLogs(userWeightLogs);
+
+    //add month/year field
+    userWeightLogs.forEach((w) => {
+      w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
+    });
     
-    
-    console.log(chart);
     return chart
   }
 
