@@ -23,5 +23,7 @@ export class SetOnTargetService {
       user.userStats.target.message = 'On Target';
     } else user.userStats.target.message = 'Off Target by';
 
+    console.log(expectedWeight);
   }
+  
 }
