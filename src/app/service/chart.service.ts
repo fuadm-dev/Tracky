@@ -11,7 +11,8 @@ import { Chart } from 'chart.js';
 export class ChartService {
   constructor(private dateService: DateService) {}
 
-  deDuplicateWeightLogs(weighObjArr: Weight[]) {
+  deDuplicateWeightLogs(weighObjArr: Weight[]): IChart {
+    let chart: IChart = { weights: [], months: [] };
     let uniqueWeightArr: Weight[];
     weighObjArr.reduce((accumulator: Weight[], current) => {
       if (
@@ -24,56 +25,23 @@ export class ChartService {
       uniqueWeightArr = accumulator;
       return accumulator;
     }, []);
-    console.log(uniqueWeightArr);
-    ;
-  }
 
-  buildChartData(user: User): IChart {
-    let userWeightLogs = user.record.weightLogs;
-    let year: Weight[][] = [[], [], [], [], [], [], [], [], [], [], [], []];
-    let months = [];
-    let weights = [];
-
-    //Sort userWeightLog Objects in date order
-    userWeightLogs.sort((a, b) => a.date.getTime() - b.date.getTime());
-
-    //add month/year field
-    userWeightLogs.forEach((w) => {
-      w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
-    });
-
-    this.deDuplicateWeightLogs(userWeightLogs);
-
-    //----------------------------------------
-    //Group logs by months into year array
-    for (let i = 0; i < userWeightLogs.length; i++) {
-      const weight = userWeightLogs[i];
-      year[weight.date.getMonth()].push(weight);
+    for (let i = 0; i < uniqueWeightArr.length; i++) {
+      const e = uniqueWeightArr[i];
+      chart.weights.push(e.weight);
+      chart.months.push(this.dateService.getMonthName(e.date.getMonth()));
     }
-
-    //Take earliest weightlog from each month
-    for (let i = 0; i < year.length; i++) {
-      year[i].splice(1);
-    }
-    //----------------------------------------
-
-    //Group months and weights into seperate arrays
-    year.forEach((e) => {
-      if (e.length) {
-        const month = this.dateService.getMonthName(e[0].date.getMonth());
-        const weight = e[0].weight;
-        months.push(month);
-        weights.push(weight);
-      }
-    });
-
-    //Build chart object
-    let chart: IChart = {
-      months: [...months],
-      weights: [...weights],
-    };
 
     return chart;
+  }
+  
+  buildChartData(user: User): IChart {
+    let userWeightLogs = user.record.weightLogs;
+    let chart = this.deDuplicateWeightLogs(userWeightLogs);
+    
+    
+    console.log(chart);
+    return chart
   }
 
   //Draw chart
@@ -114,4 +82,5 @@ export class ChartService {
       chart.update();
     }
   }
+
 }

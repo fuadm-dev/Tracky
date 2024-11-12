@@ -14,7 +14,6 @@ import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
-import { last } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -52,8 +51,5 @@ export class DashboardComponent implements OnInit {
     }
 
     console.log(this.user);
-    console.log(this.userStats.target.offTargetBy);
-
-
   }
 }
