@@ -1,37 +1,36 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { _Time } from 'src/app/shared/models/_time';
-import { User } from 'src/app/shared/models/user';
 import Chart from 'chart.js/auto';
-import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'progress-item',
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.css'],
 })
-export class ProgressComponent {
-  user: User;
-  title: string = 'Goal Progress';
-  progress: number;
+export class ProgressComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() progress: number;
+  progressArray: number[] = [];
   chart: any;
 
-  constructor(private userService: UserService) {}
-
+  constructor() {}
   ngOnInit(): void {
-    this.user = this.userService.getUser();
     this.createChart();
-    this.progress = this.chart.data.datasets[0].data[0],
-    console.log(this.chart.data.datasets[0].data[0]);
+    this.progressArray = this.getWeightLossProgress(this.progress);
+    console.log(this.progressArray);
   }
 
-  getWeightLossProgress(): number[] {
+  getWeightLossProgress(progress: number): number[] {
     let progressArr: number[] = [];
-    progressArr.push(this.user.userStats.pctProgress);
-    progressArr.push(100 - this.user.userStats.pctProgress);
+    progressArr.push(progress);
+    progressArr.push(100 - progress);
     return progressArr;
   }
 
   createChart() {
+    if (this.chart) {
+      this.chart.destroy();
+    }
     this.chart = new Chart('MyChart', {
       type: 'doughnut', //this denotes tha type of chart
 
@@ -41,7 +40,7 @@ export class ProgressComponent {
         datasets: [
           {
             label: 'Progress',
-            data: this.getWeightLossProgress(),
+            data: this.getWeightLossProgress(this.progress),
             backgroundColor: ['green', 'grey'],
             hoverOffset: 4,
           },
@@ -51,5 +50,6 @@ export class ProgressComponent {
         aspectRatio: 2.5,
       },
     });
+    this.chart.update()
   }
 }

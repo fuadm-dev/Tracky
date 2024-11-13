@@ -71,7 +71,7 @@ export class DashItemBuilderService {
 
     // build Progress-Item
     const progressItem: IDashItem = {
-      title: 'Progress Made',
+      title: 'Goal Progress',
       units: '%',
       weight: user.userStats.pctProgress,
       progress: user.userStats.pctProgress,
