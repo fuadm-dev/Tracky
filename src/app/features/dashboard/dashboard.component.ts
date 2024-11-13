@@ -49,7 +49,15 @@ export class DashboardComponent implements OnInit {
     }
 
     console.log(this.user);
-    console.log(this.dashItems[6]);
+    console.log(this.dashItems);
     
   }
+
+  excludeDashItemFromDashboard(titlesToExclude: string[]){
+    for (let i = 0; i < this.dashItems.length; i++) {
+      const e = this.dashItems[i].title
+      this.dashItems = this.dashItems.filter()
+    }
+  }
+
 }

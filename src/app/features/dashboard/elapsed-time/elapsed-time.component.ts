@@ -39,7 +39,7 @@ export class ElapsedTimeComponent {
           {
             label: 'Progress',
             data: this.getWeightLossProgress(this.progress),
-            backgroundColor: ['green', 'grey'],
+            backgroundColor: ['grey', 'green'],
             hoverOffset: 4,
           },
         ],
