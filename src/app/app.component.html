@@ -21,7 +21,9 @@
               <span
                 class="text-white fs-5"
                 [ngClass]="
-                  user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
+                  user.userStats.target.isOnTarget
+                    ? 'greenBackground'
+                    : 'redBackground'
                 "
               >
                 {{ user.userStats.target.message }}
@@ -55,7 +57,9 @@
             </div>
             <span
               [ngClass]="
-                user.userStats.target.isOnTarget ? 'bg-success' : 'bg-danger'
+                user.userStats.target.isOnTarget
+                  ? 'greenBackground'
+                  : 'redBackground'
               "
               class="fs-5"
               >{{ currentDate | date : "dd-MMM-yyyy"
