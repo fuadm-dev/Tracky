@@ -40,7 +40,7 @@ export class ProgressComponent implements OnInit {
           {
             label: 'Progress',
             data: this.getWeightLossProgress(this.progress),
-            backgroundColor: ['#28A745', 'grey'],
+            backgroundColor: ['#28A745', '#a6a6a6'],
             hoverOffset: 4,
           },
         ],
