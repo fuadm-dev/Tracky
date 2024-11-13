@@ -3,22 +3,23 @@
   class="dash-container d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-2"
 >
   <!-- Trend item -->
-  <trend-item></trend-item>
   <!-- Test Section -->
   <div *ngFor="let item of dashItems">
     <dash-item
-      [title]="item.title"
-      [weight]="item.weight"
-      [units]="item.units"
-      [date]="item.date"
-      [progress]="item.progress"
-      [calendar]="item.calendar"
-      [bmiComponent]="item.bmiComponent"
-      [bmiStatus]="item.bmiStatus"
-      [elapsedWeekAsPercent]="item.elapsedWeekAsPercent"
+    [title]="item.title"
+    [weight]="item.weight"
+    [units]="item.units"
+    [date]="item.date"
+    [progress]="item.progress"
+    [calendar]="item.calendar"
+    [bmiComponent]="item.bmiComponent"
+    [bmiStatus]="item.bmiStatus"
+    [elapsedWeekAsPercent]="item.elapsedWeekAsPercent"
     ></dash-item>
   </div>
-
+  
+  <trend-item></trend-item>
+  
   <progress-item
     [title]="progressItems[0].title"
     [progress]="progressItems[0].progress"

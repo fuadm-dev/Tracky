@@ -12,10 +12,6 @@ export class DashItemBuilderService {
     let dashItemsArr: IDashItem[] = [];
 
     // build Start-Item
-    let elapsedWeekAsPercent: number = Math.round(
-      (user.userStats.elapsedTime.weeks / user.userStats.totalTime.weeks) * 100
-    );
-
     const startItem: IDashItem = {
       title: 'Start',
       units: 'kg',
@@ -69,27 +65,6 @@ export class DashItemBuilderService {
       bmiStatus: true,
     };
 
-    // build Progress-Item
-    const progressItem: IDashItem = {
-      title: 'Goal Progress',
-      units: '%',
-      weight: user.userStats.pctProgress,
-      progress: user.userStats.pctProgress,
-      calendar: false,
-      bmiComponent: false,
-      bmiStatus: false,
-    };
-
-    // build Time-Item
-    const timeItem: IDashItem = {
-      title: 'Elapsed Time',
-      units: '%',
-      weight: elapsedWeekAsPercent,
-      progress: elapsedWeekAsPercent,
-      calendar: false,
-      bmiComponent: false,
-      bmiStatus: false,
-    };
 
     dashItemsArr.push(
       startItem,
@@ -97,8 +72,6 @@ export class DashItemBuilderService {
       targetItem,
       changeItem,
       predictedItem
-      // progressItem,
-      // timeItem
     );
 
     return dashItemsArr;
