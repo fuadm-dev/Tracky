@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
   user: User;
   userStats: StatsClass;
   dashItems: IDashItem[] = [];
+  progressItems: IDashItem[] = [];
   chartDataset: IChart;
+  excludedDashItems: string[] = [];
 
   @ViewChild(TrendItemComponent) trendItemComponent: TrendItemComponent;
 
@@ -43,6 +45,8 @@ export class DashboardComponent implements OnInit {
     this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
+    this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
+    // this.excludeDashItemFromDashboard(this.excludedDashItems);
     let chart = this.chartService.buildChartData(this.user);
     if (this.trendItemComponent) {
       this.trendItemComponent.refreshChart(chart);
@@ -50,14 +54,14 @@ export class DashboardComponent implements OnInit {
 
     console.log(this.user);
     console.log(this.dashItems);
-    
+    console.log(this.progressItems);
   }
 
-  excludeDashItemFromDashboard(titlesToExclude: string[]){
+  excludeDashItemFromDashboard(titlesToExclude: string[]) {
     for (let i = 0; i < this.dashItems.length; i++) {
-      const e = this.dashItems[i].title
-      this.dashItems = this.dashItems.filter()
+      this.dashItems = this.dashItems.filter(
+        (i) => !titlesToExclude.includes(i.title)
+      );
     }
   }
-
 }

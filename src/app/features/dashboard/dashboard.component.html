@@ -2,8 +2,8 @@
 <div
   class="dash-container d-flex flex-wrap justify-content-center align-items-center row-gap-1 column-gap-4 mt-2"
 >
-<!-- Trend item -->
-<trend-item></trend-item>
+  <!-- Trend item -->
+  <trend-item></trend-item>
   <!-- Test Section -->
   <div *ngFor="let item of dashItems">
     <dash-item
@@ -18,8 +18,14 @@
       [elapsedWeekAsPercent]="item.elapsedWeekAsPercent"
     ></dash-item>
   </div>
-  <progress-item [title]="dashItems[5].title" [progress]="dashItems[5].progress"></progress-item>
 
-    <elapsedTime-item [title]="dashItems[6].title" [progress]="dashItems[6].progress"></elapsedTime-item>
+  <progress-item
+    [title]="progressItems[0].title"
+    [progress]="progressItems[0].progress"
+  ></progress-item>
 
+  <elapsedTime-item
+    [title]="progressItems[1].title"
+    [progress]="progressItems[1].progress"
+  ></elapsedTime-item>
 </div>
