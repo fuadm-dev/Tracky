@@ -39,7 +39,7 @@ export class DashItemBuilderService {
 
     // build Target-Item
     const targetItem: IDashItem = {
-      title: 'Target',
+      title: 'Goal',
       units: 'kg',
       weight: user.userStats.target.weight,
       date: user.userStats.target.date,

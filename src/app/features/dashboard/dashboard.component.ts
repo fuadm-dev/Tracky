@@ -1,6 +1,4 @@
 import {
-  AfterContentInit,
-  AfterViewInit,
   OnInit,
   ViewChild,
 } from '@angular/core';

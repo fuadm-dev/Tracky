@@ -10,7 +10,7 @@ import Chart from 'chart.js/auto';
 })
 export class ProgressComponent {
   user: User;
-  @Input() title: string = 'Progress';
+  @Input() title: string = 'Goal Progress';
   @Input() progress: number;
   chart: any;
 
@@ -29,10 +29,7 @@ export class ProgressComponent {
           {
             label: 'My First Dataset',
             data: [75, 25],
-            backgroundColor: [
-              'green',
-              'grey'
-            ],
+            backgroundColor: ['green', 'grey'],
             hoverOffset: 4,
           },
         ],
