@@ -15,6 +15,7 @@ import { DashItemComponent } from './features/dashboard/dash-item/dash-item.comp
 import { ChangeComponent } from './features/dashboard/change/change.component';
 import { ProgressComponent } from './features/dashboard/progress/progress.component';
 import { FormsModule } from '@angular/forms';
+import { ElapsedTimeComponent } from './features/dashboard/elapsed-time/elapsed-time.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     DashItemComponent,
     ChangeComponent,
     ProgressComponent,
+    ElapsedTimeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

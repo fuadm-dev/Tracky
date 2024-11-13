@@ -1,13 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { _Time } from 'src/app/shared/models/_time';
-import Chart from 'chart.js/auto';
+import { Component, Input } from '@angular/core';
+import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'progress-item',
-  templateUrl: './progress.component.html',
-  styleUrls: ['./progress.component.css'],
+  selector: 'elapsedTime-item',
+  templateUrl: './elapsed-time.component.html',
+  styleUrls: ['./elapsed-time.component.css'],
 })
-export class ProgressComponent implements OnInit {
+export class ElapsedTimeComponent {
   @Input() title: string = '';
   @Input() progress: number;
   progressArray: number[] = [];
@@ -27,10 +26,10 @@ export class ProgressComponent implements OnInit {
   }
 
   createChart() {
-    if (Chart.getChart('MyChart')) {
-      Chart.getChart('MyChart')?.destroy();
+    if (Chart.getChart('elapsedTimeChart')) {
+      Chart.getChart('elapsedTimeChart')?.destroy();
     }
-    this.chart = new Chart('MyChart', {
+    this.chart = new Chart('elapsedTimeChart', {
       type: 'doughnut', //this denotes tha type of chart
 
       data: {
