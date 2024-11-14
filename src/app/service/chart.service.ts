@@ -37,19 +37,19 @@ export class ChartService {
     return chart;
   }
 
-  buildChartData(user: User): IChart {
+  buildTrendChartData(user: User): IChart {
     let userWeightLogs = user.record.weightLogs;
-    
+
     //add month/year field
     userWeightLogs.forEach((w) => {
       w.monthDate = w.date.getMonth() + '/' + w.date.getFullYear();
     });
-    
+
     return this.deDuplicateWeightLogs(userWeightLogs);
   }
 
   //Draw chart
-  drawChart(charData: IChart, chartElement: HTMLCanvasElement) {
+  drawTrendChart(charData: IChart, chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');
 
     return new Chart(ctx, {
@@ -86,5 +86,4 @@ export class ChartService {
       chart.update();
     }
   }
-
 }

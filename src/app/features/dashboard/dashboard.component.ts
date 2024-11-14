@@ -1,7 +1,4 @@
-import {
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
@@ -46,7 +43,7 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
-    let chart = this.chartService.buildChartData(this.user);
+    let chart = this.chartService.buildTrendChartData(this.user);
     if (this.trendItemComponent) {
       this.trendItemComponent.refreshChart(chart);
     }
