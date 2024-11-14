@@ -6,20 +6,18 @@
   <!-- Test Section -->
   <div *ngFor="let item of dashItems">
     <dash-item
-    [title]="item.title"
-    [weight]="item.weight"
-    [units]="item.units"
-    [date]="item.date"
-    [progress]="item.progress"
-    [calendar]="item.calendar"
-    [bmiComponent]="item.bmiComponent"
-    [bmiStatus]="item.bmiStatus"
-    [elapsedWeekAsPercent]="item.elapsedWeekAsPercent"
+      [title]="item.title"
+      [weight]="item.weight"
+      [units]="item.units"
+      [date]="item.date"
+      [progress]="item.progress"
+      [calendar]="item.calendar"
+      [bmiComponent]="item.bmiComponent"
+      [bmiStatus]="item.bmiStatus"
+      [elapsedWeekAsPercent]="item.elapsedWeekAsPercent"
     ></dash-item>
   </div>
-  
-  <trend-item></trend-item>
-  
+
   <progress-item
     [title]="progressItems[0].title"
     [progress]="progressItems[0].progress"
@@ -29,4 +27,6 @@
     [title]="progressItems[1].title"
     [progress]="progressItems[1].progress"
   ></elapsedTime-item>
+
+  <trend-item></trend-item>
 </div>

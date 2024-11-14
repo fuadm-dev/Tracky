@@ -70,8 +70,8 @@ export class DashItemBuilderService {
       startItem,
       currentItem,
       targetItem,
+      predictedItem,
       changeItem,
-      predictedItem
     );
 
     return dashItemsArr;
