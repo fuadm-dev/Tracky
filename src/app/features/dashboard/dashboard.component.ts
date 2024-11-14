@@ -46,7 +46,6 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
-    // this.excludeDashItemFromDashboard(this.excludedDashItems);
     let chart = this.chartService.buildChartData(this.user);
     if (this.trendItemComponent) {
       this.trendItemComponent.refreshChart(chart);
