@@ -56,12 +56,9 @@ export class ChartService {
     return progressArr;
   }
 
-  //Draw progress chart
-  drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement) {
+  //Draw progress/time chart
+  drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement, colors:string[]) {
     const ctx = chartElement.getContext('2d');
-    if (Chart.getChart('progressChart')) {
-      Chart.getChart('progressChart')?.destroy();
-    }
 
     let chart = new Chart(ctx, {
       type: 'doughnut', //this denotes tha type of chart
@@ -73,7 +70,7 @@ export class ChartService {
           {
             label: 'Progress',
             data: progressArr,
-            backgroundColor: ['#28A745', '#a6a6a6'],
+            backgroundColor: colors,
             hoverOffset: 4,
           },
         ],
@@ -124,7 +121,7 @@ export class ChartService {
     }
   }
 
-  //Update trend chart
+  //Update progress/time chart
   updateProgressChart(updatedChartData: number[], chart: Chart<'doughnut'>) {
     if (updatedChartData) {
       chart.data.datasets[0].data = updatedChartData;
@@ -132,4 +129,14 @@ export class ChartService {
       chart.update();
     }
   }
+
+  //Update progress/time chart
+  updateTimeChart(updatedChartData: number[], chart: Chart<'doughnut'>) {
+    if (updatedChartData) {
+      chart.data.datasets[0].data = updatedChartData;
+      
+      chart.update();
+    }
+  }
+
 }

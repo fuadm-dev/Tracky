@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { _Time } from 'src/app/shared/models/_time';
 import Chart from 'chart.js/auto';
 import { ChartService } from 'src/app/service/chart.service';
@@ -14,6 +14,7 @@ export class ProgressComponent implements OnInit {
   progressArray: number[] = [];
   chartCanvas: HTMLCanvasElement;
   chart: Chart<'doughnut'>;
+  colors: string[] = ['#28A745', '#a6a6a6'];
 
   constructor(private chartService: ChartService) {}
 
@@ -25,11 +26,12 @@ export class ProgressComponent implements OnInit {
     this.progressArray = this.chartService.buildProgressData(this.progress);
     this.chart = this.chartService.drawProgressChart(
       this.progressArray,
-      this.chartCanvas
+      this.chartCanvas,
+      this.colors
     );
   }
 
-  refreshChart(progressArray:number[]) {
+  refreshChart(progressArray: number[]) {
     this.chartService.updateProgressChart(progressArray, this.chart);
     console.log('refreshing...');
   }

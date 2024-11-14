@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ChartService } from 'src/app/service/chart.service';
 
 @Component({
   selector: 'elapsedTime-item',
@@ -10,43 +11,27 @@ export class ElapsedTimeComponent {
   @Input() title: string = '';
   @Input() progress: number;
   progressArray: number[] = [];
-  chart: any;
+  chartCanvas: HTMLCanvasElement;
+  chart: Chart<'doughnut'>;
+  colors: string[] = ['#a6a6a6', '#28A745'];
 
-  constructor() {}
+  constructor(private chartService: ChartService) {}
+
   ngOnInit(): void {
-    this.createChart();
-    this.progressArray = this.getWeightLossProgress(this.progress);
+    this.chartCanvas = document.getElementById(
+      'elapsedTimeChart'
+    ) as HTMLCanvasElement;
+
+    this.progressArray = this.chartService.buildProgressData(this.progress);
+    this.chart = this.chartService.drawProgressChart(
+      this.progressArray,
+      this.chartCanvas,
+      this.colors
+    );
   }
 
-  getWeightLossProgress(progress: number): number[] {
-    let progressArr: number[] = [];
-    progressArr.push(progress);
-    progressArr.push(100 - progress);
-    return progressArr;
-  }
-
-  createChart() {
-    // if (Chart.getChart('elapsedTimeChart')) {
-    //   Chart.getChart('elapsedTimeChart')?.destroy();
-    // }
-    this.chart = new Chart('elapsedTimeChart', {
-      type: 'doughnut', //this denotes tha type of chart
-
-      data: {
-        // values on X-Axis
-        // labels: ['lost', 'left'],
-        datasets: [
-          {
-            label: 'Progress',
-            data: this.getWeightLossProgress(this.progress),
-            backgroundColor: ['#DC3545', '#28A745'],
-            hoverOffset: 4,
-          },
-        ],
-      },
-      options: {
-        aspectRatio: 2.5,
-      },
-    });
+  refreshChart(progressArray: number[]) {
+    this.chartService.updateProgressChart(progressArray, this.chart);
+    console.log('refreshing...');
   }
 }
