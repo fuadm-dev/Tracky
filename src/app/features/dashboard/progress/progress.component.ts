@@ -22,16 +22,16 @@ export class ProgressComponent implements OnInit {
       'MyChart'
     ) as HTMLCanvasElement;
 
-    this.progressArray = this.getWeightLossProgress(this.progress);
+    this.progressArray = this.chartService.buildWeightLossProgress(this.progress);
     this.chart = this.chartService.drawProgressChart(this.progressArray, this.chartCanvas);
   }
 
-  getWeightLossProgress(progress: number): number[] {
-    let progressArr: number[] = [];
-    progressArr.push(progress);
-    progressArr.push(100 - progress);
-    return progressArr;
-  }
+  // getWeightLossProgress(progress: number): number[] {
+  //   let progressArr: number[] = [];
+  //   progressArr.push(progress);
+  //   progressArr.push(100 - progress);
+  //   return progressArr;
+  // }
 
   refreshChart(updatedChartData: number[]) {
     this.chartService.updateProgressChart(updatedChartData, this.chart);

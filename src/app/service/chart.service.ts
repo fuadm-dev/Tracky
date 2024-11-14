@@ -48,6 +48,14 @@ export class ChartService {
     return this.deDuplicateWeightLogs(userWeightLogs);
   }
 
+  //Build progress data
+  buildWeightLossProgress(progress: number): number[] {
+    let progressArr: number[] = [];
+    progressArr.push(progress);
+    progressArr.push(100 - progress);
+    return progressArr;
+  }
+
   //Draw progress chart
   drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');

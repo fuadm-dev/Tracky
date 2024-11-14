@@ -45,12 +45,15 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
-    let trendChart = this.chartService.buildTrendChartData(this.user);
+    let trendChartData = this.chartService.buildTrendChartData(this.user);
+    let progressChartData = this.chartService.buildWeightLossProgress(
+      this.user.userStats.pctProgress
+    );
     if (this.trendItemComponent) {
-      this.trendItemComponent.refreshChart(trendChart);
+      this.trendItemComponent.refreshChart(trendChartData);
     }
     if (this.progressItemComponent) {
-      this.progressItemComponent.refreshChart(trendChart);
+      this.progressItemComponent.refreshChart(progressChartData);
     }
 
     console.log(this.user);
