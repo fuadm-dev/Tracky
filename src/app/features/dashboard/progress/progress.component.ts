@@ -19,48 +19,21 @@ export class ProgressComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartCanvas = document.getElementById(
-      'MyChart'
+      'progressChart'
     ) as HTMLCanvasElement;
 
-    this.progressArray = this.chartService.buildWeightLossProgress(this.progress);
-    this.chart = this.chartService.drawProgressChart(this.progressArray, this.chartCanvas);
+    this.progressArray = this.chartService.buildProgressData(this.progress);
+    this.chart = this.chartService.drawProgressChart(
+      this.progressArray,
+      this.chartCanvas
+    );
   }
 
-  // getWeightLossProgress(progress: number): number[] {
-  //   let progressArr: number[] = [];
-  //   progressArr.push(progress);
-  //   progressArr.push(100 - progress);
-  //   return progressArr;
-  // }
-
-  refreshChart(updatedChartData: number[]) {
-    this.chartService.updateProgressChart(updatedChartData, this.chart);
+  
+  refreshChart() {
+    this.chartService.updateProgressChart(this.progressArray, this.chart);
+    console.log('refreshing...');
+    
   }
 
-  // createChart(progressArr: number[]) {
-  //   if (Chart.getChart('MyChart')) {
-  //     Chart.getChart('MyChart')?.destroy();
-  //   }
-  //   console.log(this.progressArray);
-
-  //   this.chart = new Chart('MyChart', {
-  //     type: 'doughnut', //this denotes tha type of chart
-
-  //     data: {
-  //       // values on X-Axis
-  //       // labels: ['lost', 'left'],
-  //       datasets: [
-  //         {
-  //           label: 'Progress',
-  //           data: progressArr,
-  //           backgroundColor: ['#28A745', '#a6a6a6'],
-  //           hoverOffset: 4,
-  //         },
-  //       ],
-  //     },
-  //     options: {
-  //       aspectRatio: 2.5,
-  //     },
-  //   });
-  // }
 }

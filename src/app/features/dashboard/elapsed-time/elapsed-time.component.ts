@@ -26,9 +26,9 @@ export class ElapsedTimeComponent {
   }
 
   createChart() {
-    if (Chart.getChart('elapsedTimeChart')) {
-      Chart.getChart('elapsedTimeChart')?.destroy();
-    }
+    // if (Chart.getChart('elapsedTimeChart')) {
+    //   Chart.getChart('elapsedTimeChart')?.destroy();
+    // }
     this.chart = new Chart('elapsedTimeChart', {
       type: 'doughnut', //this denotes tha type of chart
 

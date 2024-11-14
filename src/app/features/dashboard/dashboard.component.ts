@@ -45,27 +45,19 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
-    let trendChartData = this.chartService.buildTrendChartData(this.user);
-    let progressChartData = this.chartService.buildWeightLossProgress(
+    let trendChartData = this.chartService.buildTrendData(this.user);
+    let progressChartData = this.chartService.buildProgressData(
       this.user.userStats.pctProgress
     );
     if (this.trendItemComponent) {
       this.trendItemComponent.refreshChart(trendChartData);
     }
     if (this.progressItemComponent) {
-      this.progressItemComponent.refreshChart(progressChartData);
+      this.progressItemComponent.refreshChart();
     }
 
     console.log(this.user);
     console.log(this.dashItems);
-    console.log(this.progressItems);
   }
 
-  excludeDashItemFromDashboard(titlesToExclude: string[]) {
-    for (let i = 0; i < this.dashItems.length; i++) {
-      this.dashItems = this.dashItems.filter(
-        (i) => !titlesToExclude.includes(i.title)
-      );
-    }
-  }
 }

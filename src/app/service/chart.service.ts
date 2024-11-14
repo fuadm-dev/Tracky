@@ -37,7 +37,7 @@ export class ChartService {
     return chart;
   }
 
-  buildTrendChartData(user: User): IChart {
+  buildTrendData(user: User): IChart {
     let userWeightLogs = user.record.weightLogs;
 
     //add month/year field
@@ -49,7 +49,7 @@ export class ChartService {
   }
 
   //Build progress data
-  buildWeightLossProgress(progress: number): number[] {
+  buildProgressData(progress: number): number[] {
     let progressArr: number[] = [];
     progressArr.push(progress);
     progressArr.push(100 - progress);
@@ -59,8 +59,11 @@ export class ChartService {
   //Draw progress chart
   drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');
+    if (Chart.getChart('progressChart')) {
+      Chart.getChart('progressChart')?.destroy();
+    }
 
-    return new Chart(ctx, {
+    let chart = new Chart(ctx, {
       type: 'doughnut', //this denotes tha type of chart
 
       data: {
@@ -79,6 +82,7 @@ export class ChartService {
         aspectRatio: 2.5,
       },
     });
+    return chart
   }
 
   //Draw trend chart
@@ -119,13 +123,12 @@ export class ChartService {
       chart.update();
     }
   }
+
   //Update trend chart
-  updateProgressChart(chartData: number[], chart: Chart<'doughnut'>) {
-    if (chartData) {
-      let latestData = chart.data.datasets[0].data;
-
-      chartData = latestData;
-
+  updateProgressChart(updatedChartData: number[], chart: Chart<'doughnut'>) {
+    if (updatedChartData) {
+      chart.data.datasets[0].data = updatedChartData;
+      
       chart.update();
     }
   }
