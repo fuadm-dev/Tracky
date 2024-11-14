@@ -9,6 +9,7 @@ import { IDashItem } from 'src/app/shared/models/idash-item';
 import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
+import { ProgressComponent } from './progress/progress.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,6 +25,7 @@ export class DashboardComponent implements OnInit {
   excludedDashItems: string[] = [];
 
   @ViewChild(TrendItemComponent) trendItemComponent: TrendItemComponent;
+  @ViewChild(ProgressComponent) progressItemComponent: ProgressComponent;
 
   constructor(
     private userService: UserService,
@@ -43,9 +45,12 @@ export class DashboardComponent implements OnInit {
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
-    let chart = this.chartService.buildTrendChartData(this.user);
+    let trendChart = this.chartService.buildTrendChartData(this.user);
     if (this.trendItemComponent) {
-      this.trendItemComponent.refreshChart(chart);
+      this.trendItemComponent.refreshChart(trendChart);
+    }
+    if (this.progressItemComponent) {
+      this.progressItemComponent.refreshChart(trendChart);
     }
 
     console.log(this.user);

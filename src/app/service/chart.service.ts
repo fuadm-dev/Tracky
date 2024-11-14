@@ -48,12 +48,11 @@ export class ChartService {
     return this.deDuplicateWeightLogs(userWeightLogs);
   }
 
-  buildProgressChart(progressArr:number[]) {
-    if (Chart.getChart('MyChart')) {
-      Chart.getChart('MyChart')?.destroy();
-    }
-    
-    this.chart = new Chart('MyChart', {
+  //Draw progress chart
+  drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement) {
+    const ctx = chartElement.getContext('2d');
+
+    return new Chart(ctx, {
       type: 'doughnut', //this denotes tha type of chart
 
       data: {
@@ -101,13 +100,23 @@ export class ChartService {
   }
 
   //Update trend chart
-  updateChart(chartData: IChart, chart: Chart) {
+  updateTrendChart(chartData: IChart, chart: Chart) {
     if (chartData) {
       let monthsArr = chart.data.labels;
       let weightsArr = chart.data.datasets[0].data;
 
       monthsArr.splice(0, monthsArr.length, ...chartData.months);
       weightsArr.splice(0, weightsArr.length, ...chartData.weights);
+
+      chart.update();
+    }
+  }
+  //Update trend chart
+  updateProgressChart(chartData: number[], chart: Chart<'doughnut'>) {
+    if (chartData) {
+      let latestData = chart.data.datasets[0].data;
+
+      chartData = latestData;
 
       chart.update();
     }

@@ -27,6 +27,7 @@ export class TrendItemComponent implements OnInit {
     this.chartCanvas = document.getElementById(
       'weightChart'
     ) as HTMLCanvasElement;
+
     this.chartData = this.chartService.buildTrendChartData(this.user);
     this.chart = this.chartService.drawTrendChart(
       this.chartData,
@@ -35,6 +36,6 @@ export class TrendItemComponent implements OnInit {
   }
 
   refreshChart(updatedChartData: IChart) {
-    this.chartService.updateChart(updatedChartData, this.chart);
+    this.chartService.updateTrendChart(updatedChartData, this.chart);
   }
 }
