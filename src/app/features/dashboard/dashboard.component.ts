@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
       this.trendItemComponent.refreshChart(trendChartData);
     }
     if (this.progressItemComponent) {
-      this.progressItemComponent.refreshChart();
+      this.progressItemComponent.refreshChart(progressChartData);
     }
 
     console.log(this.user);

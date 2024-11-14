@@ -29,11 +29,8 @@ export class ProgressComponent implements OnInit {
     );
   }
 
-  
-  refreshChart() {
-    this.chartService.updateProgressChart(this.progressArray, this.chart);
+  refreshChart(progressArray:number[]) {
+    this.chartService.updateProgressChart(progressArray, this.chart);
     console.log('refreshing...');
-    
   }
-
 }
