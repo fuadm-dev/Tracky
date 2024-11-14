@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { _Time } from 'src/app/shared/models/_time';
 import Chart from 'chart.js/auto';
 
@@ -14,9 +14,10 @@ export class ProgressComponent implements OnInit {
   chart: any;
 
   constructor() {}
+
   ngOnInit(): void {
-    this.createChart();
     this.progressArray = this.getWeightLossProgress(this.progress);
+    this.createChart(this.progressArray);
   }
 
   getWeightLossProgress(progress: number): number[] {
@@ -26,10 +27,12 @@ export class ProgressComponent implements OnInit {
     return progressArr;
   }
 
-  createChart() {
+  createChart(progressArr:number[]) {
     if (Chart.getChart('MyChart')) {
       Chart.getChart('MyChart')?.destroy();
     }
+    console.log(this.progressArray);
+    
     this.chart = new Chart('MyChart', {
       type: 'doughnut', //this denotes tha type of chart
 
@@ -39,7 +42,7 @@ export class ProgressComponent implements OnInit {
         datasets: [
           {
             label: 'Progress',
-            data: this.getWeightLossProgress(this.progress),
+            data: progressArr,
             backgroundColor: ['#28A745', '#a6a6a6'],
             hoverOffset: 4,
           },

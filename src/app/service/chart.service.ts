@@ -48,7 +48,33 @@ export class ChartService {
     return this.deDuplicateWeightLogs(userWeightLogs);
   }
 
-  //Draw chart
+  buildProgressChart(progressArr:number[]) {
+    if (Chart.getChart('MyChart')) {
+      Chart.getChart('MyChart')?.destroy();
+    }
+    
+    this.chart = new Chart('MyChart', {
+      type: 'doughnut', //this denotes tha type of chart
+
+      data: {
+        // values on X-Axis
+        // labels: ['lost', 'left'],
+        datasets: [
+          {
+            label: 'Progress',
+            data: progressArr,
+            backgroundColor: ['#28A745', '#a6a6a6'],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 2.5,
+      },
+    });
+  }
+
+  //Draw trend chart
   drawTrendChart(charData: IChart, chartElement: HTMLCanvasElement) {
     const ctx = chartElement.getContext('2d');
 
@@ -74,7 +100,7 @@ export class ChartService {
     });
   }
 
-  //Update chart
+  //Update trend chart
   updateChart(chartData: IChart, chart: Chart) {
     if (chartData) {
       let monthsArr = chart.data.labels;
