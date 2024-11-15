@@ -83,14 +83,13 @@ export class ChartService {
       options: {
         plugins:{
           legend: {
-            display: false
+            display: false,
           },
           tooltip: {
             callbacks: {
               label: (context => {
                 context.dataset.label = ''
-                console.log(context);
-                
+                return `${context.parsed}%`;
               })
             }
           }
