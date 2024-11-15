@@ -13,8 +13,8 @@ export interface User {
   gender: string;
   dob: string;
   start: Weight;
-  change: Change;
   target: Target;
+  change: Change;
   record: Record;
   userStats: StatsClass;
   history: Record[];
