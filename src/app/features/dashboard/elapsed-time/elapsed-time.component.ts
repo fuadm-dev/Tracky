@@ -14,7 +14,7 @@ export class ElapsedTimeComponent {
   canvasId: string = 'elapsedTimeChart';
   chart: Chart<'doughnut'>;
   colors: string[] = ['#a6a6a6', '#28A745'];
-  labels: string[] = ['elapsed', 'remaining'];
+  labels: string[] = ['elapsed', 'left'];
 
   constructor(private chartService: ChartService) {}
 

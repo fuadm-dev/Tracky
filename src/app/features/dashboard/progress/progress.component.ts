@@ -15,7 +15,7 @@ export class ProgressComponent implements OnInit {
   canvasId: string = 'progressChart';
   chart: Chart<'doughnut'>;
   colors: string[] = ['#28A745', '#a6a6a6'];
-  labels: string[] = ['lost', 'remaining'];
+  labels: string[] = ['% KG lost', '% KG left'];
 
   constructor(private chartService: ChartService) {}
 
