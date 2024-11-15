@@ -14,11 +14,12 @@ export class ElapsedTimeComponent {
   canvasId: string = 'elapsedTimeChart';
   chart: Chart<'doughnut'>;
   colors: string[] = ['#a6a6a6', '#28A745'];
+  labels: string[] = ['elapsed', 'remaining'];
 
   constructor(private chartService: ChartService) {}
 
   ngOnInit(): void {
-    this.setupProgressChartCanvas(this.canvasId)
+    this.setupProgressChartCanvas(this.canvasId);
   }
 
   setupProgressChartCanvas(canvasId: string) {
@@ -28,7 +29,8 @@ export class ElapsedTimeComponent {
     this.chart = this.chartService.drawProgressChart(
       this.progressArray,
       chartCanvas,
-      this.colors
+      this.colors,
+      this.labels
     );
   }
 

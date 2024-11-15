@@ -15,6 +15,7 @@ export class ProgressComponent implements OnInit {
   canvasId: string = 'progressChart';
   chart: Chart<'doughnut'>;
   colors: string[] = ['#28A745', '#a6a6a6'];
+  labels: string[] = ['lost', 'remaining'];
 
   constructor(private chartService: ChartService) {}
 
@@ -29,7 +30,8 @@ export class ProgressComponent implements OnInit {
     this.chart = this.chartService.drawProgressChart(
       this.progressArray,
       chartCanvas,
-      this.colors
+      this.colors,
+      this.labels
     );
   }
 

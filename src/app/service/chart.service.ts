@@ -60,7 +60,8 @@ export class ChartService {
   drawProgressChart(
     progressArr: number[],
     chartElement: HTMLCanvasElement,
-    colors: string[]
+    colors: string[],
+    labels: string[],
   ) {
     const ctx = chartElement.getContext('2d');
 
@@ -69,7 +70,7 @@ export class ChartService {
 
       data: {
         // values on X-Axis
-        // labels: ['lost', 'left'],
+        labels: labels,
         datasets: [
           {
             label: 'Progress',
@@ -80,6 +81,18 @@ export class ChartService {
         ],
       },
       options: {
+        plugins:{
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              title: function(item, everything) {
+                return;
+              }
+            }
+          }
+        },
         aspectRatio: 2.5,
       },
     });
