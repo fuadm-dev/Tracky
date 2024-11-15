@@ -87,9 +87,11 @@ export class ChartService {
           },
           tooltip: {
             callbacks: {
-              title: function(item, everything) {
-                return;
-              }
+              label: (context => {
+                context.dataset.label = ''
+                console.log(context);
+                
+              })
             }
           }
         },
