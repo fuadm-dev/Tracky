@@ -57,7 +57,11 @@ export class ChartService {
   }
 
   //Draw progress/time chart
-  drawProgressChart(progressArr: number[], chartElement: HTMLCanvasElement, colors:string[]) {
+  drawProgressChart(
+    progressArr: number[],
+    chartElement: HTMLCanvasElement,
+    colors: string[]
+  ) {
     const ctx = chartElement.getContext('2d');
 
     let chart = new Chart(ctx, {
@@ -79,7 +83,7 @@ export class ChartService {
         aspectRatio: 2.5,
       },
     });
-    return chart
+    return chart;
   }
 
   //Draw trend chart
@@ -125,7 +129,7 @@ export class ChartService {
   updateProgressChart(updatedChartData: number[], chart: Chart<'doughnut'>) {
     if (updatedChartData) {
       chart.data.datasets[0].data = updatedChartData;
-      
+
       chart.update();
     }
   }
@@ -134,9 +138,8 @@ export class ChartService {
   updateTimeChart(updatedChartData: number[], chart: Chart<'doughnut'>) {
     if (updatedChartData) {
       chart.data.datasets[0].data = updatedChartData;
-      
+
       chart.update();
     }
   }
-
 }
