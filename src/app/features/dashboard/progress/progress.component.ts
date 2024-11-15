@@ -12,27 +12,28 @@ export class ProgressComponent implements OnInit {
   @Input() title: string = '';
   @Input() progress: number;
   progressArray: number[] = [];
-  chartCanvas: HTMLCanvasElement;
+  canvasId: string = 'progressChart';
   chart: Chart<'doughnut'>;
   colors: string[] = ['#28A745', '#a6a6a6'];
 
   constructor(private chartService: ChartService) {}
 
   ngOnInit(): void {
-    this.chartCanvas = document.getElementById(
-      'progressChart'
-    ) as HTMLCanvasElement;
+    this.setupProgressChartCanvas(this.canvasId);
+  }
+
+  setupProgressChartCanvas(canvasId: string) {
+    const chartCanvas = document.getElementById(canvasId) as HTMLCanvasElement;
 
     this.progressArray = this.chartService.buildProgressData(this.progress);
     this.chart = this.chartService.drawProgressChart(
       this.progressArray,
-      this.chartCanvas,
+      chartCanvas,
       this.colors
     );
   }
 
   refreshChart(progressArray: number[]) {
     this.chartService.updateProgressChart(progressArray, this.chart);
-    console.log('refreshing...');
   }
 }
