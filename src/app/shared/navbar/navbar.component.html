@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
-  <div class="nav-container container container-fluid d-flex align-items-center">
+  <div
+    class="nav-container container container-fluid d-flex align-items-center"
+  >
     <a class="navbar-brand d-flex align-items-center gap-1" href="#">
       <img
         src="../assets/tracky-logo.png"
@@ -10,7 +12,17 @@
       <span class="logo fs-3 roboto-bold">Tracky</span>
     </a>
 
-    <a href="#"
-      ><i class="bi bi-person-gear text-black"></i></a>
+    <div class=""></div>
+
+    <div class="settings">
+      <a href="#"><i class="bi bi-gear text-black" (click)="onSettingsClick()"></i></a>
+      <div class="menu" *ngIf="menuOpen">
+      <ul>
+        <li>Log Out</li>
+        <li>Settings</li>
+      </ul>
+    </div>
+    </div>
+    
   </div>
 </nav>

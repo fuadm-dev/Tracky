@@ -2,6 +2,19 @@
   width: 78%;
 }
 
-.bi-person-gear {
-  font-size: 43px;
+.bi-gear {
+  font-size: 30px;
+}
+
+.settings{                                         
+  position: relative;
+  z-index: 2;
+}
+
+.menu{
+  top: ;
+  position: absolute;
+  width: 100px;
+  border: 1px solid #999;
+
 }

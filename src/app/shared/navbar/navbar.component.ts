@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  menuOpen: boolean = false;
 
+  onSettingsClick(){
+    this.menuOpen = !this.menuOpen;
+  }
 }
