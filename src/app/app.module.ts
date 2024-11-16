@@ -16,6 +16,7 @@ import { ChangeComponent } from './features/dashboard/change/change.component';
 import { ProgressComponent } from './features/dashboard/progress/progress.component';
 import { FormsModule } from '@angular/forms';
 import { ElapsedTimeComponent } from './features/dashboard/elapsed-time/elapsed-time.component';
+import { LoginComponent } from './features/dashboard/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ElapsedTimeComponent } from './features/dashboard/elapsed-time/elapsed-
     ChangeComponent,
     ProgressComponent,
     ElapsedTimeComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
