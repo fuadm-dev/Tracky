@@ -15,14 +15,19 @@
     <div class=""></div>
 
     <div class="settings">
-      <a href="#"><i class="bi bi-gear text-black" (click)="onSettingsClick()"></i></a>
+      <a href="#"
+        ><i class="bi bi-gear text-black" (click)="onSettingsClick()"></i
+      ></a>
       <div class="menu" *ngIf="menuOpen">
-      <ul>
-        <li>Log Out</li>
-        <li>Settings</li>
-      </ul>
+        <ul>
+          <a href="#">
+            <li>Log Out</li>
+          </a>
+          <a href="#">
+            <li>Settings</li>
+          </a>
+        </ul>
+      </div>
     </div>
-    </div>
-    
   </div>
 </nav>
