@@ -6,8 +6,8 @@
   --grey-bg: #ecf3f5;
   --light-grey: #a6a6a6;
   --dark-grey: #6c757d;
-  --red: #DC3545;
-  --green: #28A745;
+  --red: #dc3545;
+  --green: #28a745;
   --blue: #5499c2;
   --orange: #fd7e14;
 }
@@ -70,17 +70,25 @@
 }
 
 /* Dashboard-item */
-.box-small {
+.box {
   justify-content: center;
   align-items: center;
   background: #fff;
   margin-bottom: 20px;
   position: relative;
-  height: 185px;
-  width: 240px;
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.box-lg {
+  width: 470px;
+  height: 400px;
+}
+
+.box-sm {
+  height: 185px;
+  width: 240px;
 }
 
 .boxContent {
