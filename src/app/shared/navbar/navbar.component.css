@@ -6,15 +6,30 @@
   font-size: 30px;
 }
 
-.settings{                                         
+.settings {
   position: relative;
   z-index: 2;
 }
 
-.menu{
-  top: ;
+.menu {
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 20px;
   position: absolute;
-  width: 100px;
-  border: 1px solid #999;
+  width: 180px;
 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.menu li {
+  list-style: none;
+  margin-bottom: 3px;
+  padding: 5px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--black);
 }
