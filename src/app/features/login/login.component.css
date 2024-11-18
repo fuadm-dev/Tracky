@@ -6,10 +6,52 @@
   padding-bottom: 5%;
 }
 
-.left, .right {
+.left,
+.right {
   width: 50%;
 }
 
 .left {
   padding: 0 100px 0 150px;
+}
+
+.right form {
+  padding: 30px;
+  width: 60%;
+}
+
+.right input {
+  height: 3.5rem;
+}
+
+hr {
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 70%;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  .right form {
+  }
+  .left {
+    padding: 10px;
+  }
 }
