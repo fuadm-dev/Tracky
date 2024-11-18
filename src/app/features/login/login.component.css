@@ -6,17 +6,25 @@
   padding-bottom: 5%;
 }
 
-.left,
+.btn .left,
 .right {
   width: 50%;
 }
 
 .left {
-  padding: 0 100px 0 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.inner-left {
+  width: 65%;
+}
+
+.inner-right {
 }
 
 .right form {
-  padding: 30px;
+  padding: 30px 25px;
   width: 60%;
 }
 
@@ -35,23 +43,30 @@ a {
 @media (max-width: 800px) {
   .login-container {
     flex-direction: column;
+    height: 100vh;
   }
 
-  .left,
   .right {
-    width: 70%;
+    width: 100%;
   }
 
   .right {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
   }
 
   .right form {
+    width: 70%;
   }
+
+  .inner-left {
+    width: 70%;
+  }
+
   .left {
+    width: 100%;
     padding: 10px;
+    margin-bottom: 20px;
   }
 }
