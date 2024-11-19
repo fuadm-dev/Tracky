@@ -37,7 +37,7 @@ import { NotFoundComponent } from './features/not-found/not-found.component';
     ProgressComponent,
     ElapsedTimeComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
