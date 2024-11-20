@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { User } from '../../shared/models/user';
 import { DashboardComponent } from '../../features/dashboard/dashboard.component';
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   checked: boolean = true;
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
+  @ViewChild('editModal', { static: false }) editModal: ElementRef;
 
   constructor(private userService: UserService) {}
 
@@ -32,16 +33,24 @@ export class HomeComponent implements OnInit {
 
   openModal(log: Weight) {
     this.selectedWeightLog = log;
-    const modelContainer = document.getElementById('myModal');
-    if (modelContainer != null) {
-      modelContainer.style.display = 'block';
+    // const modelContainer = document.getElementById('myModal');
+    if (this.editModal) {
+      this.editModal.nativeElement.style.display = 'block';
+      document.body.classList.add('modal-open');
+      document.querySelector('.modal-backdrop')?.classList.add('show');
+      (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
+        'block';
     }
   }
 
   closeModal() {
-    const modelContainer = document.getElementById('myModal');
-    if (modelContainer != null) {
-      modelContainer.style.display = 'none';
+    // const modelContainer = document.getElementById('myModal');
+    if (this.editModal) {
+      this.editModal.nativeElement.style.display = 'none';
+      document.body.classList.remove('modal-open');
+      document.querySelector('.modal-backdrop')?.classList.remove('show');
+      (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
+        'none';
     }
   }
 }
