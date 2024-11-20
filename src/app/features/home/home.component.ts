@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild(DashboardComponent) dashboardComponent: DashboardComponent;
   @ViewChild('editModal', { static: false }) editModal: ElementRef;
+  @ViewChild('main', { static: false }) main: ElementRef;
 
   constructor(private userService: UserService) {}
 
@@ -40,6 +41,10 @@ export class HomeComponent implements OnInit {
       document.querySelector('.modal-backdrop')?.classList.add('show');
       (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
         'block';
+      let el = document.createElement('div');
+      el.className = 'modal-backdrop fade show';
+      el.style.display = 'block';
+      this.editModal.nativeElement.appendChild(el);
     }
   }
 

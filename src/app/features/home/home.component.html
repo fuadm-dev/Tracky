@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container" #main>
   <main class="center-y mt-4">
     <!-- Input -->
     <section class="section">
@@ -67,11 +67,7 @@
     </section>
     <!-- Table -->
     <section class="section">
-      <data-table
-        data-bs-target="#myModal"
-        data-bs-toggle="modal"
-        (tableClickEvent)="openModal($event)"
-      ></data-table>
+      <data-table (tableClickEvent)="openModal($event)"></data-table>
     </section>
   </main>
 </div>
@@ -99,11 +95,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-danger"
-          (click)="closeModal()"
-        >
+        <button type="button" class="btn btn-danger" (click)="closeModal()">
           Close
         </button>
       </div>
