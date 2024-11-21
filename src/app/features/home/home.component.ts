@@ -34,18 +34,15 @@ export class HomeComponent implements OnInit {
 
   openModal(log: Weight) {
     this.selectedWeightLog = log;
-    // const modelContainer = document.getElementById('myModal');
-    if (this.editModal) {
-      this.editModal.nativeElement.style.display = 'block';
-      document.body.classList.add('modal-open');
-      document.querySelector('.modal-backdrop')?.classList.add('show');
-      (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
-        'block';
-      let el = document.createElement('div');
-      el.className = 'modal-backdrop fade show';
-      el.style.display = 'block';
-      this.editModal.nativeElement.appendChild(el);
-    }
+    if (this.editModal)
+      (this.editModal.nativeElement as HTMLElement).style.display = 'block';
+    (this.editModal.nativeElement as HTMLElement).classList.add('show');
+    document.body.classList.add('modal-open');
+
+    let el = document.createElement('div');
+    el.classList.add('modal-backdrop,fade,show');
+    el.style.display = 'block';
+    document.querySelector('.main-container').appendChild(el);
   }
 
   closeModal() {
