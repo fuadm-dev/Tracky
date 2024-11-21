@@ -10,6 +10,7 @@ import { StatsClass } from 'src/app/shared/models/stats-class';
 import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
 import { ProgressComponent } from './progress/progress.component';
+import { SetOnTargetService } from 'src/app/service/set-on-target.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +32,8 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private statsService: StatisticsService,
     private dashBuilder: DashItemBuilderService,
-    private chartService: ChartService
+    private chartService: ChartService,
+    private targetService: SetOnTargetService
   ) {}
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class DashboardComponent implements OnInit {
   // Refresh Dashboard
   reBuildDashboard() {
     this.user = this.userService.getUser();
+    this.targetService.setOnTargetValue(this.user);
     this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
@@ -59,5 +62,4 @@ export class DashboardComponent implements OnInit {
     console.log(this.user);
     console.log(this.dashItems);
   }
-
 }

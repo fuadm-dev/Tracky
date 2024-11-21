@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { InputService } from 'src/app/service/input.service';
+import { SetOnTargetService } from 'src/app/service/set-on-target.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/shared/models/user';
 import { Weight } from 'src/app/shared/models/weight';
@@ -56,4 +57,6 @@ export class DataInputComponent implements OnInit {
       this.onWeightInput.emit(this.user);
     }
   }
+
+  
 }
