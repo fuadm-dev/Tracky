@@ -40,19 +40,18 @@ export class HomeComponent implements OnInit {
     document.body.classList.add('modal-open');
 
     let el = document.createElement('div');
-    el.classList.add('modal-backdrop,fade,show');
+    el.classList.add('modal-backdrop', 'fade', 'show');
     el.style.display = 'block';
-    document.querySelector('.main-container').appendChild(el);
+    
+    document.body.appendChild(el);
   }
 
   closeModal() {
-    // const modelContainer = document.getElementById('myModal');
-    if (this.editModal) {
       this.editModal.nativeElement.style.display = 'none';
       document.body.classList.remove('modal-open');
-      document.querySelector('.modal-backdrop')?.classList.remove('show');
+      document.querySelector('.modal-backdrop').classList.remove('show');
       (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
-        'none';
-    }
+      'none';
+      document.querySelector('.modal-backdrop').remove();
   }
 }
