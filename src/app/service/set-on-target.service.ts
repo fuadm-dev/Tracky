@@ -18,8 +18,8 @@ export class SetOnTargetService {
       user.userStats.target.date,
       user.userStats.current.date
     );
-    
-    user.userStats.elapsedTime = this.dateService.calcElapsedTime(
+
+    user.userStats.remainingTime = this.dateService.calcRemainingTime(
       user.userStats.target.date,
       user.userStats.current.date
     );

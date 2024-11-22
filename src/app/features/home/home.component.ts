@@ -26,9 +26,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    if (this.dashboardComponent) {
-      this.refreshData();
-    }
   }
 
   refreshData(): void {

@@ -9,7 +9,6 @@ import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SetOnTargetService } from 'src/app/service/set-on-target.service';
-import { DateService } from 'src/app/service/date.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +30,6 @@ export class DashboardComponent implements OnInit {
     private dashBuilder: DashItemBuilderService,
     private chartService: ChartService,
     private targetService: SetOnTargetService,
-    private dateService: DateService
   ) {}
 
   ngOnInit() {
