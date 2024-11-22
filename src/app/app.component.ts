@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   refreshData(): void {
-    this.dashboardComponent?.reBuildDashboard();
+    this.dashboardComponent?.reBuildDashboard(this.user);
   }
 
   openModal(log: Weight) {

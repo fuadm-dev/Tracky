@@ -9,6 +9,7 @@ import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SetOnTargetService } from 'src/app/service/set-on-target.service';
+import { DateService } from 'src/app/service/date.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,19 +30,19 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
     private dashBuilder: DashItemBuilderService,
     private chartService: ChartService,
-    private targetService: SetOnTargetService
+    private targetService: SetOnTargetService,
+    private dateService: DateService
   ) {}
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    this.reBuildDashboard();
+    this.reBuildDashboard(this.user);
   }
 
   // Refresh Dashboard
-  reBuildDashboard() {
-    this.user = this.userService.getUser();
-    this.targetService.setOnTargetValue(this.user);
-    this.dashItems = this.dashBuilder.buildDashItems(this.user);
+  reBuildDashboard(user:User) {
+    this.targetService.setOnTargetValue(user);
+    this.dashItems = this.dashBuilder.buildDashItems(user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
     let trendChartData = this.chartService.buildTrendData(this.user);
     let progressChartData = this.chartService.buildProgressData(
