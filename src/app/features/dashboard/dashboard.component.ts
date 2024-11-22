@@ -60,13 +60,15 @@ export class DashboardComponent implements OnInit {
       this.progressItemComponent.refreshChart(progressChartData);
     }
 
+    let stats = this.user.userStats
+
     console.log(this.user);
     // console.log(this.dashItems);
-    //     console.log('expectedLossRate - ' + this.user.userStats.lossRate.expected);
-        console.log('weeksLeft - ' + this.user.userStats.remainingTime.weeks);
-        console.log('daysLeft - ' + this.user.userStats.remainingTime.days);
-        console.log('predictedWeight - ' + this.user.userStats.predicted.weight);
-        console.log('currentWeight - ' + this.user.userStats.current.weight);
-
+    //     console.log('expectedLossRate - ' + stats.lossRate.expected);
+    console.log('wLeft - ' + stats.remainingTime.weeks);
+    console.log('dLeft - ' + stats.remainingTime.days);
+    console.log('cWeight - ' + stats.current.weight);
+    console.log('pWeight - ' + stats.predicted.weight);
+    console.log(stats.target);
   }
 }
