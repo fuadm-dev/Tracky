@@ -29,10 +29,12 @@ export class DashboardComponent implements OnInit {
     private dashBuilderService: DashItemBuilderService,
     private chartService: ChartService,
     private targetService: SetOnTargetService,
-  ) {}
+  ) {
+    this.user = this.userService.getUser();
+
+  }
 
   ngOnInit() {
-    this.user = this.userService.getUser();
     this.reBuildDashboard(this.user);
   }
 
