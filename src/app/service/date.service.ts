@@ -34,7 +34,7 @@ export class DateService {
     );
     
     timeElapsed.days = Math.round(diffMs / mSecondsInDay);
-    timeElapsed.weeks = timeElapsed.days / 7) * 10) / 10)
+    timeElapsed.weeks = ((timeElapsed.days / 7) * 10) / 10;
     timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
     timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
 
