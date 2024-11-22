@@ -33,7 +33,6 @@ export class ChartService {
       chart.months.push(this.dateService.getMonthName(e.date.getMonth()));
     }
 
-    console.log(chart);
     return chart;
   }
 

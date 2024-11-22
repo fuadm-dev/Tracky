@@ -30,9 +30,9 @@ export class DateService {
     const timeElapsed: _Time = new _Time();
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;
     const diffMs: number = Math.abs(
-      earlierDate.getTime() - laterDate.getTime()
+      laterDate.getTime() - earlierDate.getTime()
     );
-
+    
     timeElapsed.days = Math.round(diffMs / mSecondsInDay);
     timeElapsed.weeks = Math.round(((timeElapsed.days / 7) * 100) / 100);
     timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
@@ -45,7 +45,7 @@ export class DateService {
 
     const mSecondsInDay: number = 24 * 60 * 60 * 1000;
     const remainingTime: number = Math.abs(
-      laterDate.getTime() - laterDate.getTime()
+      laterDate.getTime() - earlierDate.getTime()
     );
 
     timeElapsed.days = Math.round(remainingTime / mSecondsInDay);

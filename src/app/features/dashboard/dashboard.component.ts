@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.user = this.userService.getUser();
     this.reBuildDashboard();
   }
 
@@ -44,7 +45,7 @@ export class DashboardComponent implements OnInit {
   reBuildDashboard() {
     this.user = this.userService.getUser();
     this.targetService.setOnTargetValue(this.user);
-    this.statsService.buildStats(this.user);
+    this.user.userStats = this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
@@ -59,12 +60,13 @@ export class DashboardComponent implements OnInit {
       this.progressItemComponent.refreshChart(progressChartData);
     }
 
-    // console.log(this.user);
+    console.log(this.user);
     // console.log(this.dashItems);
-        console.log('expectedLossRate - ' + this.user.userStats.lossRate.expected);
-        console.log('weeksLeft - ' + this.user.userStats.elapsedTime.weeks);
-        console.log('daysLeft - ' + this.user.userStats.elapsedTime.days);
+    //     console.log('expectedLossRate - ' + this.user.userStats.lossRate.expected);
+        console.log('weeksLeft - ' + this.user.userStats.remainingTime.weeks);
+        console.log('daysLeft - ' + this.user.userStats.remainingTime.days);
         console.log('predictedWeight - ' + this.user.userStats.predicted.weight);
         console.log('currentWeight - ' + this.user.userStats.current.weight);
+
   }
 }

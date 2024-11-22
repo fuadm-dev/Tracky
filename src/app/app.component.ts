@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.getUser();
     this.currentRoute = this.router.url
-    console.log(this.router.url);
-    
+   
   }
 
   refreshData(): void {

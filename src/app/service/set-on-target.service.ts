@@ -8,10 +8,10 @@ export class SetOnTargetService {
   constructor() {}
 
   setOnTargetValue(user: User) {
-    let expectedLoss =
+    let expectedWeightLoss =
       user.userStats.lossRate.expected * user.userStats.elapsedTime.weeks;
 
-    let expectedWeight = user.start.weight - expectedLoss;
+    let expectedWeight = user.start.weight - expectedWeightLoss;
     
     user.userStats.target.offTargetBy =
     Math.round((user.userStats.current.weight - expectedWeight) * 10) / 10;

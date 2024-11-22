@@ -96,8 +96,8 @@ export class StatisticsService {
 
     // Calculate Remaining Time
     user.userStats.remainingTime = this.dateService.calcElapsedTime(
-      user.userStats.target.date,
-      user.userStats.current.date
+      this.dateToday,
+      user.userStats.target.date
     );
   }
 
@@ -125,11 +125,11 @@ export class StatisticsService {
   calcPredictedWeight(user: User) {
     const predictedLossByTargetDate: number =
       user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
-      
+
     user.userStats.predicted.weight = Math.round(
-      (user.userStats.current.weight - predictedLossByTargetDate)
+      user.userStats.current.weight - predictedLossByTargetDate
     );
- 
+
     // set predicted BMI
     user.userStats.predicted.bmi = this.bmiService.getBmi(
       user.userStats.predicted.weight,
@@ -138,7 +138,6 @@ export class StatisticsService {
 
     // set predicted Date
     user.userStats.predicted.date = user.userStats.target.date;
-    
   }
 
   // Calculate Changes
@@ -158,7 +157,6 @@ export class StatisticsService {
       Math.ceil(
         (user.userStats.current.bmi.bmi - user.userStats.start.bmi.bmi) * 10
       ) / 10;
-      
   }
 
   // Calculate Progress Made
