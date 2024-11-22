@@ -11,6 +11,7 @@ import { SetOnTargetService } from './set-on-target.service';
   providedIn: 'root',
 })
 export class StatisticsService {
+  user:User;
   stats: StatsClass = new StatsClass();
   dateToday: Date = new Date();
 
@@ -18,7 +19,8 @@ export class StatisticsService {
     private bmiService: BmiService,
     private dateService: DateService,
     private setOnTarget: SetOnTargetService,
-  ) {}
+  ) {
+  }
 
   buildStats(user: User): StatsClass {
     this.setUserHeight(user);

@@ -3,6 +3,7 @@ import { UserService } from '../../service/user.service';
 import { User } from '../../shared/models/user';
 import { DashboardComponent } from '../../features/dashboard/dashboard.component';
 import { Weight } from '../../shared/models/weight';
+import { StatisticsService } from 'src/app/service/statistics.service';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +23,11 @@ export class HomeComponent implements OnInit {
   @ViewChild('editModal', { static: false }) editModal: ElementRef;
   @ViewChild('main', { static: false }) main: ElementRef;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private statsService:StatisticsService) {}
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    this.user.userStats = this.statsService.buildStats(this.user);
   }
 
   refreshData(): void {
@@ -42,16 +44,16 @@ export class HomeComponent implements OnInit {
     let el = document.createElement('div');
     el.classList.add('modal-backdrop', 'fade', 'show');
     el.style.display = 'block';
-    
+
     document.body.appendChild(el);
   }
 
   closeModal() {
-      this.editModal.nativeElement.style.display = 'none';
-      document.body.classList.remove('modal-open');
-      document.querySelector('.modal-backdrop').classList.remove('show');
-      (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
+    this.editModal.nativeElement.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    document.querySelector('.modal-backdrop').classList.remove('show');
+    (document.querySelector('.modal-backdrop') as HTMLElement).style.display =
       'none';
-      document.querySelector('.modal-backdrop').remove();
+    document.querySelector('.modal-backdrop').remove();
   }
 }
