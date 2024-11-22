@@ -6,6 +6,8 @@ import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
 import { Weight } from '../shared/models/weight';
 import { SetOnTargetService } from './set-on-target.service';
+import { UserService } from './user.service';
+import { RefreshDataService } from './refresh-data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +19,7 @@ export class StatisticsService {
   constructor(
     private bmiService: BmiService,
     private dateService: DateService,
-    private setOnTarget: SetOnTargetService
+    private setOnTarget: SetOnTargetService,
   ) {}
 
   buildStats(user: User): StatsClass {

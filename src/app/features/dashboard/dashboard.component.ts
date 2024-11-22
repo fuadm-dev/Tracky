@@ -60,11 +60,12 @@ export class DashboardComponent implements OnInit {
       this.progressItemComponent.refreshChart(progressChartData);
     }
 
+    // TESTING logs-------------------------------
     let stats = this.user.userStats
 
     console.log(this.user);
     // console.log(this.dashItems);
-    //     console.log('expectedLossRate - ' + stats.lossRate.expected);
+    // console.log('expectedLossRate - ' + stats.lossRate.expected);
     console.log('wLeft - ' + stats.remainingTime.weeks);
     console.log('dLeft - ' + stats.remainingTime.days);
     console.log('cWeight - ' + stats.current.weight);

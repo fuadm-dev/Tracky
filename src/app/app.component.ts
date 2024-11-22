@@ -28,12 +28,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.currentRoute = this.router.url
-   
+    this.currentRoute = this.router.url;
+    this.refreshData();
   }
 
   refreshData(): void {
-    this.dashboardComponent.reBuildDashboard();
+    this.dashboardComponent?.reBuildDashboard();
   }
 
   openModal(log: Weight) {
