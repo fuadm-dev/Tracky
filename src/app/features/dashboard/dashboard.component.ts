@@ -19,15 +19,14 @@ export class DashboardComponent implements OnInit {
   user: User;
   dashItems: IDashItem[] = [];
   progressItems: IDashItem[] = [];
-  chartDataset: IChart;
-  excludedDashItems: string[] = [];
+
 
   @ViewChild(TrendItemComponent) trendItemComponent: TrendItemComponent;
   @ViewChild(ProgressComponent) progressItemComponent: ProgressComponent;
 
   constructor(
     private userService: UserService,
-    private dashBuilder: DashItemBuilderService,
+    private dashBuilderService: DashItemBuilderService,
     private chartService: ChartService,
     private targetService: SetOnTargetService,
   ) {}
@@ -40,8 +39,8 @@ export class DashboardComponent implements OnInit {
   // Refresh Dashboard
   reBuildDashboard(user:User) {
     this.targetService.setOnTargetValue(user);
-    this.dashItems = this.dashBuilder.buildDashItems(user);
-    this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
+    this.dashItems = this.dashBuilderService.buildDashItems(user);
+    this.progressItems = this.dashBuilderService.buildProgressDashItems(this.user);
     let trendChartData = this.chartService.buildTrendData(this.user);
     let progressChartData = this.chartService.buildProgressData(
       this.user.userStats.pctProgress
