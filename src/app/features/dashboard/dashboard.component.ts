@@ -2,7 +2,6 @@ import { OnInit, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { ChartService } from 'src/app/service/chart.service';
 import { DashItemBuilderService } from 'src/app/service/dash-item-builder.service';
-import { StatisticsService } from 'src/app/service/statistics.service';
 import { UserService } from 'src/app/service/user.service';
 import { IChart } from 'src/app/shared/models/ichart';
 import { IDashItem } from 'src/app/shared/models/idash-item';
@@ -30,7 +29,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private statsService: StatisticsService,
+    // private statsService: StatisticsService,
     private dashBuilder: DashItemBuilderService,
     private chartService: ChartService,
     private targetService: SetOnTargetService
@@ -38,7 +37,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    this.user.userStats = this.statsService.buildStats(this.user);
     this.reBuildDashboard();
   }
 
@@ -46,7 +44,6 @@ export class DashboardComponent implements OnInit {
   reBuildDashboard() {
     this.user = this.userService.getUser();
     this.targetService.setOnTargetValue(this.user);
-    this.user.userStats = this.statsService.buildStats(this.user);
     this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);

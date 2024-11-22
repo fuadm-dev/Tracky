@@ -3,7 +3,6 @@ import { Weight } from '../shared/models/weight';
 import { UserService } from './user.service';
 import { User } from '../shared/models/user';
 import { BmiService } from './bmi.service';
-import { StatisticsService } from './statistics.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,6 @@ export class InputService implements OnInit {
   constructor(
     private userService: UserService,
     private bmiService: BmiService,
-    private statsService: StatisticsService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +25,7 @@ export class InputService implements OnInit {
     if (weightInput) {
       this.resetBmi(weightInput)
       this.updateUserRecord(user, weightInput);
-      this.resetStatistics(user);
+      this.refreshUserData();
     }
   }
 
@@ -39,7 +37,7 @@ export class InputService implements OnInit {
     input.bmi = this.bmiService.getBmi(input.weight, this.height);
   }
 
-  resetStatistics(user: User) {
-    this.statsService.buildStats(user);
+  refreshUserData() {
+    this.user = this.userService.getUser();
   }
 }

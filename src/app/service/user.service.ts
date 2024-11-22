@@ -223,7 +223,6 @@ export class UserService {
   dateToday: Date = new Date();
 
   public getUser(): User {
-    // this.user.userStats = this.statsService.buildStats(this.user);
     this.buildStats(this.user);
     return this.user;
   }
@@ -288,7 +287,7 @@ export class UserService {
     }
   }
 
-  // Calculate Total Time
+  // Calculate Total Times
   private calcTimes(user: User) {
     // Calculate Total Time
     user.userStats.totalTime = this.dateService.calcElapsedTime(
