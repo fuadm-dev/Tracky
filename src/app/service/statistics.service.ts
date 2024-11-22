@@ -6,8 +6,6 @@ import { _Time } from '../shared/models/_time';
 import { DateService } from './date.service';
 import { Weight } from '../shared/models/weight';
 import { SetOnTargetService } from './set-on-target.service';
-import { UserService } from './user.service';
-import { RefreshDataService } from './refresh-data.service';
 
 @Injectable({
   providedIn: 'root',

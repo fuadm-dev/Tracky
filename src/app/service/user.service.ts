@@ -214,7 +214,7 @@ export class UserService {
   };
 
   getUser(): User {
-    this.user.userStats = this.statsService.buildStats(this.user);
+    // this.user.userStats = this.statsService.buildStats(this.user);
     return this.user;
   }
 }
