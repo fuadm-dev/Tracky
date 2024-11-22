@@ -123,10 +123,11 @@ export class StatisticsService {
 
   // Calculate Predicted Weight
   calcPredictedWeight(user: User) {
-    const rate: number =
+    const predictedLossByTargetDate: number =
       user.userStats.lossRate.actual * user.userStats.remainingTime.weeks;
+      
     user.userStats.predicted.weight = Math.round(
-      user.userStats.current.weight - rate
+      (user.userStats.current.weight - predictedLossByTargetDate)
     );
  
     // set predicted BMI

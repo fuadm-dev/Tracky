@@ -40,4 +40,19 @@ export class DateService {
 
     return timeElapsed;
   }
+  calcRemainingTime(laterDate: Date, earlierDate: Date) {
+    const timeElapsed: _Time = new _Time();
+
+    const mSecondsInDay: number = 24 * 60 * 60 * 1000;
+    const remainingTime: number = Math.abs(
+      laterDate.getTime() - laterDate.getTime()
+    );
+
+    timeElapsed.days = Math.round(remainingTime / mSecondsInDay);
+    timeElapsed.weeks = Math.round(((timeElapsed.days / 7) * 100) / 100);
+    timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
+    timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
+
+    return timeElapsed;
+  }
 }
