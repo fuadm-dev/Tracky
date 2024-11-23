@@ -32,11 +32,11 @@ export class DateService {
     const diffMs: number = Math.abs(
       laterDate.getTime() - earlierDate.getTime()
     );
-    
-    timeElapsed.days = Math.round(diffMs / mSecondsInDay);
-    timeElapsed.weeks = ((timeElapsed.days / 7) * 10) / 10;
-    timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
-    timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
+
+    timeElapsed.days = diffMs / mSecondsInDay;
+    timeElapsed.weeks = timeElapsed.days / 7;
+    timeElapsed.months = timeElapsed.weeks / 4
+    timeElapsed.years = timeElapsed.months / 12;
 
     return timeElapsed;
   }
@@ -48,10 +48,10 @@ export class DateService {
       laterDate.getTime() - earlierDate.getTime()
     );
 
-    timeElapsed.days = Math.round(remainingTime / mSecondsInDay);
-    timeElapsed.weeks = Math.round(((timeElapsed.days / 7) * 10) / 10);
-    timeElapsed.months = Math.floor(timeElapsed.weeks / 4);
-    timeElapsed.years = ((timeElapsed.months / 12) * 100) / 100;
+    timeElapsed.days = remainingTime / mSecondsInDay;
+    timeElapsed.weeks = timeElapsed.days / 7;
+    timeElapsed.months = timeElapsed.weeks / 4;
+    timeElapsed.years = timeElapsed.months / 12;
 
     return timeElapsed;
   }
