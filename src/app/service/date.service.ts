@@ -33,24 +33,10 @@ export class DateService {
       laterDate.getTime() - earlierDate.getTime()
     );
 
-    timeElapsed.days = diffMs / mSecondsInDay;
-    timeElapsed.weeks = timeElapsed.days / 7;
-    timeElapsed.months = timeElapsed.weeks / 4
-    timeElapsed.years = timeElapsed.months / 12;
-
-    return timeElapsed;
-  }
-  calcRemainingTime(laterDate: Date, earlierDate: Date) {
-    const timeElapsed: _Time = new _Time();
-
-    const mSecondsInDay: number = 24 * 60 * 60 * 1000;
-    const remainingTime: number = Math.abs(
-      laterDate.getTime() - earlierDate.getTime()
-    );
-
-    timeElapsed.days = remainingTime / mSecondsInDay;
-    timeElapsed.weeks = timeElapsed.days / 7;
-    timeElapsed.months = timeElapsed.weeks / 4;
+    timeElapsed.days = Math.round((diffMs / mSecondsInDay) * 100) / 100;
+    timeElapsed.weeks = Math.round((timeElapsed.days / 7) * 100) / 100;
+    timeElapsed.months = Math.round((timeElapsed.weeks / 4) * 100) / 100;
+    
     timeElapsed.years = timeElapsed.months / 12;
 
     return timeElapsed;
