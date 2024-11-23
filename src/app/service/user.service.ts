@@ -287,7 +287,7 @@ export class UserService {
     }
   }
 
-  // Calculate Times
+  // Calculate Total Times
   private calcTimes(user: User) {
     // Calculate Total Time
     user.userStats.totalTime = this.dateService.calcElapsedTime(

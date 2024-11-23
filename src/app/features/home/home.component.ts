@@ -26,10 +26,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    
   }
 
   refreshData(): void {
-    this.dashboardComponent.reBuildDashboard(this.user);
+    this.dashboardComponent.reBuildDashboard();
   }
 
   openModal(log: Weight) {
