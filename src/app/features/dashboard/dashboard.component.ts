@@ -38,14 +38,13 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    this.reBuildDashboard();
+    this.reBuildDashboard(this.user);
   }
-
+  
   // Refresh Dashboard
-  reBuildDashboard() {
-    this.user = this.userService.getUser();
-    this.targetService.setOnTargetValue(this.user);
-    this.userStats = this.user.userStats;
+  reBuildDashboard(user: User) {
+    user = this.userService.getUser();
+    
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
     let trendChartData = this.chartService.buildTrendData(this.user);
@@ -69,7 +68,7 @@ export class DashboardComponent implements OnInit {
     console.log('dLeft - ' + stats.remainingTime.days);
     console.log('wLeft - ' + stats.remainingTime.weeks);
     console.log('mLeft - ' + stats.remainingTime.months);
-    // console.log('cWeight - ' + stats.current.weight);
-    // console.log('pWeight - ' + stats.predicted.weight);
+    console.log('cWeight - ' + stats.current.weight);
+    console.log('pWeight - ' + stats.predicted.weight);
   }
 }
