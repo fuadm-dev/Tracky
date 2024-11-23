@@ -65,9 +65,9 @@ export class DashboardComponent implements OnInit {
     console.log(this.user);
     // console.log(this.dashItems);
     // console.log('expectedLossRate - ' + stats.lossRate.expected);
-    console.log('wLeft - ' + stats.remainingTime.months);
-    console.log('mLeft - ' + stats.remainingTime.weeks);
     console.log('dLeft - ' + stats.remainingTime.days);
+    console.log('wLeft - ' + stats.remainingTime.weeks);
+    console.log('mLeft - ' + stats.remainingTime.months);
     console.log('cWeight - ' + stats.current.weight);
     console.log('pWeight - ' + stats.predicted.weight);
     console.log(stats.target);
