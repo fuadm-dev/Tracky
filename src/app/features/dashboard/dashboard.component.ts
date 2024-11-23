@@ -10,7 +10,6 @@ import { User } from 'src/app/shared/models/user';
 import { TrendItemComponent } from './trend-item/trend-item.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SetOnTargetService } from 'src/app/service/set-on-target.service';
-import { DateService } from 'src/app/service/date.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,21 +29,22 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    // private statsService: StatisticsService,
     private dashBuilder: DashItemBuilderService,
     private chartService: ChartService,
-    private targetService: SetOnTargetService,
-    private dateService: DateService
+    private targetService: SetOnTargetService
   ) {}
 
   ngOnInit() {
     this.user = this.userService.getUser();
-    this.reBuildDashboard(this.user);
+    this.reBuildDashboard();
   }
-  
+
   // Refresh Dashboard
-  reBuildDashboard(user: User) {
-    user = this.userService.getUser();
-    
+  reBuildDashboard() {
+    this.user = this.userService.getUser();
+    this.targetService.setOnTargetValue(this.user);
+    this.userStats = this.user.userStats;
     this.dashItems = this.dashBuilder.buildDashItems(this.user);
     this.progressItems = this.dashBuilder.buildProgressDashItems(this.user);
     let trendChartData = this.chartService.buildTrendData(this.user);
@@ -61,14 +61,13 @@ export class DashboardComponent implements OnInit {
     // TESTING logs-------------------------------
     let stats = this.user.userStats;
 
-    // console.log(this.user);
+    console.log(this.user);
     // console.log(this.dashItems);
     // console.log('expectedLossRate - ' + stats.lossRate.expected);
-    console.log(stats.target);
-    console.log('dLeft - ' + stats.remainingTime.days);
     console.log('wLeft - ' + stats.remainingTime.weeks);
-    console.log('mLeft - ' + stats.remainingTime.months);
+    console.log('dLeft - ' + stats.remainingTime.days);
     console.log('cWeight - ' + stats.current.weight);
     console.log('pWeight - ' + stats.predicted.weight);
+    console.log(stats.target);
   }
 }
